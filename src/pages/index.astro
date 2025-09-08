@@ -52,14 +52,155 @@ import MainLayout from '../layouts/MainLayout.astro';
         border-radius: 5px;
         border: 1px solid #ddd;
         min-height: 50px;
+        line-height: 1.6;
+    }
+
+    #results-output h3 {
+        margin-top: 0;
+        color: var(--brand-green);
+    }
+
+    #results-output h4 {
+        margin-bottom: 0.5rem;
+        color: var(--text-color);
+        border-bottom: 1px solid #eee;
+        padding-bottom: 0.5rem;
+    }
+
+    #results-output ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    #results-output li {
+        margin-bottom: 0.75rem;
+        padding-left: 2rem;
+        position: relative;
+    }
+
+    #results-output li::before {
+        content: '⚠️';
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: 1.2rem;
+        color: var(--brand-red);
+    }
+
+    .bad-ingredient {
+        font-weight: bold;
+        color: var(--brand-red);
+        text-transform: capitalize;
+    }
+
+    .all-good {
+        color: var(--brand-green);
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+    .all-good::before {
+        content: '✅';
+        margin-right: 0.5rem;
     }
 </style>
 
 <script>
     const analyzeButton = document.getElementById('analyze-button');
+    const ingredientsInput = document.getElementById('ingredients-input');
     const resultsOutput = document.getElementById('results-output');
 
+    // A list of ingredients to flag.
+    // In a real app, this would come from a database or an API.
+    const badIngredients = [
+        { name: 'High Fructose Corn Syrup', reason: 'Linked to obesity and type 2 diabetes.' },
+        { name: 'Aspartame', reason: 'Artificial sweetener, some studies suggest potential health risks.' },
+        { name: 'Monosodium Glutamate (MSG)', reason: 'Can cause adverse reactions in some people.' },
+        { name: 'Artificial Flavors', reason: 'A catch-all term for chemical mixtures that mimic natural flavors.' },
+        { name: 'Artificial Colors', reason: 'Some have been linked to hyperactivity in children and other health concerns.' },
+        { name: 'Sodium Benzoate', reason: 'Preservative that can form benzene, a carcinogen, when combined with vitamin C.' },
+        { name: 'Trans Fat', reason: 'Increases bad cholesterol (LDL) and lowers good cholesterol (HDL).' }
+    ];
+
     analyzeButton.addEventListener('click', () => {
-        resultsOutput.innerHTML = '<p>Analyzing ingredients... (This is a placeholder - full AI analysis coming soon!)</p>';
+        // 1. Show loading state and clear previous results
+        resultsOutput.innerHTML = '<p>Analyzing ingredients...</p>';
+
+        // Simulate network delay
+        setTimeout(() => {
+            // 2. Get and process input
+            const inputText = ingredientsInput.value.trim();
+            resultsOutput.innerHTML = ''; // Clear loading message
+
+            const h3 = document.createElement('h3');
+            h3.textContent = 'Analysis Results';
+            resultsOutput.appendChild(h3);
+
+            if (!inputText) {
+                const p = document.createElement('p');
+                p.textContent = 'Please enter some ingredients to analyze.';
+                resultsOutput.appendChild(p);
+                return;
+            }
+
+            const userIngredients = inputText.split(',').map(item => item.trim());
+
+            // 3. Analyze ingredients
+            const foundBadIngredients = [];
+            const goodIngredients = [];
+
+            userIngredients.forEach(userIngredient => {
+                if(userIngredient === '') return;
+
+                const lowerCaseUserIngredient = userIngredient.toLowerCase();
+                // Use case-insensitive EXACT matching
+                const found = badIngredients.find(bad => lowerCaseUserIngredient === bad.name.toLowerCase());
+
+                if (found) {
+                    foundBadIngredients.push({ name: userIngredient, reason: found.reason });
+                } else {
+                    goodIngredients.push(userIngredient);
+                }
+            });
+
+            // 4. Display results using safe DOM manipulation
+            if (foundBadIngredients.length > 0) {
+                const h4 = document.createElement('h4');
+                h4.textContent = 'Potentially Harmful Ingredients Found:';
+                resultsOutput.appendChild(h4);
+
+                const ul = document.createElement('ul');
+                foundBadIngredients.forEach(ing => {
+                    const li = document.createElement('li');
+
+                    const span = document.createElement('span');
+                    span.className = 'bad-ingredient';
+                    span.textContent = ing.name;
+
+                    li.appendChild(span);
+                    li.appendChild(document.createTextNode(`: ${ing.reason}`));
+                    ul.appendChild(li);
+                });
+                resultsOutput.appendChild(ul);
+            }
+
+            if (goodIngredients.length > 0) {
+                const h4 = document.createElement('h4');
+                h4.textContent = 'Other Ingredients:';
+                resultsOutput.appendChild(h4);
+
+                const p = document.createElement('p');
+                p.textContent = goodIngredients.join(', ');
+                resultsOutput.appendChild(p);
+            }
+
+            if (foundBadIngredients.length === 0 && userIngredients.join('').length > 0) {
+                const p = document.createElement('p');
+                p.className = 'all-good';
+                p.textContent = 'All ingredients seem to be okay!';
+                resultsOutput.appendChild(p);
+            }
+
+        }, 1000);
     });
 </script>
