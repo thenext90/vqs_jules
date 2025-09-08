@@ -1,0 +1,81 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+const products = [
+    { name: 'Organic Apples', price: '$2.99/lb', image: 'https://placehold.co/300x200/a8e6cf/333333?text=Apples' },
+    { name: 'Artisanal Bread', price: '$4.50/loaf', image: 'https://placehold.co/300x200/dcedc1/333333?text=Bread' },
+    { name: 'Fresh Milk', price: '$3.00/gallon', image: 'https://placehold.co/300x200/ffd3b6/333333?text=Milk' },
+    { name: 'Cheddar Cheese', price: '$6.00/lb', image: 'https://placehold.co/300x200/ffaaa5/333333?text=Cheese' },
+    { name: 'Free-Range Eggs', price: '$5.00/dozen', image: 'https://placehold.co/300x200/a8e6cf/333333?text=Eggs' },
+    { name: 'Pasta', price: '$2.00/box', image: 'https://placehold.co/300x200/dcedc1/333333?text=Pasta' },
+    { name: 'Tomatoes', price: '$3.50/lb', image: 'https://placehold.co/300x200/ffd3b6/333333?text=Tomatoes' },
+    { name: 'Ground Coffee', price: '$10.00/bag', image: 'https://placehold.co/300x200/ffaaa5/333333?text=Coffee' },
+];
+---
+
+<MainLayout title="VQS - Products">
+    <div class="header-container">
+        <h1>Our Products</h1>
+        <p>Fresh and quality products for you.</p>
+    </div>
+    <div class="product-grid">
+        {products.map(product => (
+            <div class="product-card">
+                <img src={product.image} alt={product.name} />
+                <h3>{product.name}</h3>
+                <p class="price">{product.price}</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        ))}
+    </div>
+</MainLayout>
+
+<style>
+    .header-container {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 2rem;
+    }
+    .product-card {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        overflow: hidden;
+        text-align: center;
+        transition: transform 0.2s;
+    }
+    .product-card:hover {
+        transform: translateY(-5px);
+    }
+    .product-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    .product-card h3 {
+        margin: 1rem 0 0.5rem;
+        font-size: 1.25rem;
+    }
+    .product-card .price {
+        color: var(--brand-green);
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+    .add-to-cart {
+        background-color: var(--brand-orange);
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        width: 100%;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .add-to-cart:hover {
+        background-color: #e68a00;
+    }
+</style>
