@@ -2,29 +2,35 @@
 import MainLayout from '../layouts/MainLayout.astro';
 
 const products = [
-    { name: 'Organic Apples', price: '$2.99/lb', image: 'https://placehold.co/300x200/a8e6cf/333333?text=Apples' },
-    { name: 'Artisanal Bread', price: '$4.50/loaf', image: 'https://placehold.co/300x200/dcedc1/333333?text=Bread' },
-    { name: 'Fresh Milk', price: '$3.00/gallon', image: 'https://placehold.co/300x200/ffd3b6/333333?text=Milk' },
-    { name: 'Cheddar Cheese', price: '$6.00/lb', image: 'https://placehold.co/300x200/ffaaa5/333333?text=Cheese' },
-    { name: 'Free-Range Eggs', price: '$5.00/dozen', image: 'https://placehold.co/300x200/a8e6cf/333333?text=Eggs' },
-    { name: 'Pasta', price: '$2.00/box', image: 'https://placehold.co/300x200/dcedc1/333333?text=Pasta' },
-    { name: 'Tomatoes', price: '$3.50/lb', image: 'https://placehold.co/300x200/ffd3b6/333333?text=Tomatoes' },
-    { name: 'Ground Coffee', price: '$10.00/bag', image: 'https://placehold.co/300x200/ffaaa5/333333?text=Coffee' },
+    { name: 'Organic Apples', image: 'https://placehold.co/300x200/a8e6cf/333333?text=Apples', isCertified: true },
+    { name: 'Artisanal Bread', image: 'https://placehold.co/300x200/dcedc1/333333?text=Bread', isCertified: false },
+    { name: 'Fresh Milk', image: 'https://placehold.co/300x200/ffd3b6/333333?text=Milk', isCertified: true },
+    { name: 'Cheddar Cheese', image: 'https://placehold.co/300x200/ffaaa5/333333?text=Cheese', isCertified: false },
+    { name: 'Free-Range Eggs', image: 'https://placehold.co/300x200/a8e6cf/333333?text=Eggs', isCertified: true },
+    { name: 'Pasta', image: 'https://placehold.co/300x200/dcedc1/333333?text=Pasta', isCertified: false },
+    { name: 'Tomatoes', image: 'https://placehold.co/300x200/ffd3b6/333333?text=Tomatoes', isCertified: true },
+    { name: 'Ground Coffee', image: 'https://placehold.co/300x200/ffaaa5/333333?text=Coffee', isCertified: true },
 ];
 ---
 
-<MainLayout title="VQS - Products">
+<MainLayout title="VQS - Certified Products">
     <div class="header-container">
-        <h1>Our Products</h1>
-        <p>Fresh and quality products for you.</p>
+        <h1>Our Certified Products</h1>
+        <p>Quality and trust, certified by AI.</p>
     </div>
     <div class="product-grid">
         {products.map(product => (
             <div class="product-card">
                 <img src={product.image} alt={product.name} />
-                <h3>{product.name}</h3>
-                <p class="price">{product.price}</p>
-                <button class="add-to-cart">Add to Cart</button>
+                <div class="card-content">
+                    <h3>{product.name}</h3>
+                    {product.isCertified && (
+                        <div class="certification-seal">
+                            <span class="icon">✓</span>
+                            <span>Certified by IA</span>
+                        </div>
+                    )}
+                </div>
             </div>
         ))}
     </div>
@@ -47,6 +53,8 @@ const products = [
         overflow: hidden;
         text-align: center;
         transition: transform 0.2s;
+        display: flex;
+        flex-direction: column;
     }
     .product-card:hover {
         transform: translateY(-5px);
@@ -56,26 +64,30 @@ const products = [
         height: 200px;
         object-fit: cover;
     }
+    .card-content {
+        padding: 1rem;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
     .product-card h3 {
-        margin: 1rem 0 0.5rem;
+        margin: 0 0 1rem 0;
         font-size: 1.25rem;
     }
-    .product-card .price {
-        color: var(--brand-green);
-        font-weight: bold;
-        margin-bottom: 1rem;
-    }
-    .add-to-cart {
-        background-color: var(--brand-orange);
+    .certification-seal {
+        background-color: var(--brand-green);
         color: white;
-        border: none;
-        padding: 0.75rem 1.5rem;
-        width: 100%;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: background-color 0.3s;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        font-weight: bold;
+        margin: 0 auto;
     }
-    .add-to-cart:hover {
-        background-color: #e68a00;
+    .certification-seal .icon {
+        font-size: 1.2rem;
     }
 </style>
