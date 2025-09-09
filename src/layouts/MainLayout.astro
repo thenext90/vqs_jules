@@ -34,7 +34,7 @@ const { title } = Astro.props;
         }
         .header-content {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             width: 100%;
             max-width: 1200px;
@@ -42,21 +42,6 @@ const { title } = Astro.props;
         .logo {
             font-size: 2rem;
             font-weight: bold;
-        }
-        nav {
-            display: flex;
-            gap: 1.5rem;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1rem;
-            padding: 0.5rem 0;
-            border-bottom: 2px solid transparent;
-            transition: border-color 0.3s;
-        }
-        nav a:hover {
-            border-color: var(--brand-orange);
         }
         main {
             flex: 1;
@@ -80,10 +65,6 @@ const { title } = Astro.props;
             <div class="logo">
                 <a href="/" style="color: white; text-decoration: none;">VQS</a>
             </div>
-            <nav>
-                <a href="/">Ingredient Checker</a>
-                <a href="/products">Products</a>
-            </nav>
         </div>
     </header>
     <main>
