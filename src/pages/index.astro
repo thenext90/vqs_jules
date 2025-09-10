@@ -2,37 +2,37 @@
 import MainLayout from '../layouts/MainLayout.astro';
 
 const products = [
-    { name: 'Organic Apples', image: 'https://picsum.photos/seed/apples/300/200', isCertified: true },
-    { name: 'Artisanal Bread', image: 'https://picsum.photos/seed/bread/300/200', isCertified: true },
-    { name: 'Fresh Milk', image: 'https://picsum.photos/seed/milk/300/200', isCertified: true },
-    { name: 'Cheddar Cheese', image: 'https://picsum.photos/seed/cheese/300/200', isCertified: true },
-    { name: 'Free-Range Eggs', image: 'https://picsum.photos/seed/eggs/300/200', isCertified: true },
+    { name: 'Manzanas Orgánicas', image: 'https://picsum.photos/seed/apples/300/200', isCertified: true },
+    { name: 'Pan Artesanal', image: 'https://picsum.photos/seed/bread/300/200', isCertified: true },
+    { name: 'Leche Fresca', image: 'https://picsum.photos/seed/milk/300/200', isCertified: true },
+    { name: 'Queso Cheddar', image: 'https://picsum.photos/seed/cheese/300/200', isCertified: true },
+    { name: 'Huevos de Granja', image: 'https://picsum.photos/seed/eggs/300/200', isCertified: true },
     { name: 'Pasta', image: 'https://picsum.photos/seed/pasta/300/200', isCertified: true },
-    { name: 'Tomatoes', image: 'https://picsum.photos/seed/tomatoes/300/200', isCertified: true },
-    { name: 'Ground Coffee', image: 'https://picsum.photos/seed/coffee/300/200', isCertified: true },
-    { name: 'Organic Pears', image: 'https://picsum.photos/seed/pears/300/200', isCertified: true },
-    { name: 'Sourdough Bread', image: 'https://picsum.photos/seed/sourdough/300/200', isCertified: true },
-    { name: 'Almond Milk', image: 'https://picsum.photos/seed/almondmilk/300/200', isCertified: true },
-    { name: 'Gouda Cheese', image: 'https://picsum.photos/seed/gouda/300/200', isCertified: true },
-    { name: 'Quail Eggs', image: 'https://picsum.photos/seed/quaileggs/300/200', isCertified: true },
-    { name: 'Spaghetti', image: 'https://picsum.photos/seed/spaghetti/300/200', isCertified: true },
-    { name: 'Cherry Tomatoes', image: 'https://picsum.photos/seed/cherrytomatoes/300/200', isCertified: true },
-    { name: 'Espresso Beans', image: 'https://picsum.photos/seed/espresso/300/200', isCertified: true },
-    { name: 'Green Apples', image: 'https://picsum.photos/seed/greenapples/300/200', isCertified: true },
-    { name: 'Rye Bread', image: 'https://picsum.photos/seed/ryebread/300/200', isCertified: true },
-    { name: 'Soy Milk', image: 'https://picsum.photos/seed/soymilk/300/200', isCertified: true },
-    { name: 'Brie Cheese', image: 'https://picsum.photos/seed/brie/300/200', isCertified: true },
-    { name: 'Duck Eggs', image: 'https://picsum.photos/seed/duckeggs/300/200', isCertified: true },
-    { name: 'Penne Pasta', image: 'https://picsum.photos/seed/penne/300/200', isCertified: true },
-    { name: 'Sun-dried Tomatoes', image: 'https://picsum.photos/seed/sundried/300/200', isCertified: true },
-    { name: 'Dark Roast Coffee', image: 'https://picsum.photos/seed/darkroast/300/200', isCertified: true },
+    { name: 'Tomates', image: 'https://picsum.photos/seed/tomatoes/300/200', isCertified: true },
+    { name: 'Café Molido', image: 'https://picsum.photos/seed/coffee/300/200', isCertified: true },
+    { name: 'Peras Orgánicas', image: 'https://picsum.photos/seed/pears/300/200', isCertified: true },
+    { name: 'Pan de Masa Madre', image: 'https://picsum.photos/seed/sourdough/300/200', isCertified: true },
+    { name: 'Leche de Almendras', image: 'https://picsum.photos/seed/almondmilk/300/200', isCertified: true },
+    { name: 'Queso Gouda', image: 'https://picsum.photos/seed/gouda/300/200', isCertified: true },
+    { name: 'Huevos de Codorniz', image: 'https://picsum.photos/seed/quaileggs/300/200', isCertified: true },
+    { name: 'Espagueti', image: 'https://picsum.photos/seed/spaghetti/300/200', isCertified: true },
+    { name: 'Tomates Cherry', image: 'https://picsum.photos/seed/cherrytomatoes/300/200', isCertified: true },
+    { name: 'Café en Grano', image: 'https://picsum.photos/seed/espresso/300/200', isCertified: true },
+    { name: 'Manzanas Verdes', image: 'https://picsum.photos/seed/greenapples/300/200', isCertified: true },
+    { name: 'Pan de Centeno', image: 'https://picsum.photos/seed/ryebread/300/200', isCertified: true },
+    { name: 'Leche de Soya', image: 'https://picsum.photos/seed/soymilk/300/200', isCertified: true },
+    { name: 'Queso Brie', image: 'https://picsum.photos/seed/brie/300/200', isCertified: true },
+    { name: 'Huevos de Pato', image: 'https://picsum.photos/seed/duckeggs/300/200', isCertified: true },
+    { name: 'Pasta Penne', image: 'https://picsum.photos/seed/penne/300/200', isCertified: true },
+    { name: 'Tomates Secos', image: 'https://picsum.photos/seed/sundried/300/200', isCertified: true },
+    { name: 'Café Tostado Oscuro', image: 'https://picsum.photos/seed/darkroast/300/200', isCertified: true },
 ];
 ---
 
-<MainLayout title="VQS - Certified Products">
+<MainLayout title="VQS - Productos Certificados">
     <div class="header-container">
-        <h1>Our Certified Products</h1>
-        <p>Quality and trust, certified by AI.</p>
+        <h1>Nuestros Productos Certificados</h1>
+        <p>Calidad y confianza, certificadas por IA.</p>
     </div>
     <div class="product-grid">
         {products.map(product => (
@@ -43,7 +43,7 @@ const products = [
                     {product.isCertified && (
                         <div class="certification-seal">
                             <span class="icon">✓</span>
-                            <span>Certified by IA</span>
+                            <span>Certificado por IA</span>
                         </div>
                     )}
                 </div>
