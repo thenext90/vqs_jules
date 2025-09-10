@@ -1,0 +1,112 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="VQS - Sobre Nosotros">
+  <div class="about-container">
+    <header class="about-header">
+      <h1>Servicio de Verificación de la Calidad</h1>
+      <h2>Verification Quality Service (VQS)</h2>
+    </header>
+
+    <section class="content-section">
+      <p>Los procesos de calidad que se traducen en el cumplimiento de los protocolos que dan origen a las normas ISO, BRC, y normas sectoriales de HACCP, son sin duda un paso importante en la gestión de los sistemas de calidad.</p>
+      <p>Sin embargo, no es suficiente. Por ejemplo, los modelos de negocio que no ponen en el foco los requerimientos de los clientes en materia de plazos de entrega, calidad del producto y precio cerrado, tienen sus días contados.</p>
+      <p>Hoy las personas quieren un nuevo trato, no les interesa dinamizar con prácticas comerciales del siglo pasado. Los retail, no logran comprender porque no aumentan sus ventas a pesar de abrir compras on line. Los canales de TV abierta no logran establecer mejoras en sus programas, los diarios y revistas no logran mantener una atención por mas de un minuto, la compra de viviendas mantiene un porcentaje de venta ligado a ingresos de un elite que integra el sector mas inestable. Las personas quieren tener certeza que los productos y servicios que adquieren son en la realidad lo que compran, no les apetece que le digan cuando, a que hora les darán un programa, quieren tener acceso on line, no les interesa que el despacho sea gratis quieren que los productos y servicios contratado cumplan con la fecha y la hora comprometida. El tema se arrastra hace tiempo, pero hoy ya el mundo no se detendrá para que las organizaciones se suban, sencillamente no podrá subirse, es demasiado tarde, si no entrega certeza en lo que se hace.</p>
+      <p>Sin querer no se dan cuenta que la cadena de valor de los procesos se pierde y con ello la subsistencia. Entregar un servicio fuera de hora, o equivocarse en la calidad o no respetar el precio, sencillamente es no comprender que el mundo giró.</p>
+    </section>
+
+    <section class="market-need">
+      <h3>Nuestra Misión</h3>
+      <p>El mercado requiere una empresa que verifique el cumplimiento de las expectativas y la satisfacción de los clientes, los usuarios y usuarias de la empresa, de los servicios que se entregan.</p>
+      <p class="mission-statement">Tener la certeza que lo que se adquiere es lo que se recibe es un derecho. <strong>VQS le entregara la certeza de ese derecho.</strong></p>
+    </section>
+
+    <section class="services-section">
+      <h3>Nuestras Áreas de Servicio</h3>
+      <ul class="services-list">
+        <li><strong>Area Alimentación:</strong> Seguridad alimenticia en línea. Sensores de análisis.</li>
+        <li><strong>Area Información y Soporte:</strong> Seguridad y protección de datos.</li>
+        <li><strong>Area Encuestas y Estadísticas:</strong> Satisfacción de clientes y no conformidades.</li>
+        <li><strong>Area Mantención y Equipamientos:</strong> Seguridad y certeza que las actividades se realizan cumpliendo las regulaciones legales y normativas.</li>
+      </ul>
+    </section>
+  </div>
+</MainLayout>
+
+<style>
+  .about-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  .about-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    border-bottom: 2px solid var(--brand-green);
+    padding-bottom: 1.5rem;
+  }
+
+  .about-header h1 {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+  }
+
+  .about-header h2 {
+    font-size: 1.5rem;
+    color: #777;
+    font-weight: 400;
+  }
+
+  .content-section p, .market-need p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    text-align: justify;
+  }
+
+  .market-need, .services-section {
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border-left: 5px solid var(--brand-orange);
+  }
+
+  .market-need h3, .services-section h3 {
+    font-size: 1.8rem;
+    color: var(--brand-green);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .mission-statement {
+    font-size: 1.2rem !important;
+    font-style: italic;
+    text-align: center !important;
+    color: #555;
+  }
+
+  .services-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .services-list li {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .services-list li::before {
+    content: '✓';
+    color: var(--brand-green);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+  }
+</style>
