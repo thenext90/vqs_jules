@@ -1,685 +1,1222 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
+
+const teamMembers = [
+    {
+        name: 'Dr. María González',
+        position: 'CEO & Fundadora',
+        specialty: 'Biotecnología Alimentaria',
+        image: 'https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=300',
+        experience: '15+ años',
+        education: 'PhD MIT'
+    },
+    {
+        name: 'Ing. Carlos Ruiz',
+        position: 'CTO',
+        specialty: 'Inteligencia Artificial',
+        image: 'https://images.pexels.com/photos/3760790/pexels-photo-3760790.jpeg?auto=compress&cs=tinysrgb&w=300',
+        experience: '12+ años',
+        education: 'MS Stanford'
+    },
+    {
+        name: 'Dra. Ana Martínez',
+        position: 'Directora Científica',
+        specialty: 'Microbiología',
+        image: 'https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=300',
+        experience: '18+ años',
+        education: 'PhD Harvard'
+    },
+    {
+        name: 'Ing. Roberto Silva',
+        position: 'Director de Operaciones',
+        specialty: 'Sistemas de Calidad',
+        image: 'https://images.pexels.com/photos/3760778/pexels-photo-3760778.jpeg?auto=compress&cs=tinysrgb&w=300',
+        experience: '14+ años',
+        education: 'MS ETH Zurich'
+    }
+];
+
+const milestones = [
+    {
+        year: '2019',
+        title: 'Fundación de VQS',
+        description: 'Inicio del desarrollo de la primera plataforma de certificación alimentaria por IA',
+        icon: '🚀'
+    },
+    {
+        year: '2020',
+        title: 'Primera Certificación',
+        description: 'Lanzamiento del sistema beta con los primeros 100 productos certificados',
+        icon: '🏆'
+    },
+    {
+        year: '2021',
+        title: 'Expansión Internacional',
+        description: 'Apertura de operaciones en 5 países latinoamericanos',
+        icon: '🌎'
+    },
+    {
+        year: '2022',
+        title: 'Certificación ISO',
+        description: 'Obtención de certificaciones ISO 22000 y ISO 27001',
+        icon: '📜'
+    },
+    {
+        year: '2023',
+        title: 'Blockchain Integration',
+        description: 'Implementación de trazabilidad blockchain en toda la plataforma',
+        icon: '🔗'
+    },
+    {
+        year: '2024',
+        title: 'IA de Nueva Generación',
+        description: 'Lanzamiento de VQS 3.0 con precisión del 99.8%',
+        icon: '🧠'
+    }
+];
+
+const certifications = [
+    { name: 'ISO 22000', description: 'Gestión de Seguridad Alimentaria', icon: '🛡️' },
+    { name: 'ISO 27001', description: 'Seguridad de la Información', icon: '🔒' },
+    { name: 'HACCP', description: 'Análisis de Peligros y Puntos Críticos', icon: '⚡' },
+    { name: 'FDA Approved', description: 'Aprobado por FDA', icon: '✅' },
+    { name: 'EU Certified', description: 'Certificado Unión Europea', icon: '🇪🇺' },
+    { name: 'GFSI Benchmarked', description: 'Reconocido por GFSI', icon: '🌟' }
+];
 ---
 
-<MainLayout title="VQS - Sobre Nosotros | Certificación IA">
-  <div class="about-container">
+<MainLayout title="VQS - Sobre Nosotros | Líderes en Certificación IA">
     <!-- Hero Section -->
     <section class="about-hero">
-      <div class="hero-content">
-        <h1>Revolucionando la Certificación Alimentaria</h1>
-        <p class="hero-subtitle">Verification Quality Service (VQS)</p>
-        <div class="hero-description">
-          <p>Somos pioneros en la certificación de productos alimentarios mediante inteligencia artificial, 
-          garantizando los más altos estándares de calidad y seguridad para consumidores y empresas.</p>
+        <div class="hero-background">
+            <div class="hero-pattern"></div>
+            <div class="hero-glow"></div>
         </div>
-      </div>
-      <div class="hero-visual">
-        <div class="tech-badge">
-          <div class="tech-icon">🧠</div>
-          <span>IA Avanzada</span>
+        <div class="hero-content fade-in-up">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <span class="badge-icon">🏢</span>
+                    <span>Empresa Líder en Certificación IA</span>
+                </div>
+                <h1>Transformando la Industria Alimentaria con <span class="gradient-text">Inteligencia Artificial</span></h1>
+                <p class="hero-description">
+                    Desde 2019, VQS ha sido pionero en la certificación de productos alimentarios mediante IA, 
+                    estableciendo nuevos estándares de calidad, seguridad y transparencia en la industria global.
+                </p>
+                <div class="hero-metrics">
+                    <div class="metric-item">
+                        <div class="metric-number">15,000+</div>
+                        <div class="metric-label">Productos Certificados</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-number">750+</div>
+                        <div class="metric-label">Empresas Clientes</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-number">25</div>
+                        <div class="metric-label">Países Presencia</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-number">99.8%</div>
+                        <div class="metric-label">Precisión IA</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="company-showcase">
+                    <div class="showcase-header">
+                        <div class="company-logo">VQS</div>
+                        <div class="company-status">
+                            <div class="status-indicator"></div>
+                            <span>Operativo 24/7</span>
+                        </div>
+                    </div>
+                    <div class="showcase-content">
+                        <div class="global-presence">
+                            <h4>Presencia Global</h4>
+                            <div class="presence-stats">
+                                <div class="presence-item">
+                                    <span class="presence-icon">🌎</span>
+                                    <span>América Latina</span>
+                                </div>
+                                <div class="presence-item">
+                                    <span class="presence-icon">🇪🇺</span>
+                                    <span>Europa</span>
+                                </div>
+                                <div class="presence-item">
+                                    <span class="presence-icon">🇺🇸</span>
+                                    <span>Norteamérica</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <!-- Mission Section -->
-    <section class="mission-section">
-      <div class="section-header">
-        <h2>Nuestra Misión</h2>
-        <div class="section-line"></div>
-      </div>
-      <div class="mission-content">
-        <div class="mission-text">
-          <p class="mission-statement">
-            Transformar la industria alimentaria mediante tecnología de inteligencia artificial que garantice 
-            la máxima calidad, seguridad y transparencia en cada producto certificado.
-          </p>
-          <div class="mission-points">
-            <div class="point">
-              <div class="point-icon">🎯</div>
-              <div class="point-content">
-                <h3>Precisión Absoluta</h3>
-                <p>Análisis exhaustivo con 99.8% de precisión en la detección de calidad alimentaria</p>
-              </div>
+    <!-- Mission & Vision Section -->
+    <section class="mission-vision-section">
+        <div class="section-header fade-in-up">
+            <h2>Nuestra Misión y Visión</h2>
+            <p>Comprometidos con la excelencia en certificación alimentaria</p>
+        </div>
+        <div class="mission-vision-grid">
+            <div class="mission-card fade-in-up stagger-delay-1">
+                <div class="card-icon">🎯</div>
+                <h3>Misión</h3>
+                <p>
+                    Revolucionar la certificación de productos alimentarios mediante inteligencia artificial avanzada, 
+                    garantizando los más altos estándares de calidad, seguridad y transparencia para proteger la salud 
+                    de los consumidores y fortalecer la confianza en la cadena alimentaria global.
+                </p>
+                <div class="mission-pillars">
+                    <div class="pillar">
+                        <span class="pillar-icon">🔬</span>
+                        <span>Innovación Científica</span>
+                    </div>
+                    <div class="pillar">
+                        <span class="pillar-icon">🛡️</span>
+                        <span>Seguridad Alimentaria</span>
+                    </div>
+                    <div class="pillar">
+                        <span class="pillar-icon">🌍</span>
+                        <span>Impacto Global</span>
+                    </div>
+                </div>
             </div>
-            <div class="point">
-              <div class="point-icon">⚡</div>
-              <div class="point-content">
-                <h3>Velocidad Incomparable</h3>
-                <p>Certificación en 24 horas vs. 30 días de métodos tradicionales</p>
-              </div>
+            <div class="vision-card fade-in-up stagger-delay-2">
+                <div class="card-icon">🔮</div>
+                <h3>Visión</h3>
+                <p>
+                    Ser la plataforma de certificación alimentaria por IA más confiable y avanzada del mundo, 
+                    estableciendo el estándar global para la seguridad alimentaria y contribuyendo a un futuro 
+                    donde cada producto alimentario sea seguro, nutritivo y sostenible.
+                </p>
+                <div class="vision-goals">
+                    <div class="goal">
+                        <span class="goal-icon">🏆</span>
+                        <span>Liderazgo Mundial</span>
+                    </div>
+                    <div class="goal">
+                        <span class="goal-icon">🤖</span>
+                        <span>Tecnología Avanzada</span>
+                    </div>
+                    <div class="goal">
+                        <span class="goal-icon">♻️</span>
+                        <span>Sostenibilidad</span>
+                    </div>
+                </div>
             </div>
-            <div class="point">
-              <div class="point-icon">🌍</div>
-              <div class="point-content">
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="section-header fade-in-up">
+            <h2>Nuestra Historia</h2>
+            <p>Hitos importantes en el desarrollo de VQS</p>
+        </div>
+        <div class="timeline">
+            {milestones.map((milestone, index) => (
+                <div class={`timeline-item fade-in-up stagger-delay-${(index % 3) + 1}`}>
+                    <div class="timeline-marker">
+                        <div class="marker-icon">{milestone.icon}</div>
+                        <div class="marker-year">{milestone.year}</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>{milestone.title}</h3>
+                        <p>{milestone.description}</p>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="section-header fade-in-up">
+            <h2>Nuestro Equipo Directivo</h2>
+            <p>Líderes expertos en tecnología, ciencia y gestión empresarial</p>
+        </div>
+        <div class="team-grid">
+            {teamMembers.map((member, index) => (
+                <div class={`team-card fade-in-up stagger-delay-${(index % 4) + 1}`}>
+                    <div class="member-image">
+                        <img src={member.image} alt={member.name} loading="lazy" />
+                        <div class="member-overlay">
+                            <div class="member-education">{member.education}</div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>{member.name}</h3>
+                        <div class="member-position">{member.position}</div>
+                        <div class="member-specialty">{member.specialty}</div>
+                        <div class="member-experience">
+                            <span class="experience-icon">⏱️</span>
+                            <span>{member.experience} experiencia</span>
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications-section">
+        <div class="section-header fade-in-up">
+            <h2>Certificaciones y Reconocimientos</h2>
+            <p>Avalados por las principales organizaciones internacionales</p>
+        </div>
+        <div class="certifications-grid">
+            {certifications.map((cert, index) => (
+                <div class={`cert-card fade-in-up stagger-delay-${(index % 3) + 1}`}>
+                    <div class="cert-icon">{cert.icon}</div>
+                    <h3>{cert.name}</h3>
+                    <p>{cert.description}</p>
+                    <div class="cert-status">
+                        <span class="status-dot"></span>
+                        <span>Certificado Activo</span>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <!-- Technology Innovation Section -->
+    <section class="innovation-section">
+        <div class="innovation-background">
+            <div class="innovation-pattern"></div>
+        </div>
+        <div class="section-header fade-in-up">
+            <h2>Innovación Tecnológica</h2>
+            <p>Investigación y desarrollo continuo en IA para certificación alimentaria</p>
+        </div>
+        <div class="innovation-content">
+            <div class="innovation-stats fade-in-up">
+                <div class="innovation-stat">
+                    <div class="stat-icon">🔬</div>
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Investigadores</div>
+                </div>
+                <div class="innovation-stat">
+                    <div class="stat-icon">💡</div>
+                    <div class="stat-number">25</div>
+                    <div class="stat-label">Patentes</div>
+                </div>
+                <div class="innovation-stat">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-number">2.5M</div>
+                    <div class="stat-label">Datos Entrenamiento</div>
+                </div>
+                <div class="innovation-stat">
+                    <div class="stat-icon">🚀</div>
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">Proyectos I+D</div>
+                </div>
+            </div>
+            <div class="innovation-features fade-in-up">
+                <div class="feature-item">
+                    <div class="feature-icon">🧠</div>
+                    <div class="feature-content">
+                        <h4>IA de Próxima Generación</h4>
+                        <p>Desarrollo de algoritmos de machine learning más precisos y eficientes</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔗</div>
+                    <div class="feature-content">
+                        <h4>Blockchain Avanzado</h4>
+                        <p>Implementación de tecnología blockchain para trazabilidad inmutable</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📱</div>
+                    <div class="feature-content">
+                        <h4>IoT Integration</h4>
+                        <p>Sensores inteligentes para monitoreo en tiempo real</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="section-header fade-in-up">
+            <h2>Nuestros Valores</h2>
+            <p>Principios que guían nuestro trabajo diario</p>
+        </div>
+        <div class="values-grid">
+            <div class="value-card fade-in-up stagger-delay-1">
+                <div class="value-icon">🎯</div>
+                <h3>Excelencia</h3>
+                <p>Buscamos la perfección en cada certificación, manteniendo los más altos estándares de calidad.</p>
+            </div>
+            <div class="value-card fade-in-up stagger-delay-2">
+                <div class="value-icon">🤝</div>
+                <h3>Confianza</h3>
+                <p>Construimos relaciones duraderas basadas en transparencia, honestidad e integridad.</p>
+            </div>
+            <div class="value-card fade-in-up stagger-delay-3">
+                <div class="value-icon">💡</div>
+                <h3>Innovación</h3>
+                <p>Impulsamos el progreso tecnológico para crear soluciones revolucionarias.</p>
+            </div>
+            <div class="value-card fade-in-up stagger-delay-4">
+                <div class="value-icon">🌱</div>
+                <h3>Sostenibilidad</h3>
+                <p>Promovemos prácticas responsables que protejan el medio ambiente y las futuras generaciones.</p>
+            </div>
+            <div class="value-card fade-in-up stagger-delay-1">
+                <div class="value-icon">🔒</div>
+                <h3>Seguridad</h3>
+                <p>Priorizamos la seguridad alimentaria y la protección de datos en todas nuestras operaciones.</p>
+            </div>
+            <div class="value-card fade-in-up stagger-delay-2">
+                <div class="value-icon">🌍</div>
                 <h3>Impacto Global</h3>
-                <p>Contribuyendo a un sistema alimentario más seguro y sostenible</p>
-              </div>
+                <p>Trabajamos para mejorar la seguridad alimentaria a nivel mundial.</p>
             </div>
-          </div>
         </div>
-        <div class="mission-stats">
-          <div class="stat-card">
-            <div class="stat-number">10,000+</div>
-            <div class="stat-label">Productos Certificados</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">500+</div>
-            <div class="stat-label">Empresas Confiadas</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">99.8%</div>
-            <div class="stat-label">Precisión IA</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">24/7</div>
-            <div class="stat-label">Monitoreo Activo</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Problem Solution Section -->
-    <section class="problem-solution">
-      <div class="section-header">
-        <h2>El Desafío del Mercado Actual</h2>
-        <div class="section-line"></div>
-      </div>
-      <div class="problem-content">
-        <div class="problem-text">
-          <p>
-            Los procesos tradicionales de certificación alimentaria enfrentan desafíos críticos que afectan 
-            tanto a productores como a consumidores. Los métodos convencionales son lentos, costosos y 
-            propensos a errores humanos.
-          </p>
-          <div class="challenges">
-            <div class="challenge">
-              <div class="challenge-icon">⏰</div>
-              <h3>Tiempos Prolongados</h3>
-              <p>Procesos que toman semanas o meses para completarse</p>
-            </div>
-            <div class="challenge">
-              <div class="challenge-icon">💰</div>
-              <h3>Costos Elevados</h3>
-              <p>Certificaciones tradicionales con altos costos operativos</p>
-            </div>
-            <div class="challenge">
-              <div class="challenge-icon">❌</div>
-              <h3>Error Humano</h3>
-              <p>Inconsistencias en evaluaciones manuales</p>
-            </div>
-          </div>
-        </div>
-        <div class="solution-text">
-          <h3>Nuestra Solución IA</h3>
-          <p>
-            VQS revoluciona este panorama con tecnología de inteligencia artificial que automatiza, 
-            acelera y perfecciona el proceso de certificación alimentaria.
-          </p>
-          <div class="solutions">
-            <div class="solution">
-              <div class="solution-icon">🚀</div>
-              <h4>Certificación Instantánea</h4>
-              <p>Análisis completo en menos de 24 horas</p>
-            </div>
-            <div class="solution">
-              <div class="solution-icon">💡</div>
-              <h4>Costos Reducidos</h4>
-              <p>Hasta 70% menos costoso que métodos tradicionales</p>
-            </div>
-            <div class="solution">
-              <div class="solution-icon">🎯</div>
-              <h4>Precisión Perfecta</h4>
-              <p>Eliminación del error humano con IA avanzada</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services-section">
-      <div class="section-header">
-        <h2>Nuestras Áreas de Especialización</h2>
-        <div class="section-line"></div>
-      </div>
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">🥗</div>
-          <h3>Seguridad Alimentaria</h3>
-          <p>Análisis en tiempo real de contaminantes, patógenos y calidad nutricional mediante sensores IoT y algoritmos de machine learning.</p>
-          <ul class="service-features">
-            <li>Detección de contaminantes</li>
-            <li>Análisis microbiológico</li>
-            <li>Evaluación nutricional</li>
-            <li>Trazabilidad completa</li>
-          </ul>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🔒</div>
-          <h3>Protección de Datos</h3>
-          <p>Sistemas seguros de información que protegen datos sensibles de productores y consumidores con encriptación de nivel empresarial.</p>
-          <ul class="service-features">
-            <li>Encriptación avanzada</li>
-            <li>Cumplimiento GDPR</li>
-            <li>Auditorías de seguridad</li>
-            <li>Backup automático</li>
-          </ul>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">📊</div>
-          <h3>Análisis y Estadísticas</h3>
-          <p>Plataforma de inteligencia de negocios que proporciona insights valiosos sobre tendencias de calidad y satisfacción del cliente.</p>
-          <ul class="service-features">
-            <li>Dashboards interactivos</li>
-            <li>Reportes automatizados</li>
-            <li>Análisis predictivo</li>
-            <li>KPIs personalizados</li>
-          </ul>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🔧</div>
-          <h3>Mantenimiento Inteligente</h3>
-          <p>Monitoreo predictivo de equipos y procesos que garantiza el cumplimiento continuo de regulaciones y normativas.</p>
-          <ul class="service-features">
-            <li>Mantenimiento predictivo</li>
-            <li>Monitoreo IoT</li>
-            <li>Alertas automáticas</li>
-            <li>Cumplimiento normativo</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Technology Section -->
-    <section class="technology-section">
-      <div class="section-header">
-        <h2>Tecnología de Vanguardia</h2>
-        <div class="section-line"></div>
-      </div>
-      <div class="tech-content">
-        <div class="tech-features">
-          <div class="tech-feature">
-            <div class="tech-icon">🤖</div>
-            <h3>Machine Learning Avanzado</h3>
-            <p>Algoritmos de aprendizaje profundo entrenados con millones de muestras alimentarias</p>
-          </div>
-          <div class="tech-feature">
-            <div class="tech-icon">📡</div>
-            <h3>Sensores IoT</h3>
-            <p>Red de sensores inteligentes para monitoreo continuo de calidad</p>
-          </div>
-          <div class="tech-feature">
-            <div class="tech-icon">☁️</div>
-            <h3>Cloud Computing</h3>
-            <p>Infraestructura escalable en la nube para procesamiento masivo de datos</p>
-          </div>
-          <div class="tech-feature">
-            <div class="tech-icon">🔗</div>
-            <h3>Blockchain</h3>
-            <p>Trazabilidad inmutable y transparente de toda la cadena alimentaria</p>
-          </div>
-        </div>
-      </div>
     </section>
 
     <!-- CTA Section -->
     <section class="cta-section">
-      <div class="cta-content">
-        <h2>¿Listo para Revolucionar tu Certificación?</h2>
-        <p>Únete a las empresas líderes que ya confían en VQS para garantizar la máxima calidad de sus productos.</p>
-        <div class="cta-buttons">
-          <a href="/contacto" class="cta-primary">Solicitar Demo</a>
-          <a href="/servicios" class="cta-secondary">Ver Servicios</a>
+        <div class="cta-background">
+            <div class="cta-glow"></div>
         </div>
-      </div>
+        <div class="cta-content fade-in-up">
+            <div class="cta-text">
+                <h2>¿Quieres Formar Parte del Futuro?</h2>
+                <p>Únete a nuestro equipo de expertos y ayuda a transformar la industria alimentaria con tecnología de vanguardia.</p>
+            </div>
+            <div class="cta-actions">
+                <a href="/carreras" class="btn-primary large">
+                    <span>Ver Oportunidades</span>
+                    <span class="btn-icon">💼</span>
+                </a>
+                <a href="/contacto" class="btn-secondary large">
+                    <span class="btn-icon">📧</span>
+                    <span>Contactar</span>
+                </a>
+            </div>
+        </div>
     </section>
-  </div>
 </MainLayout>
 
 <style>
-  .about-container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .about-hero {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 3rem;
-    align-items: center;
-    padding: 3rem 0;
-    margin-bottom: 4rem;
-  }
-
-  .hero-content h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--neutral-800);
-    line-height: 1.1;
-    margin-bottom: 1rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1.5rem;
-    color: var(--primary-blue);
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-  }
-
-  .hero-description p {
-    font-size: 1.2rem;
-    color: var(--neutral-600);
-    line-height: 1.6;
-  }
-
-  .hero-visual {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .tech-badge {
-    background: var(--gradient-primary);
-    color: white;
-    padding: 2rem;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    box-shadow: var(--shadow-xl);
-    animation: float 3s ease-in-out infinite;
-  }
-
-  .tech-icon {
-    font-size: 4rem;
-  }
-
-  .section-header {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-
-  .section-header h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--neutral-800);
-    margin-bottom: 1rem;
-  }
-
-  .section-line {
-    width: 80px;
-    height: 4px;
-    background: var(--gradient-primary);
-    margin: 0 auto;
-    border-radius: 2px;
-  }
-
-  .mission-section {
-    margin-bottom: 5rem;
-  }
-
-  .mission-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 4rem;
-    align-items: start;
-  }
-
-  .mission-statement {
-    font-size: 1.3rem;
-    font-weight: 500;
-    color: var(--primary-blue);
-    line-height: 1.6;
-    margin-bottom: 2rem;
-    padding: 2rem;
-    background: var(--gradient-secondary);
-    border-radius: 12px;
-    border-left: 4px solid var(--primary-blue);
-  }
-
-  .mission-points {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .point {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-  }
-
-  .point-icon {
-    font-size: 2rem;
-    flex-shrink: 0;
-  }
-
-  .point-content h3 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--neutral-800);
-    margin-bottom: 0.5rem;
-  }
-
-  .point-content p {
-    color: var(--neutral-600);
-    line-height: 1.5;
-  }
-
-  .mission-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-
-  .stat-card {
-    background: var(--white);
-    padding: 1.5rem;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: var(--shadow-md);
-    border: 1px solid var(--neutral-200);
-  }
-
-  .stat-number {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--primary-blue);
-    display: block;
-    margin-bottom: 0.5rem;
-  }
-
-  .stat-label {
-    font-size: 0.9rem;
-    color: var(--neutral-600);
-  }
-
-  .problem-solution {
-    background: var(--neutral-100);
-    padding: 4rem 2rem;
-    margin: 4rem -2rem;
-    border-radius: 16px;
-  }
-
-  .problem-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .problem-text p, .solution-text p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: var(--neutral-700);
-    margin-bottom: 2rem;
-  }
-
-  .solution-text h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--primary-blue);
-    margin-bottom: 1rem;
-  }
-
-  .challenges, .solutions {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .challenge, .solution {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-  }
-
-  .challenge-icon, .solution-icon {
-    font-size: 1.5rem;
-    flex-shrink: 0;
-    margin-top: 0.25rem;
-  }
-
-  .challenge h3, .solution h4 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-
-  .challenge h3 {
-    color: var(--accent-orange);
-  }
-
-  .solution h4 {
-    color: var(--secondary-green);
-  }
-
-  .challenge p, .solution p {
-    color: var(--neutral-600);
-    font-size: 0.95rem;
-    line-height: 1.4;
-    margin: 0;
-  }
-
-  .services-section {
-    margin: 5rem 0;
-  }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-  }
-
-  .service-card {
-    background: var(--white);
-    padding: 2rem;
-    border-radius: 16px;
-    box-shadow: var(--shadow-md);
-    border: 1px solid var(--neutral-200);
-    transition: all 0.3s ease;
-  }
-
-  .service-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-xl);
-  }
-
-  .service-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-  }
-
-  .service-card h3 {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: var(--neutral-800);
-    margin-bottom: 1rem;
-  }
-
-  .service-card p {
-    color: var(--neutral-600);
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-  }
-
-  .service-features {
-    list-style: none;
-    padding: 0;
-  }
-
-  .service-features li {
-    color: var(--neutral-700);
-    padding: 0.5rem 0;
-    border-bottom: 1px solid var(--neutral-200);
-    position: relative;
-    padding-left: 1.5rem;
-  }
-
-  .service-features li:last-child {
-    border-bottom: none;
-  }
-
-  .service-features li::before {
-    content: '✓';
-    color: var(--secondary-green);
-    font-weight: bold;
-    position: absolute;
-    left: 0;
-  }
-
-  .technology-section {
-    background: var(--gradient-secondary);
-    padding: 4rem 2rem;
-    margin: 4rem -2rem;
-    border-radius: 16px;
-  }
-
-  .tech-content {
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-
-  .tech-features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-  }
-
-  .tech-feature {
-    background: var(--white);
-    padding: 2rem;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: var(--shadow-md);
-    transition: transform 0.2s ease;
-  }
-
-  .tech-feature:hover {
-    transform: translateY(-4px);
-  }
-
-  .tech-feature .tech-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-  }
-
-  .tech-feature h3 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--neutral-800);
-    margin-bottom: 1rem;
-  }
-
-  .tech-feature p {
-    color: var(--neutral-600);
-    line-height: 1.5;
-  }
-
-  .cta-section {
-    background: var(--gradient-primary);
-    color: white;
-    padding: 4rem 2rem;
-    margin: 4rem -2rem 0 -2rem;
-    border-radius: 16px;
-    text-align: center;
-  }
-
-  .cta-content h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-  }
-
-  .cta-content p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-  }
-
-  .cta-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .cta-primary, .cta-secondary {
-    padding: 1rem 2rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.2s ease;
-  }
-
-  .cta-primary {
-    background: white;
-    color: var(--primary-blue);
-  }
-
-  .cta-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-  }
-
-  .cta-secondary {
-    background: transparent;
-    color: white;
-    border: 2px solid white;
-  }
-
-  .cta-secondary:hover {
-    background: white;
-    color: var(--primary-blue);
-  }
-
-  @media (max-width: 768px) {
+    /* Hero Section */
     .about-hero {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      text-align: center;
+        position: relative;
+        padding: var(--space-4xl) 0;
+        margin: var(--space-xl) calc(-1 * var(--space-xl)) var(--space-4xl);
+        background: var(--gradient-primary);
+        color: white;
+        border-radius: var(--radius-2xl);
+        overflow: hidden;
+    }
+
+    .hero-background {
+        position: absolute;
+        inset: 0;
+        opacity: 0.1;
+    }
+
+    .hero-pattern {
+        position: absolute;
+        inset: 0;
+        background-image: 
+            linear-gradient(30deg, rgba(255,255,255,0.1) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.1) 87.5%, rgba(255,255,255,0.1)),
+            linear-gradient(150deg, rgba(255,255,255,0.1) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.1) 87.5%, rgba(255,255,255,0.1));
+        background-size: 80px 80px;
+        animation: pattern-slide 25s linear infinite;
+    }
+
+    .hero-glow {
+        position: absolute;
+        top: 10%;
+        right: 20%;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+        border-radius: 50%;
+        animation: float 10s ease-in-out infinite;
+    }
+
+    @keyframes pattern-slide {
+        0% { transform: translate(0, 0); }
+        100% { transform: translate(80px, 80px); }
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: 1.3fr 0.7fr;
+        gap: var(--space-4xl);
+        align-items: center;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 var(--space-xl);
+    }
+
+    .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-sm);
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: var(--space-sm) var(--space-lg);
+        border-radius: var(--radius-full);
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin-bottom: var(--space-xl);
     }
 
     .hero-content h1 {
-      font-size: 2.5rem;
+        font-size: 3.25rem;
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: var(--space-xl);
     }
 
-    .mission-content {
-      grid-template-columns: 1fr;
-      gap: 2rem;
+    .hero-description {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        opacity: 0.9;
+        margin-bottom: var(--space-2xl);
+        max-width: 600px;
     }
 
-    .mission-stats {
-      grid-template-columns: 1fr 1fr;
+    .hero-metrics {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-lg);
     }
 
-    .problem-content {
-      grid-template-columns: 1fr;
-      gap: 2rem;
+    .metric-item {
+        text-align: center;
+        padding: var(--space-lg);
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: var(--radius-xl);
+        border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
-    .services-grid {
-      grid-template-columns: 1fr;
+    .metric-number {
+        font-size: 2rem;
+        font-weight: 800;
+        color: #FFD700;
+        margin-bottom: var(--space-xs);
     }
 
-    .tech-features {
-      grid-template-columns: 1fr;
+    .metric-label {
+        font-size: 0.85rem;
+        opacity: 0.8;
+        font-weight: 500;
     }
 
-    .cta-content h2 {
-      font-size: 2rem;
+    /* Company Showcase */
+    .company-showcase {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: var(--radius-2xl);
+        padding: var(--space-xl);
+        box-shadow: var(--shadow-2xl);
+        animation: float 8s ease-in-out infinite;
     }
 
-    .cta-buttons {
-      flex-direction: column;
-      align-items: center;
+    .showcase-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: var(--space-lg);
     }
 
-    .cta-primary, .cta-secondary {
-      width: 200px;
+    .company-logo {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: white;
     }
-  }
+
+    .company-status {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        font-size: 0.85rem;
+        opacity: 0.8;
+    }
+
+    .status-indicator {
+        width: 8px;
+        height: 8px;
+        background: #00FF88;
+        border-radius: 50%;
+        animation: pulse 2s ease-in-out infinite;
+    }
+
+    .global-presence h4 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: var(--space-lg);
+        color: white;
+    }
+
+    .presence-stats {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-md);
+    }
+
+    .presence-item {
+        display: flex;
+        align-items: center;
+        gap: var(--space-md);
+        padding: var(--space-sm) var(--space-md);
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius-lg);
+        font-size: 0.9rem;
+    }
+
+    .presence-icon {
+        font-size: 1.2rem;
+    }
+
+    /* Mission & Vision Section */
+    .mission-vision-section {
+        padding: var(--space-4xl) 0;
+    }
+
+    .mission-vision-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-3xl);
+    }
+
+    .mission-card, .vision-card {
+        background: white;
+        padding: var(--space-3xl);
+        border-radius: var(--radius-2xl);
+        box-shadow: var(--shadow-lg);
+        border: 1px solid var(--neutral-200);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .mission-card:hover, .vision-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-2xl);
+    }
+
+    .card-icon {
+        font-size: 3rem;
+        margin-bottom: var(--space-lg);
+    }
+
+    .mission-card h3, .vision-card h3 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--primary-blue);
+        margin-bottom: var(--space-lg);
+    }
+
+    .mission-card p, .vision-card p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: var(--neutral-700);
+        margin-bottom: var(--space-xl);
+    }
+
+    .mission-pillars, .vision-goals {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-md);
+    }
+
+    .pillar, .goal {
+        display: flex;
+        align-items: center;
+        gap: var(--space-md);
+        padding: var(--space-md);
+        background: var(--neutral-50);
+        border-radius: var(--radius-lg);
+        font-weight: 500;
+        color: var(--neutral-700);
+    }
+
+    .pillar-icon, .goal-icon {
+        font-size: 1.2rem;
+    }
+
+    /* Timeline Section */
+    .timeline-section {
+        padding: var(--space-4xl) 0;
+        background: var(--gradient-surface);
+        margin: var(--space-4xl) calc(-1 * var(--space-xl)) 0;
+        border-radius: var(--radius-2xl);
+    }
+
+    .timeline {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 var(--space-xl);
+        position: relative;
+    }
+
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: var(--gradient-primary);
+        transform: translateX(-50%);
+    }
+
+    .timeline-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: var(--space-3xl);
+        position: relative;
+    }
+
+    .timeline-item:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+
+    .timeline-marker {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-sm);
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+    }
+
+    .marker-icon {
+        width: 60px;
+        height: 60px;
+        background: var(--gradient-primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        box-shadow: var(--shadow-lg);
+    }
+
+    .marker-year {
+        background: white;
+        color: var(--primary-blue);
+        padding: var(--space-xs) var(--space-md);
+        border-radius: var(--radius-full);
+        font-weight: 700;
+        font-size: 0.9rem;
+        box-shadow: var(--shadow-md);
+        border: 2px solid var(--primary-blue);
+    }
+
+    .timeline-content {
+        background: white;
+        padding: var(--space-xl);
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-lg);
+        border: 1px solid var(--neutral-200);
+        width: calc(50% - 60px);
+        margin: 0 var(--space-2xl);
+    }
+
+    .timeline-item:nth-child(even) .timeline-content {
+        margin: 0 var(--space-2xl) 0 0;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content {
+        margin: 0 0 0 var(--space-2xl);
+    }
+
+    .timeline-content h3 {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--primary-blue);
+        margin-bottom: var(--space-md);
+    }
+
+    .timeline-content p {
+        color: var(--neutral-700);
+        line-height: 1.6;
+    }
+
+    /* Team Section */
+    .team-section {
+        padding: var(--space-4xl) 0;
+    }
+
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--space-2xl);
+    }
+
+    .team-card {
+        background: white;
+        border-radius: var(--radius-2xl);
+        overflow: hidden;
+        box-shadow: var(--shadow-lg);
+        border: 1px solid var(--neutral-200);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .team-card:hover {
+        transform: translateY(-12px);
+        box-shadow: var(--shadow-2xl);
+    }
+
+    .member-image {
+        position: relative;
+        height: 280px;
+        overflow: hidden;
+    }
+
+    .member-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .team-card:hover .member-image img {
+        transform: scale(1.05);
+    }
+
+    .member-overlay {
+        position: absolute;
+        top: var(--space-lg);
+        right: var(--space-lg);
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: var(--space-sm) var(--space-md);
+        border-radius: var(--radius-lg);
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+
+    .member-info {
+        padding: var(--space-xl);
+    }
+
+    .member-info h3 {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--neutral-800);
+        margin-bottom: var(--space-sm);
+    }
+
+    .member-position {
+        color: var(--primary-blue);
+        font-weight: 600;
+        font-size: 1rem;
+        margin-bottom: var(--space-sm);
+    }
+
+    .member-specialty {
+        color: var(--neutral-600);
+        font-size: 0.9rem;
+        margin-bottom: var(--space-lg);
+    }
+
+    .member-experience {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        color: var(--neutral-700);
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+
+    .experience-icon {
+        font-size: 1rem;
+    }
+
+    /* Certifications Section */
+    .certifications-section {
+        padding: var(--space-4xl) 0;
+        background: var(--primary-navy);
+        color: white;
+        margin: var(--space-4xl) calc(-1 * var(--space-xl)) 0;
+        border-radius: var(--radius-2xl);
+    }
+
+    .certifications-section .section-header h2 {
+        color: white;
+    }
+
+    .certifications-section .section-header p {
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .certifications-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--space-xl);
+        padding: 0 var(--space-xl);
+    }
+
+    .cert-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: var(--radius-xl);
+        padding: var(--space-xl);
+        text-align: center;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .cert-card:hover {
+        transform: translateY(-8px);
+        background: rgba(255, 255, 255, 0.15);
+        box-shadow: var(--shadow-2xl);
+    }
+
+    .cert-icon {
+        font-size: 3rem;
+        margin-bottom: var(--space-lg);
+    }
+
+    .cert-card h3 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: white;
+        margin-bottom: var(--space-md);
+    }
+
+    .cert-card p {
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.5;
+        margin-bottom: var(--space-lg);
+    }
+
+    .cert-status {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-sm);
+        font-size: 0.85rem;
+        color: #00FF88;
+        font-weight: 500;
+    }
+
+    .status-dot {
+        width: 6px;
+        height: 6px;
+        background: #00FF88;
+        border-radius: 50%;
+        animation: pulse 2s ease-in-out infinite;
+    }
+
+    /* Innovation Section */
+    .innovation-section {
+        position: relative;
+        padding: var(--space-4xl) 0;
+        margin: var(--space-4xl) calc(-1 * var(--space-xl)) 0;
+        background: var(--gradient-surface);
+        border-radius: var(--radius-2xl);
+        overflow: hidden;
+    }
+
+    .innovation-background {
+        position: absolute;
+        inset: 0;
+        opacity: 0.05;
+    }
+
+    .innovation-pattern {
+        position: absolute;
+        inset: 0;
+        background-image: 
+            radial-gradient(circle at 20% 50%, rgba(30, 64, 175, 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(5, 150, 105, 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 40% 80%, rgba(217, 119, 6, 0.3) 0%, transparent 50%);
+        animation: innovation-flow 20s ease-in-out infinite;
+    }
+
+    @keyframes innovation-flow {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        33% { transform: translate(-20px, -20px) scale(1.1); }
+        66% { transform: translate(20px, -10px) scale(0.9); }
+    }
+
+    .innovation-content {
+        position: relative;
+        z-index: 2;
+        padding: 0 var(--space-xl);
+    }
+
+    .innovation-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--space-xl);
+        margin-bottom: var(--space-4xl);
+    }
+
+    .innovation-stat {
+        background: white;
+        padding: var(--space-xl);
+        border-radius: var(--radius-xl);
+        text-align: center;
+        box-shadow: var(--shadow-lg);
+        border: 1px solid var(--neutral-200);
+        transition: all 0.3s ease;
+    }
+
+    .innovation-stat:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-xl);
+    }
+
+    .innovation-stat .stat-icon {
+        font-size: 2.5rem;
+        margin-bottom: var(--space-md);
+    }
+
+    .innovation-stat .stat-number {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--primary-blue);
+        margin-bottom: var(--space-xs);
+    }
+
+    .innovation-stat .stat-label {
+        color: var(--neutral-600);
+        font-weight: 500;
+    }
+
+    .innovation-features {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-xl);
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .feature-item {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-xl);
+        background: white;
+        padding: var(--space-xl);
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-lg);
+        border: 1px solid var(--neutral-200);
+    }
+
+    .feature-icon {
+        font-size: 2.5rem;
+        flex-shrink: 0;
+    }
+
+    .feature-content h4 {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--neutral-800);
+        margin-bottom: var(--space-md);
+    }
+
+    .feature-content p {
+        color: var(--neutral-600);
+        line-height: 1.6;
+    }
+
+    /* Values Section */
+    .values-section {
+        padding: var(--space-4xl) 0;
+    }
+
+    .values-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--space-xl);
+    }
+
+    .value-card {
+        background: white;
+        padding: var(--space-2xl);
+        border-radius: var(--radius-xl);
+        text-align: center;
+        box-shadow: var(--shadow-lg);
+        border: 1px solid var(--neutral-200);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .value-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-2xl);
+    }
+
+    .value-icon {
+        font-size: 3rem;
+        margin-bottom: var(--space-lg);
+    }
+
+    .value-card h3 {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--primary-blue);
+        margin-bottom: var(--space-md);
+    }
+
+    .value-card p {
+        color: var(--neutral-700);
+        line-height: 1.6;
+    }
+
+    /* CTA Section */
+    .cta-section {
+        position: relative;
+        padding: var(--space-4xl) 0;
+        margin: var(--space-4xl) calc(-1 * var(--space-xl)) 0;
+        background: var(--gradient-accent);
+        color: white;
+        border-radius: var(--radius-2xl);
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .cta-background {
+        position: absolute;
+        inset: 0;
+    }
+
+    .cta-glow {
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 50%);
+        animation: rotate 25s linear infinite;
+    }
+
+    @keyframes rotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    .cta-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 var(--space-xl);
+    }
+
+    .cta-text h2 {
+        font-size: 2.75rem;
+        font-weight: 800;
+        margin-bottom: var(--space-lg);
+    }
+
+    .cta-text p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        margin-bottom: var(--space-2xl);
+        line-height: 1.6;
+    }
+
+    .cta-actions {
+        display: flex;
+        gap: var(--space-lg);
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+        .hero-content {
+            grid-template-columns: 1fr;
+            gap: var(--space-2xl);
+            text-align: center;
+        }
+
+        .hero-metrics {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .mission-vision-grid {
+            grid-template-columns: 1fr;
+            gap: var(--space-2xl);
+        }
+
+        .timeline::before {
+            left: 30px;
+        }
+
+        .timeline-marker {
+            left: 30px;
+        }
+
+        .timeline-content {
+            width: calc(100% - 100px);
+            margin: 0 0 0 var(--space-3xl);
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin: 0 0 0 var(--space-3xl);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hero-content h1 {
+            font-size: 2.5rem;
+        }
+
+        .hero-metrics {
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-md);
+        }
+
+        .section-header h2 {
+            font-size: 2.25rem;
+        }
+
+        .team-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .certifications-grid {
+            grid-template-columns: 1fr;
+            padding: 0 var(--space-md);
+        }
+
+        .innovation-stats {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .innovation-features {
+            padding: 0 var(--space-md);
+        }
+
+        .feature-item {
+            flex-direction: column;
+            text-align: center;
+            gap: var(--space-lg);
+        }
+
+        .values-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .cta-text h2 {
+            font-size: 2.25rem;
+        }
+
+        .cta-actions {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
 </style>
