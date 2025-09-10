@@ -2,30 +2,30 @@
 import MainLayout from '../layouts/MainLayout.astro';
 
 const products = [
-    { name: 'Manzanas Orgánicas', image: 'https://source.unsplash.com/300x200/?manzanas', isCertified: true },
-    { name: 'Pan Artesanal', image: 'https://source.unsplash.com/300x200/?pan', isCertified: true },
-    { name: 'Leche Fresca', image: 'https://source.unsplash.com/300x200/?leche', isCertified: true },
-    { name: 'Queso Cheddar', image: 'https://source.unsplash.com/300x200/?queso', isCertified: true },
-    { name: 'Huevos de Granja', image: 'https://source.unsplash.com/300x200/?huevos', isCertified: true },
-    { name: 'Pasta', image: 'https://source.unsplash.com/300x200/?pasta', isCertified: true },
-    { name: 'Tomates', image: 'https://source.unsplash.com/300x200/?tomates', isCertified: true },
-    { name: 'Café Molido', image: 'https://source.unsplash.com/300x200/?cafe', isCertified: true },
-    { name: 'Peras Orgánicas', image: 'https://source.unsplash.com/300x200/?peras', isCertified: true },
-    { name: 'Pan de Masa Madre', image: 'https://source.unsplash.com/300x200/?pan de masa madre', isCertified: true },
-    { name: 'Leche de Almendras', image: 'https://source.unsplash.com/300x200/?leche de almendras', isCertified: true },
-    { name: 'Queso Gouda', image: 'https://source.unsplash.com/300x200/?queso gouda', isCertified: true },
-    { name: 'Huevos de Codorniz', image: 'https://source.unsplash.com/300x200/?huevos de codorniz', isCertified: true },
-    { name: 'Espagueti', image: 'https://source.unsplash.com/300x200/?espagueti', isCertified: true },
-    { name: 'Tomates Cherry', image: 'https://source.unsplash.com/300x200/?tomates cherry', isCertified: true },
-    { name: 'Café en Grano', image: 'https://source.unsplash.com/300x200/?cafe en grano', isCertified: true },
-    { name: 'Manzanas Verdes', image: 'https://source.unsplash.com/300x200/?manzanas verdes', isCertified: true },
-    { name: 'Pan de Centeno', image: 'https://source.unsplash.com/300x200/?pan de centeno', isCertified: true },
-    { name: 'Leche de Soya', image: 'https://source.unsplash.com/300x200/?leche de soya', isCertified: true },
-    { name: 'Queso Brie', image: 'https://source.unsplash.com/300x200/?queso brie', isCertified: true },
-    { name: 'Huevos de Pato', image: 'https://source.unsplash.com/300x200/?huevos de pato', isCertified: true },
-    { name: 'Pasta Penne', image: 'https://source.unsplash.com/300x200/?pasta penne', isCertified: true },
-    { name: 'Tomates Secos', image: 'https://source.unsplash.com/300x200/?tomates secos', isCertified: true },
-    { name: 'Café Tostado Oscuro', image: 'https://source.unsplash.com/300x200/?cafe oscuro', isCertified: true },
+    { name: 'Manzanas Orgánicas', isCertified: true },
+    { name: 'Pan Artesanal', isCertified: true },
+    { name: 'Leche Fresca', isCertified: true },
+    { name: 'Queso Cheddar', isCertified: true },
+    { name: 'Huevos de Granja', isCertified: true },
+    { name: 'Pasta', isCertified: true },
+    { name: 'Tomates', isCertified: true },
+    { name: 'Café Molido', isCertified: true },
+    { name: 'Peras Orgánicas', isCertified: true },
+    { name: 'Pan de Masa Madre', isCertified: true },
+    { name: 'Leche de Almendras', isCertified: true },
+    { name: 'Queso Gouda', isCertified: true },
+    { name: 'Huevos de Codorniz', isCertified: true },
+    { name: 'Espagueti', isCertified: true },
+    { name: 'Tomates Cherry', isCertified: true },
+    { name: 'Café en Grano', isCertified: true },
+    { name: 'Manzanas Verdes', isCertified: true },
+    { name: 'Pan de Centeno', isCertified: true },
+    { name: 'Leche de Soya', isCertified: true },
+    { name: 'Queso Brie', isCertified: true },
+    { name: 'Huevos de Pato', isCertified: true },
+    { name: 'Pasta Penne', isCertified: true },
+    { name: 'Tomates Secos', isCertified: true },
+    { name: 'Café Tostado Oscuro', isCertified: true },
 ];
 ---
 
@@ -37,7 +37,6 @@ const products = [
     <div class="product-grid">
         {products.map(product => (
             <div class="product-card">
-                <img src={product.image} alt={product.name} />
                 <div class="card-content">
                     <h3>{product.name}</h3>
                     {product.isCertified && (
@@ -59,8 +58,8 @@ const products = [
     }
     .product-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 2rem;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Adjusted minmax */
+        gap: 1.5rem; /* Adjusted gap */
     }
     .product-card {
         background-color: white;
@@ -71,17 +70,14 @@ const products = [
         transition: transform 0.2s;
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        min-height: 150px; /* Added min-height */
     }
     .product-card:hover {
         transform: translateY(-5px);
     }
-    .product-card img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-    }
     .card-content {
-        padding: 1rem;
+        padding: 1.5rem; /* Adjusted padding */
         flex-grow: 1;
         display: flex;
         flex-direction: column;
