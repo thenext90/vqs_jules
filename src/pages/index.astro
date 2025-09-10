@@ -2,104 +2,619 @@
 import MainLayout from '../layouts/MainLayout.astro';
 
 const products = [
-    { name: 'Manzanas Orgánicas', isCertified: true },
-    { name: 'Pan Artesanal', isCertified: true },
-    { name: 'Leche Fresca', isCertified: true },
-    { name: 'Queso Cheddar', isCertified: true },
-    { name: 'Huevos de Granja', isCertified: true },
-    { name: 'Pasta', isCertified: true },
-    { name: 'Tomates', isCertified: true },
-    { name: 'Café Molido', isCertified: true },
-    { name: 'Peras Orgánicas', isCertified: true },
-    { name: 'Pan de Masa Madre', isCertified: true },
-    { name: 'Leche de Almendras', isCertified: true },
-    { name: 'Queso Gouda', isCertified: true },
-    { name: 'Huevos de Codorniz', isCertified: true },
-    { name: 'Espagueti', isCertified: true },
-    { name: 'Tomates Cherry', isCertified: true },
-    { name: 'Café en Grano', isCertified: true },
-    { name: 'Manzanas Verdes', isCertified: true },
-    { name: 'Pan de Centeno', isCertified: true },
-    { name: 'Leche de Soya', isCertified: true },
-    { name: 'Queso Brie', isCertified: true },
-    { name: 'Huevos de Pato', isCertified: true },
-    { name: 'Pasta Penne', isCertified: true },
-    { name: 'Tomates Secos', isCertified: true },
-    { name: 'Café Tostado Oscuro', isCertified: true },
+    { 
+        name: 'Manzanas Orgánicas Premium', 
+        category: 'Frutas Orgánicas',
+        certificationLevel: 'AAA+',
+        aiScore: 98.5,
+        image: 'https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    { 
+        name: 'Pan Artesanal Integral', 
+        category: 'Panadería',
+        certificationLevel: 'AAA',
+        aiScore: 96.2,
+        image: 'https://images.pexels.com/photos/1775043/pexels-photo-1775043.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    { 
+        name: 'Leche Fresca Pasteurizada', 
+        category: 'Lácteos',
+        certificationLevel: 'AAA+',
+        aiScore: 99.1,
+        image: 'https://images.pexels.com/photos/416978/pexels-photo-416978.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    { 
+        name: 'Queso Cheddar Madurado', 
+        category: 'Lácteos',
+        certificationLevel: 'AAA',
+        aiScore: 97.8,
+        image: 'https://images.pexels.com/photos/773253/pexels-photo-773253.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    { 
+        name: 'Huevos de Granja Libre', 
+        category: 'Proteínas',
+        certificationLevel: 'AAA+',
+        aiScore: 98.9,
+        image: 'https://images.pexels.com/photos/162712/egg-white-food-protein-162712.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    { 
+        name: 'Pasta de Trigo Durum', 
+        category: 'Cereales',
+        certificationLevel: 'AAA',
+        aiScore: 95.7,
+        image: 'https://images.pexels.com/photos/1437267/pexels-photo-1437267.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    { 
+        name: 'Tomates Cherry Hidropónicos', 
+        category: 'Vegetales',
+        certificationLevel: 'AAA+',
+        aiScore: 99.3,
+        image: 'https://images.pexels.com/photos/533280/pexels-photo-533280.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    { 
+        name: 'Café Molido Premium', 
+        category: 'Bebidas',
+        certificationLevel: 'AAA',
+        aiScore: 96.8,
+        image: 'https://images.pexels.com/photos/894695/pexels-photo-894695.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    { 
+        name: 'Aceite de Oliva Extra Virgen', 
+        category: 'Aceites',
+        certificationLevel: 'AAA+',
+        aiScore: 99.7,
+        image: 'https://images.pexels.com/photos/33783/olive-oil-salad-dressing-cooking-olive.jpg?auto=compress&cs=tinysrgb&w=400'
+    },
+    { 
+        name: 'Miel de Abeja Pura', 
+        category: 'Endulzantes',
+        certificationLevel: 'AAA+',
+        aiScore: 98.4,
+        image: 'https://images.pexels.com/photos/87452/pexels-photo-87452.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    { 
+        name: 'Salmón Fresco Atlántico', 
+        category: 'Pescados',
+        certificationLevel: 'AAA',
+        aiScore: 97.2,
+        image: 'https://images.pexels.com/photos/725991/pexels-photo-725991.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    { 
+        name: 'Yogurt Griego Natural', 
+        category: 'Lácteos',
+        certificationLevel: 'AAA+',
+        aiScore: 98.6,
+        image: 'https://images.pexels.com/photos/1435735/pexels-photo-1435735.jpeg?auto=compress&cs=tinysrgb&w=400'
+    }
 ];
+
+const certificationLevels = {
+    'AAA+': { color: '#00B894', label: 'Excelencia' },
+    'AAA': { color: '#0066CC', label: 'Premium' },
+    'AA+': { color: '#FF6B35', label: 'Superior' }
+};
 ---
 
-<MainLayout title="VQS - Productos Certificados">
-    <div class="header-container">
-        <h1>Nuestros Productos Certificados</h1>
-        <p>Calidad y confianza, certificadas por IA.</p>
-    </div>
-    <div class="product-grid">
-        {products.map(product => (
-            <div class="product-card">
-                <div class="card-content">
-                    <h3>{product.name}</h3>
-                    {product.isCertified && (
-                        <div class="certification-seal">
-                            <span class="icon">✓</span>
-                            <span>Certificado por IA</span>
-                        </div>
-                    )}
+<MainLayout title="VQS - Productos Certificados por IA">
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Certificación de Productos Alimentarios <span class="highlight">Impulsada por IA</span></h1>
+                <p class="hero-description">
+                    Garantizamos la máxima calidad y seguridad alimentaria mediante tecnología de inteligencia artificial avanzada. 
+                    Cada producto certificado cumple con los más altos estándares internacionales.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">10,000+</span>
+                        <span class="stat-label">Productos Certificados</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">99.8%</span>
+                        <span class="stat-label">Precisión IA</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Monitoreo Continuo</span>
+                    </div>
                 </div>
             </div>
-        ))}
-    </div>
+            <div class="hero-visual">
+                <div class="ai-badge">
+                    <div class="ai-icon">🤖</div>
+                    <span>Certificado por IA</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="filter-header">
+            <h2>Productos Certificados</h2>
+            <p>Explora nuestra amplia gama de productos alimentarios certificados con tecnología IA</p>
+        </div>
+        <div class="filter-controls">
+            <button class="filter-btn active" data-category="all">Todos</button>
+            <button class="filter-btn" data-category="Frutas Orgánicas">Frutas</button>
+            <button class="filter-btn" data-category="Lácteos">Lácteos</button>
+            <button class="filter-btn" data-category="Proteínas">Proteínas</button>
+            <button class="filter-btn" data-category="Cereales">Cereales</button>
+            <button class="filter-btn" data-category="Vegetales">Vegetales</button>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="products-section">
+        <div class="product-grid">
+            {products.map(product => (
+                <div class="product-card" data-category={product.category}>
+                    <div class="product-image">
+                        <img src={product.image} alt={product.name} loading="lazy" />
+                        <div class="certification-badge" style={`background-color: ${certificationLevels[product.certificationLevel].color}`}>
+                            {product.certificationLevel}
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">{product.category}</div>
+                        <h3 class="product-name">{product.name}</h3>
+                        <div class="ai-metrics">
+                            <div class="ai-score">
+                                <span class="score-label">Puntuación IA</span>
+                                <span class="score-value">{product.aiScore}%</span>
+                            </div>
+                            <div class="certification-level">
+                                <span class="level-label">Nivel</span>
+                                <span class="level-value" style={`color: ${certificationLevels[product.certificationLevel].color}`}>
+                                    {certificationLevels[product.certificationLevel].label}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="ai-verification">
+                            <div class="verification-icon">✓</div>
+                            <span>Verificado por IA Avanzada</span>
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust-section">
+        <div class="trust-content">
+            <h2>¿Por qué elegir VQS?</h2>
+            <div class="trust-features">
+                <div class="trust-feature">
+                    <div class="feature-icon">🔬</div>
+                    <h3>Análisis Científico</h3>
+                    <p>Utilizamos algoritmos de machine learning para analizar cada aspecto de la calidad alimentaria</p>
+                </div>
+                <div class="trust-feature">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Certificación Rápida</h3>
+                    <p>Proceso de certificación automatizado que reduce tiempos de 30 días a 24 horas</p>
+                </div>
+                <div class="trust-feature">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Máxima Seguridad</h3>
+                    <p>Cumplimiento estricto de normas ISO, HACCP y regulaciones internacionales</p>
+                </div>
+                <div class="trust-feature">
+                    <div class="feature-icon">📊</div>
+                    <h3>Trazabilidad Total</h3>
+                    <p>Seguimiento completo desde el origen hasta el consumidor final</p>
+                </div>
+            </div>
+        </div>
+    </section>
 </MainLayout>
 
 <style>
-    .header-container {
+    .hero-section {
+        background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-green) 100%);
+        color: white;
+        padding: 4rem 0;
+        margin: 2rem -2rem 4rem -2rem;
+        border-radius: 16px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+        opacity: 0.3;
+    }
+
+    .hero-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 3rem;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+    }
+
+    .hero-text h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+    }
+
+    .highlight {
+        background: linear-gradient(45deg, #FFD700, #FFA500);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .hero-description {
+        font-size: 1.25rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+    }
+
+    .hero-stats {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .stat {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #FFD700;
+    }
+
+    .stat-label {
+        font-size: 0.9rem;
+        opacity: 0.8;
+    }
+
+    .hero-visual {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ai-badge {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        animation: float 3s ease-in-out infinite;
+    }
+
+    .ai-icon {
+        font-size: 4rem;
+        animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+    }
+
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+    }
+
+    .filter-section {
+        margin-bottom: 3rem;
+    }
+
+    .filter-header {
         text-align: center;
         margin-bottom: 2rem;
     }
+
+    .filter-header h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--neutral-800);
+        margin-bottom: 0.5rem;
+    }
+
+    .filter-header p {
+        font-size: 1.1rem;
+        color: var(--neutral-600);
+    }
+
+    .filter-controls {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .filter-btn {
+        background: var(--white);
+        border: 2px solid var(--neutral-200);
+        color: var(--neutral-700);
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+        background: var(--primary-blue);
+        border-color: var(--primary-blue);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+    }
+
+    .products-section {
+        margin-bottom: 4rem;
+    }
+
     .product-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Adjusted minmax */
-        gap: 1.5rem; /* Adjusted gap */
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 2rem;
     }
+
     .product-card {
-        background-color: white;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        background: var(--white);
+        border-radius: 16px;
         overflow: hidden;
-        text-align: center;
-        transition: transform 0.2s;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        min-height: 150px; /* Added min-height */
+        box-shadow: var(--shadow-md);
+        transition: all 0.3s ease;
+        border: 1px solid var(--neutral-200);
     }
+
     .product-card:hover {
-        transform: translateY(-5px);
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-xl);
     }
-    .card-content {
-        padding: 1.5rem; /* Adjusted padding */
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+
+    .product-image {
+        position: relative;
+        height: 200px;
+        overflow: hidden;
     }
-    .product-card h3 {
-        margin: 0 0 1rem 0;
-        font-size: 1.25rem;
+
+    .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
     }
-    .certification-seal {
-        background-color: var(--brand-green);
+
+    .product-card:hover .product-image img {
+        transform: scale(1.05);
+    }
+
+    .certification-badge {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
         color: white;
         padding: 0.5rem 1rem;
-        border-radius: 5px;
-        display: inline-flex;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        box-shadow: var(--shadow-md);
+    }
+
+    .product-content {
+        padding: 1.5rem;
+    }
+
+    .product-category {
+        color: var(--primary-blue);
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 0.5rem;
+    }
+
+    .product-name {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--neutral-800);
+        margin-bottom: 1rem;
+        line-height: 1.3;
+    }
+
+    .ai-metrics {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        padding: 1rem;
+        background: var(--neutral-100);
+        border-radius: 8px;
+    }
+
+    .ai-score, .certification-level {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .score-label, .level-label {
+        font-size: 0.8rem;
+        color: var(--neutral-500);
+        margin-bottom: 0.25rem;
+    }
+
+    .score-value {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--secondary-green);
+    }
+
+    .level-value {
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .ai-verification {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--secondary-green);
+        font-weight: 500;
+        font-size: 0.9rem;
+    }
+
+    .verification-icon {
+        background: var(--secondary-green);
+        color: white;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: flex;
         align-items: center;
         justify-content: center;
-        gap: 0.5rem;
-        font-weight: bold;
-        margin: 0 auto;
+        font-size: 0.8rem;
     }
-    .certification-seal .icon {
-        font-size: 1.2rem;
+
+    .trust-section {
+        background: var(--gradient-secondary);
+        padding: 4rem 2rem;
+        margin: 4rem -2rem 0 -2rem;
+        border-radius: 16px;
+    }
+
+    .trust-content {
+        max-width: 1000px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .trust-content h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--neutral-800);
+        margin-bottom: 3rem;
+    }
+
+    .trust-features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+    }
+
+    .trust-feature {
+        background: var(--white);
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: var(--shadow-md);
+        transition: transform 0.2s ease;
+    }
+
+    .trust-feature:hover {
+        transform: translateY(-4px);
+    }
+
+    .feature-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .trust-feature h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--neutral-800);
+        margin-bottom: 1rem;
+    }
+
+    .trust-feature p {
+        color: var(--neutral-600);
+        line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+        .hero-content {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .hero-text h1 {
+            font-size: 2.5rem;
+        }
+
+        .hero-stats {
+            justify-content: center;
+        }
+
+        .product-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .filter-controls {
+            gap: 0.5rem;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        .trust-section {
+            padding: 2rem 1rem;
+            margin: 2rem -1rem 0 -1rem;
+        }
+
+        .trust-content h2 {
+            font-size: 2rem;
+        }
     }
 </style>
+
+<script>
+    // Filter functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('.product-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+
+                const category = this.getAttribute('data-category');
+
+                productCards.forEach(card => {
+                    if (category === 'all' || card.getAttribute('data-category') === category) {
+                        card.style.display = 'block';
+                        card.style.animation = 'fadeIn 0.5s ease';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+</script>

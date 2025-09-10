@@ -2,111 +2,684 @@
 import MainLayout from '../layouts/MainLayout.astro';
 ---
 
-<MainLayout title="VQS - Sobre Nosotros">
+<MainLayout title="VQS - Sobre Nosotros | Certificación IA">
   <div class="about-container">
-    <header class="about-header">
-      <h1>Servicio de Verificación de la Calidad</h1>
-      <h2>Verification Quality Service (VQS)</h2>
-    </header>
-
-    <section class="content-section">
-      <p>Los procesos de calidad que se traducen en el cumplimiento de los protocolos que dan origen a las normas ISO, BRC, y normas sectoriales de HACCP, son sin duda un paso importante en la gestión de los sistemas de calidad.</p>
-      <p>Sin embargo, no es suficiente. Por ejemplo, los modelos de negocio que no ponen en el foco los requerimientos de los clientes en materia de plazos de entrega, calidad del producto y precio cerrado, tienen sus días contados.</p>
-      <p>Hoy las personas quieren un nuevo trato, no les interesa dinamizar con prácticas comerciales del siglo pasado. Los retail, no logran comprender porque no aumentan sus ventas a pesar de abrir compras on line. Los canales de TV abierta no logran establecer mejoras en sus programas, los diarios y revistas no logran mantener una atención por mas de un minuto, la compra de viviendas mantiene un porcentaje de venta ligado a ingresos de un elite que integra el sector mas inestable. Las personas quieren tener certeza que los productos y servicios que adquieren son en la realidad lo que compran, no les apetece que le digan cuando, a que hora les darán un programa, quieren tener acceso on line, no les interesa que el despacho sea gratis quieren que los productos y servicios contratado cumplan con la fecha y la hora comprometida. El tema se arrastra hace tiempo, pero hoy ya el mundo no se detendrá para que las organizaciones se suban, sencillamente no podrá subirse, es demasiado tarde, si no entrega certeza en lo que se hace.</p>
-      <p>Sin querer no se dan cuenta que la cadena de valor de los procesos se pierde y con ello la subsistencia. Entregar un servicio fuera de hora, o equivocarse en la calidad o no respetar el precio, sencillamente es no comprender que el mundo giró.</p>
+    <!-- Hero Section -->
+    <section class="about-hero">
+      <div class="hero-content">
+        <h1>Revolucionando la Certificación Alimentaria</h1>
+        <p class="hero-subtitle">Verification Quality Service (VQS)</p>
+        <div class="hero-description">
+          <p>Somos pioneros en la certificación de productos alimentarios mediante inteligencia artificial, 
+          garantizando los más altos estándares de calidad y seguridad para consumidores y empresas.</p>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="tech-badge">
+          <div class="tech-icon">🧠</div>
+          <span>IA Avanzada</span>
+        </div>
+      </div>
     </section>
 
-    <section class="market-need">
-      <h3>Nuestra Misión</h3>
-      <p>El mercado requiere una empresa que verifique el cumplimiento de las expectativas y la satisfacción de los clientes, los usuarios y usuarias de la empresa, de los servicios que se entregan.</p>
-      <p class="mission-statement">Tener la certeza que lo que se adquiere es lo que se recibe es un derecho. <strong>VQS le entregara la certeza de ese derecho.</strong></p>
+    <!-- Mission Section -->
+    <section class="mission-section">
+      <div class="section-header">
+        <h2>Nuestra Misión</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="mission-content">
+        <div class="mission-text">
+          <p class="mission-statement">
+            Transformar la industria alimentaria mediante tecnología de inteligencia artificial que garantice 
+            la máxima calidad, seguridad y transparencia en cada producto certificado.
+          </p>
+          <div class="mission-points">
+            <div class="point">
+              <div class="point-icon">🎯</div>
+              <div class="point-content">
+                <h3>Precisión Absoluta</h3>
+                <p>Análisis exhaustivo con 99.8% de precisión en la detección de calidad alimentaria</p>
+              </div>
+            </div>
+            <div class="point">
+              <div class="point-icon">⚡</div>
+              <div class="point-content">
+                <h3>Velocidad Incomparable</h3>
+                <p>Certificación en 24 horas vs. 30 días de métodos tradicionales</p>
+              </div>
+            </div>
+            <div class="point">
+              <div class="point-icon">🌍</div>
+              <div class="point-content">
+                <h3>Impacto Global</h3>
+                <p>Contribuyendo a un sistema alimentario más seguro y sostenible</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mission-stats">
+          <div class="stat-card">
+            <div class="stat-number">10,000+</div>
+            <div class="stat-label">Productos Certificados</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Empresas Confiadas</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">99.8%</div>
+            <div class="stat-label">Precisión IA</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Monitoreo Activo</div>
+          </div>
+        </div>
+      </div>
     </section>
 
+    <!-- Problem Solution Section -->
+    <section class="problem-solution">
+      <div class="section-header">
+        <h2>El Desafío del Mercado Actual</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="problem-content">
+        <div class="problem-text">
+          <p>
+            Los procesos tradicionales de certificación alimentaria enfrentan desafíos críticos que afectan 
+            tanto a productores como a consumidores. Los métodos convencionales son lentos, costosos y 
+            propensos a errores humanos.
+          </p>
+          <div class="challenges">
+            <div class="challenge">
+              <div class="challenge-icon">⏰</div>
+              <h3>Tiempos Prolongados</h3>
+              <p>Procesos que toman semanas o meses para completarse</p>
+            </div>
+            <div class="challenge">
+              <div class="challenge-icon">💰</div>
+              <h3>Costos Elevados</h3>
+              <p>Certificaciones tradicionales con altos costos operativos</p>
+            </div>
+            <div class="challenge">
+              <div class="challenge-icon">❌</div>
+              <h3>Error Humano</h3>
+              <p>Inconsistencias en evaluaciones manuales</p>
+            </div>
+          </div>
+        </div>
+        <div class="solution-text">
+          <h3>Nuestra Solución IA</h3>
+          <p>
+            VQS revoluciona este panorama con tecnología de inteligencia artificial que automatiza, 
+            acelera y perfecciona el proceso de certificación alimentaria.
+          </p>
+          <div class="solutions">
+            <div class="solution">
+              <div class="solution-icon">🚀</div>
+              <h4>Certificación Instantánea</h4>
+              <p>Análisis completo en menos de 24 horas</p>
+            </div>
+            <div class="solution">
+              <div class="solution-icon">💡</div>
+              <h4>Costos Reducidos</h4>
+              <p>Hasta 70% menos costoso que métodos tradicionales</p>
+            </div>
+            <div class="solution">
+              <div class="solution-icon">🎯</div>
+              <h4>Precisión Perfecta</h4>
+              <p>Eliminación del error humano con IA avanzada</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
     <section class="services-section">
-      <h3>Nuestras Áreas de Servicio</h3>
-      <ul class="services-list">
-        <li><strong>Area Alimentación:</strong> Seguridad alimenticia en línea. Sensores de análisis.</li>
-        <li><strong>Area Información y Soporte:</strong> Seguridad y protección de datos.</li>
-        <li><strong>Area Encuestas y Estadísticas:</strong> Satisfacción de clientes y no conformidades.</li>
-        <li><strong>Area Mantención y Equipamientos:</strong> Seguridad y certeza que las actividades se realizan cumpliendo las regulaciones legales y normativas.</li>
-      </ul>
+      <div class="section-header">
+        <h2>Nuestras Áreas de Especialización</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🥗</div>
+          <h3>Seguridad Alimentaria</h3>
+          <p>Análisis en tiempo real de contaminantes, patógenos y calidad nutricional mediante sensores IoT y algoritmos de machine learning.</p>
+          <ul class="service-features">
+            <li>Detección de contaminantes</li>
+            <li>Análisis microbiológico</li>
+            <li>Evaluación nutricional</li>
+            <li>Trazabilidad completa</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔒</div>
+          <h3>Protección de Datos</h3>
+          <p>Sistemas seguros de información que protegen datos sensibles de productores y consumidores con encriptación de nivel empresarial.</p>
+          <ul class="service-features">
+            <li>Encriptación avanzada</li>
+            <li>Cumplimiento GDPR</li>
+            <li>Auditorías de seguridad</li>
+            <li>Backup automático</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📊</div>
+          <h3>Análisis y Estadísticas</h3>
+          <p>Plataforma de inteligencia de negocios que proporciona insights valiosos sobre tendencias de calidad y satisfacción del cliente.</p>
+          <ul class="service-features">
+            <li>Dashboards interactivos</li>
+            <li>Reportes automatizados</li>
+            <li>Análisis predictivo</li>
+            <li>KPIs personalizados</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔧</div>
+          <h3>Mantenimiento Inteligente</h3>
+          <p>Monitoreo predictivo de equipos y procesos que garantiza el cumplimiento continuo de regulaciones y normativas.</p>
+          <ul class="service-features">
+            <li>Mantenimiento predictivo</li>
+            <li>Monitoreo IoT</li>
+            <li>Alertas automáticas</li>
+            <li>Cumplimiento normativo</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="technology-section">
+      <div class="section-header">
+        <h2>Tecnología de Vanguardia</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="tech-content">
+        <div class="tech-features">
+          <div class="tech-feature">
+            <div class="tech-icon">🤖</div>
+            <h3>Machine Learning Avanzado</h3>
+            <p>Algoritmos de aprendizaje profundo entrenados con millones de muestras alimentarias</p>
+          </div>
+          <div class="tech-feature">
+            <div class="tech-icon">📡</div>
+            <h3>Sensores IoT</h3>
+            <p>Red de sensores inteligentes para monitoreo continuo de calidad</p>
+          </div>
+          <div class="tech-feature">
+            <div class="tech-icon">☁️</div>
+            <h3>Cloud Computing</h3>
+            <p>Infraestructura escalable en la nube para procesamiento masivo de datos</p>
+          </div>
+          <div class="tech-feature">
+            <div class="tech-icon">🔗</div>
+            <h3>Blockchain</h3>
+            <p>Trazabilidad inmutable y transparente de toda la cadena alimentaria</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="cta-content">
+        <h2>¿Listo para Revolucionar tu Certificación?</h2>
+        <p>Únete a las empresas líderes que ya confían en VQS para garantizar la máxima calidad de sus productos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto" class="cta-primary">Solicitar Demo</a>
+          <a href="/servicios" class="cta-secondary">Ver Servicios</a>
+        </div>
+      </div>
     </section>
   </div>
 </MainLayout>
 
 <style>
   .about-container {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem 1rem;
   }
 
-  .about-header {
+  .about-hero {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    padding: 3rem 0;
+    margin-bottom: 4rem;
+  }
+
+  .hero-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--neutral-800);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;
+    color: var(--primary-blue);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-description p {
+    font-size: 1.2rem;
+    color: var(--neutral-600);
+    line-height: 1.6;
+  }
+
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .tech-badge {
+    background: var(--gradient-primary);
+    color: white;
+    padding: 2rem;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: var(--shadow-xl);
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .tech-icon {
+    font-size: 4rem;
+  }
+
+  .section-header {
     text-align: center;
     margin-bottom: 3rem;
-    border-bottom: 2px solid var(--brand-green);
-    padding-bottom: 1.5rem;
   }
 
-  .about-header h1 {
+  .section-header h2 {
     font-size: 2.5rem;
-    color: var(--text-color);
-    margin-bottom: 0.5rem;
+    font-weight: 700;
+    color: var(--neutral-800);
+    margin-bottom: 1rem;
   }
 
-  .about-header h2 {
-    font-size: 1.5rem;
-    color: #777;
-    font-weight: 400;
+  .section-line {
+    width: 80px;
+    height: 4px;
+    background: var(--gradient-primary);
+    margin: 0 auto;
+    border-radius: 2px;
   }
 
-  .content-section p, .market-need p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-    text-align: justify;
+  .mission-section {
+    margin-bottom: 5rem;
   }
 
-  .market-need, .services-section {
-    margin-top: 3rem;
-    padding: 2rem;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    border-left: 5px solid var(--brand-orange);
-  }
-
-  .market-need h3, .services-section h3 {
-    font-size: 1.8rem;
-    color: var(--brand-green);
-    margin-top: 0;
-    margin-bottom: 1.5rem;
+  .mission-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    align-items: start;
   }
 
   .mission-statement {
-    font-size: 1.2rem !important;
-    font-style: italic;
-    text-align: center !important;
-    color: #555;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--primary-blue);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background: var(--gradient-secondary);
+    border-radius: 12px;
+    border-left: 4px solid var(--primary-blue);
   }
 
-  .services-list {
+  .mission-points {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .point {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .point-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+
+  .point-content h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--neutral-800);
+    margin-bottom: 0.5rem;
+  }
+
+  .point-content p {
+    color: var(--neutral-600);
+    line-height: 1.5;
+  }
+
+  .mission-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .stat-card {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--neutral-200);
+  }
+
+  .stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+    color: var(--neutral-600);
+  }
+
+  .problem-solution {
+    background: var(--neutral-100);
+    padding: 4rem 2rem;
+    margin: 4rem -2rem;
+    border-radius: 16px;
+  }
+
+  .problem-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .problem-text p, .solution-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--neutral-700);
+    margin-bottom: 2rem;
+  }
+
+  .solution-text h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+  }
+
+  .challenges, .solutions {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .challenge, .solution {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .challenge-icon, .solution-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+  }
+
+  .challenge h3, .solution h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .challenge h3 {
+    color: var(--accent-orange);
+  }
+
+  .solution h4 {
+    color: var(--secondary-green);
+  }
+
+  .challenge p, .solution p {
+    color: var(--neutral-600);
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  .services-section {
+    margin: 5rem 0;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .service-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--neutral-200);
+    transition: all 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .service-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .service-card h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--neutral-800);
+    margin-bottom: 1rem;
+  }
+
+  .service-card p {
+    color: var(--neutral-600);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-features {
     list-style: none;
     padding: 0;
   }
 
-  .services-list li {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    margin-bottom: 1rem;
-    padding-left: 1.5rem;
+  .service-features li {
+    color: var(--neutral-700);
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--neutral-200);
     position: relative;
+    padding-left: 1.5rem;
   }
 
-  .services-list li::before {
+  .service-features li:last-child {
+    border-bottom: none;
+  }
+
+  .service-features li::before {
     content: '✓';
-    color: var(--brand-green);
+    color: var(--secondary-green);
+    font-weight: bold;
     position: absolute;
     left: 0;
-    font-weight: bold;
+  }
+
+  .technology-section {
+    background: var(--gradient-secondary);
+    padding: 4rem 2rem;
+    margin: 4rem -2rem;
+    border-radius: 16px;
+  }
+
+  .tech-content {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .tech-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .tech-feature {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.2s ease;
+  }
+
+  .tech-feature:hover {
+    transform: translateY(-4px);
+  }
+
+  .tech-feature .tech-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .tech-feature h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--neutral-800);
+    margin-bottom: 1rem;
+  }
+
+  .tech-feature p {
+    color: var(--neutral-600);
+    line-height: 1.5;
+  }
+
+  .cta-section {
+    background: var(--gradient-primary);
+    color: white;
+    padding: 4rem 2rem;
+    margin: 4rem -2rem 0 -2rem;
+    border-radius: 16px;
+    text-align: center;
+  }
+
+  .cta-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-primary, .cta-secondary {
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+
+  .cta-primary {
+    background: white;
+    color: var(--primary-blue);
+  }
+
+  .cta-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .cta-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+  }
+
+  .cta-secondary:hover {
+    background: white;
+    color: var(--primary-blue);
+  }
+
+  @media (max-width: 768px) {
+    .about-hero {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .hero-content h1 {
+      font-size: 2.5rem;
+    }
+
+    .mission-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .mission-stats {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .problem-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .tech-features {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cta-primary, .cta-secondary {
+      width: 200px;
+    }
   }
 </style>
