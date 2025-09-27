@@ -1,0 +1,1191 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+const services = [
+    {
+        id: 'certificacion-ia',
+        title: 'Certificación por IA',
+        description: 'Análisis exhaustivo de productos alimentarios utilizando algoritmos de inteligencia artificial avanzada',
+        icon: '🧠',
+        features: [
+            'Análisis espectral completo',
+            'Detección de contaminantes',
+            'Evaluación nutricional',
+            'Verificación de autenticidad',
+            'Predicción de vida útil'
+        ],
+        benefits: [
+            'Precisión del 99.8%',
+            'Resultados en 24 horas',
+            'Certificado internacional',
+            'Trazabilidad blockchain'
+        ],
+        price: 'Desde $299',
+        popular: true
+    },
+    {
+        id: 'blockchain-trazabilidad',
+        title: 'Trazabilidad Blockchain',
+        description: 'Sistema inmutable de seguimiento desde origen hasta consumidor final',
+        icon: '🔗',
+        features: [
+            'Registro inmutable',
+            'Seguimiento en tiempo real',
+            'Verificación de origen',
+            'Historial completo',
+            'Smart contracts'
+        ],
+        benefits: [
+            'Transparencia total',
+            'Prevención de fraudes',
+            'Cumplimiento regulatorio',
+            'Confianza del consumidor'
+        ],
+        price: 'Desde $199',
+        popular: false
+    },
+    {
+        id: 'monitoreo-continuo',
+        title: 'Monitoreo Continuo',
+        description: 'Supervisión permanente de calidad mediante sensores IoT y análisis predictivo',
+        icon: '📊',
+        features: [
+            'Sensores IoT avanzados',
+            'Análisis predictivo',
+            'Alertas automáticas',
+            'Dashboard en tiempo real',
+            'Reportes automatizados'
+        ],
+        benefits: [
+            'Prevención proactiva',
+            'Reducción de desperdicios',
+            'Optimización de procesos',
+            'Cumplimiento automático'
+        ],
+        price: 'Desde $399',
+        popular: false
+    },
+    {
+        id: 'consultoria-especializada',
+        title: 'Consultoría Especializada',
+        description: 'Asesoramiento experto para implementación de sistemas de calidad alimentaria',
+        icon: '👨‍🔬',
+        features: [
+            'Auditorías especializadas',
+            'Diseño de procesos',
+            'Capacitación de equipos',
+            'Implementación HACCP',
+            'Certificaciones ISO'
+        ],
+        benefits: [
+            'Expertise internacional',
+            'Soluciones personalizadas',
+            'Acompañamiento integral',
+            'Mejora continua'
+        ],
+        price: 'Cotización personalizada',
+        popular: false
+    }
+];
+
+const industries = [
+    {
+        name: 'Industria Láctea',
+        icon: '🥛',
+        description: 'Certificación especializada para productos lácteos y derivados',
+        applications: ['Leche', 'Quesos', 'Yogures', 'Mantequilla'],
+        stats: { clients: '150+', products: '2,500+' }
+    },
+    {
+        name: 'Cárnicos y Embutidos',
+        icon: '🥩',
+        description: 'Análisis integral de carnes, aves y productos cárnicos procesados',
+        applications: ['Carne fresca', 'Embutidos', 'Aves', 'Conservas'],
+        stats: { clients: '200+', products: '3,200+' }
+    },
+    {
+        name: 'Productos del Mar',
+        icon: '🐟',
+        description: 'Certificación de pescados, mariscos y productos marinos',
+        applications: ['Pescado fresco', 'Mariscos', 'Conservas', 'Congelados'],
+        stats: { clients: '80+', products: '1,100+' }
+    },
+    {
+        name: 'Frutas y Vegetales',
+        icon: '🥬',
+        description: 'Análisis de productos agrícolas frescos y procesados',
+        applications: ['Frutas frescas', 'Vegetales', 'Jugos', 'Conservas'],
+        stats: { clients: '300+', products: '4,800+' }
+    },
+    {
+        name: 'Granos y Cereales',
+        icon: '🌾',
+        description: 'Certificación de cereales, legumbres y derivados',
+        applications: ['Trigo', 'Arroz', 'Legumbres', 'Harinas'],
+        stats: { clients: '120+', products: '2,000+' }
+    },
+    {
+        name: 'Bebidas',
+        icon: '🥤',
+        description: 'Análisis de bebidas alcohólicas y no alcohólicas',
+        applications: ['Agua', 'Refrescos', 'Vinos', 'Cervezas'],
+        stats: { clients: '90+', products: '1,500+' }
+    }
+];
+
+const processSteps = [
+    {
+        step: 1,
+        title: 'Solicitud y Registro',
+        description: 'Registro en plataforma y envío de información del producto',
+        icon: '📝',
+        duration: '1 día'
+    },
+    {
+        step: 2,
+        title: 'Recepción de Muestras',
+        description: 'Recolección o envío de muestras a nuestros laboratorios',
+        icon: '📦',
+        duration: '2-3 días'
+    },
+    {
+        step: 3,
+        title: 'Análisis por IA',
+        description: 'Procesamiento mediante algoritmos de machine learning',
+        icon: '🔬',
+        duration: '12-24 horas'
+    },
+    {
+        step: 4,
+        title: 'Validación Experta',
+        description: 'Revisión por especialistas y validación de resultados',
+        icon: '👨‍🔬',
+        duration: '4-6 horas'
+    },
+    {
+        step: 5,
+        title: 'Certificación',
+        description: 'Emisión de certificado digital y registro en blockchain',
+        icon: '🏆',
+        duration: '2-4 horas'
+    },
+    {
+        step: 6,
+        title: 'Entrega',
+        description: 'Envío de certificado y activación de trazabilidad',
+        icon: '✅',
+        duration: '1 hora'
+    }
+];
+
+const certificationTypes = [
+    {
+        name: 'VQS Platinum',
+        description: 'Certificación premium para productos de excelencia suprema',
+        color: '#8B5CF6',
+        bgColor: 'rgba(139, 92, 246, 0.1)',
+        minScore: 98,
+        features: [
+            'Análisis completo por IA',
+            'Validación por 3 expertos',
+            'Trazabilidad blockchain premium',
+            'Monitoreo continuo 12 meses',
+            'Sello holográfico especial',
+            'Renovación automática'
+        ],
+        validity: '12 meses',
+        price: '$599'
+    },
+    {
+        name: 'VQS Gold',
+        description: 'Certificación de alta calidad para productos premium',
+        color: '#D97706',
+        bgColor: 'rgba(217, 119, 6, 0.1)',
+        minScore: 95,
+        features: [
+            'Análisis por IA avanzado',
+            'Validación por 2 expertos',
+            'Trazabilidad blockchain',
+            'Monitoreo trimestral',
+            'Sello digital verificable'
+        ],
+        validity: '12 meses',
+        price: '$399'
+    },
+    {
+        name: 'VQS Silver',
+        description: 'Certificación estándar superior para productos de calidad',
+        color: '#059669',
+        bgColor: 'rgba(5, 150, 105, 0.1)',
+        minScore: 90,
+        features: [
+            'Análisis por IA estándar',
+            'Validación por 1 experto',
+            'Registro blockchain',
+            'Monitoreo semestral',
+            'Certificado digital'
+        ],
+        validity: '12 meses',
+        price: '$299'
+    },
+    {
+        name: 'VQS Certified',
+        description: 'Certificación básica que garantiza estándares mínimos',
+        color: '#1E40AF',
+        bgColor: 'rgba(30, 64, 175, 0.1)',
+        minScore: 85,
+        features: [
+            'Análisis básico por IA',
+            'Validación automatizada',
+            'Registro en sistema',
+            'Certificado básico'
+        ],
+        validity: '6 meses',
+        price: '$199'
+    }
+];
+---
+
+<MainLayout title="VQS - Servicios | Certificación IA y Trazabilidad Blockchain">
+    <!-- Hero Section -->
+    <section class="services-hero">
+        <div class="hero-background">
+            <div class="hero-pattern"></div>
+            <div class="hero-glow"></div>
+        </div>
+        <div class="hero-content fade-in-up">
+            <div class="hero-badge">
+                <span class="badge-icon">🔬</span>
+                <span>Tecnología de Vanguardia</span>
+            </div>
+            <h1>Servicios de Certificación <span class="gradient-text">Inteligente</span></h1>
+            <p class="hero-description">
+                Transformamos la industria alimentaria con soluciones avanzadas de inteligencia artificial, 
+                blockchain y análisis predictivo para garantizar la máxima calidad y seguridad.
+            </p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">15,000+</div>
+                    <div class="stat-label">Productos Certificados</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">99.8%</div>
+                    <div class="stat-label">Precisión IA</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24h</div>
+                    <div class="stat-label">Tiempo Respuesta</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="services-section">
+        <div class="section-header fade-in-up">
+            <h2>Nuestros Servicios</h2>
+            <p>Soluciones integrales para cada necesidad de certificación alimentaria</p>
+        </div>
+        <div class="services-grid">
+            {services.map((service, index) => (
+                <div class={`service-card ${service.popular ? 'popular' : ''} fade-in-up stagger-delay-${(index % 4) + 1}`}>
+                    {service.popular && <div class="popular-badge">Más Popular</div>}
+                    <div class="service-header">
+                        <div class="service-icon">{service.icon}</div>
+                        <h3>{service.title}</h3>
+                        <p class="service-description">{service.description}</p>
+                    </div>
+                    <div class="service-features">
+                        <h4>Características:</h4>
+                        <ul>
+                            {service.features.map(feature => (
+                                <li>
+                                    <span class="feature-icon">✓</span>
+                                    {feature}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div class="service-benefits">
+                        <h4>Beneficios:</h4>
+                        <ul>
+                            {service.benefits.map(benefit => (
+                                <li>
+                                    <span class="benefit-icon">🎯</span>
+                                    {benefit}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div class="service-footer">
+                        <div class="service-price">{service.price}</div>
+                        <button class="btn-primary service-btn">
+                            <span>Solicitar</span>
+                            <span class="btn-icon">→</span>
+                        </button>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <!-- Certification Types -->
+    <section class="certification-types-section">
+        <div class="section-header fade-in-up">
+            <h2>Tipos de Certificación</h2>
+            <p>Elige el nivel de certificación que mejor se adapte a tus necesidades</p>
+        </div>
+        <div class="certification-grid">
+            {certificationTypes.map((cert, index) => (
+                <div class={`certification-card fade-in-up stagger-delay-${(index % 4) + 1}`} style={`border-color: ${cert.color}; background: ${cert.bgColor};`}>
+                    <div class="cert-header">
+                        <div class="cert-badge" style={`background: ${cert.color};`}>
+                            Score ≥ {cert.minScore}%
+                        </div>
+                        <h3 style={`color: ${cert.color};`}>{cert.name}</h3>
+                        <p>{cert.description}</p>
+                    </div>
+                    <div class="cert-features">
+                        {cert.features.map(feature => (
+                            <div class="cert-feature">
+                                <span class="feature-check" style={`color: ${cert.color};`}>✓</span>
+                                <span>{feature}</span>
+                            </div>
+                        ))}
+                    </div>
+                    <div class="cert-footer">
+                        <div class="cert-details">
+                            <div class="cert-validity">Vigencia: {cert.validity}</div>
+                            <div class="cert-price">{cert.price}</div>
+                        </div>
+                        <button class="btn-outline cert-btn" style={`border-color: ${cert.color}; color: ${cert.color};`}>
+                            Certificar Producto
+                        </button>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section class="industries-section">
+        <div class="section-header fade-in-up">
+            <h2>Industrias que Atendemos</h2>
+            <p>Especialistas en diversos sectores de la industria alimentaria</p>
+        </div>
+        <div class="industries-grid">
+            {industries.map((industry, index) => (
+                <div class={`industry-card fade-in-up stagger-delay-${(index % 3) + 1}`}>
+                    <div class="industry-icon">{industry.icon}</div>
+                    <h3>{industry.name}</h3>
+                    <p>{industry.description}</p>
+                    <div class="industry-applications">
+                        {industry.applications.map(app => (
+                            <span class="application-tag">{app}</span>
+                        ))}
+                    </div>
+                    <div class="industry-stats">
+                        <div class="stat">
+                            <span class="stat-number">{industry.stats.clients}</span>
+                            <span class="stat-label">Clientes</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">{industry.stats.products}</span>
+                            <span class="stat-label">Productos</span>
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="process-background">
+            <div class="process-pattern"></div>
+        </div>
+        <div class="section-header fade-in-up">
+            <h2>Proceso de Certificación</h2>
+            <p>Un flujo optimizado que garantiza rapidez y precisión</p>
+        </div>
+        <div class="process-timeline">
+            {processSteps.map((step, index) => (
+                <div class={`process-step fade-in-up stagger-delay-${(index % 6) + 1}`}>
+                    <div class="step-marker">
+                        <div class="step-number">{step.step}</div>
+                        <div class="step-icon">{step.icon}</div>
+                    </div>
+                    <div class="step-content">
+                        <h3>{step.title}</h3>
+                        <p>{step.description}</p>
+                        <div class="step-duration">⏱️ {step.duration}</div>
+                    </div>
+                    {index < processSteps.length - 1 && <div class="step-connector"></div>}
+                </div>
+            ))}
+        </div>
+        <div class="process-summary fade-in-up">
+            <div class="summary-card">
+                <div class="summary-icon">⚡</div>
+                <h3>Tiempo Total Promedio</h3>
+                <div class="total-time">3-5 días laborables</div>
+                <p>Desde la recepción de muestras hasta la certificación final</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="services-cta-section">
+        <div class="cta-background">
+            <div class="cta-glow"></div>
+        </div>
+        <div class="cta-content fade-in-up">
+            <h2>¿Listo para Certificar tus Productos?</h2>
+            <p>Inicia el proceso de certificación hoy mismo y obtén resultados en 24 horas</p>
+            <div class="cta-actions">
+                <button class="btn-primary large">
+                    <span>Comenzar Certificación</span>
+                    <span class="btn-icon">🚀</span>
+                </button>
+                <button class="btn-secondary large">
+                    <span class="btn-icon">💬</span>
+                    <span>Hablar con Experto</span>
+                </button>
+            </div>
+            <div class="cta-benefits">
+                <div class="benefit-item">
+                    <span class="benefit-icon">✅</span>
+                    <span>Sin compromiso inicial</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">🔒</span>
+                    <span>Información confidencial</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">⚡</span>
+                    <span>Respuesta en 2 horas</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</MainLayout>
+
+<style>
+    /* Hero Section */
+    .services-hero {
+        position: relative;
+        padding: var(--space-4xl) 0;
+        margin: var(--space-xl) calc(-1 * var(--space-xl)) var(--space-4xl);
+        background: var(--gradient-primary);
+        color: white;
+        border-radius: var(--radius-2xl);
+        overflow: hidden;
+    }
+
+    .hero-background {
+        position: absolute;
+        inset: 0;
+        opacity: 0.1;
+    }
+
+    .hero-pattern {
+        position: absolute;
+        inset: 0;
+        background-image: 
+            linear-gradient(30deg, rgba(255,255,255,0.1) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.1) 87.5%),
+            linear-gradient(150deg, rgba(255,255,255,0.1) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.1) 87.5%);
+        background-size: 80px 80px;
+        animation: pattern-slide 25s linear infinite;
+    }
+
+    .hero-glow {
+        position: absolute;
+        top: 20%;
+        right: 10%;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+        border-radius: 50%;
+        animation: float 8s ease-in-out infinite;
+    }
+
+    @keyframes pattern-slide {
+        0% { transform: translate(0, 0); }
+        100% { transform: translate(80px, 80px); }
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 var(--space-xl);
+    }
+
+    .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-sm);
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: var(--space-sm) var(--space-lg);
+        border-radius: var(--radius-full);
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin-bottom: var(--space-xl);
+    }
+
+    .services-hero h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: var(--space-xl);
+    }
+
+    .hero-description {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        opacity: 0.9;
+        margin-bottom: var(--space-2xl);
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-xl);
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .stat-item {
+        text-align: center;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #FFD700;
+        margin-bottom: var(--space-xs);
+    }
+
+    .stat-label {
+        font-size: 0.9rem;
+        opacity: 0.8;
+        font-weight: 500;
+    }
+
+    /* Services Section */
+    .services-section {
+        padding: var(--space-4xl) 0;
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: var(--space-2xl);
+    }
+
+    .service-card {
+        background: white;
+        border-radius: var(--radius-xl);
+        padding: var(--space-2xl);
+        box-shadow: var(--shadow-lg);
+        border: 2px solid transparent;
+        transition: all var(--transition-normal);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-2xl);
+        border-color: var(--color-primary-400);
+    }
+
+    .service-card.popular {
+        border-color: var(--color-primary-500);
+        box-shadow: var(--shadow-2xl);
+    }
+
+    .popular-badge {
+        position: absolute;
+        top: var(--space-lg);
+        right: var(--space-lg);
+        background: var(--gradient-primary);
+        color: white;
+        padding: var(--space-xs) var(--space-md);
+        border-radius: var(--radius-full);
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .service-header {
+        margin-bottom: var(--space-xl);
+    }
+
+    .service-icon {
+        font-size: 3rem;
+        margin-bottom: var(--space-lg);
+    }
+
+    .service-card h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--color-gray-900);
+        margin-bottom: var(--space-md);
+    }
+
+    .service-description {
+        color: var(--color-gray-600);
+        line-height: 1.6;
+        margin-bottom: var(--space-lg);
+    }
+
+    .service-features, .service-benefits {
+        margin-bottom: var(--space-xl);
+    }
+
+    .service-features h4, .service-benefits h4 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--color-gray-800);
+        margin-bottom: var(--space-md);
+    }
+
+    .service-features ul, .service-benefits ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .service-features li, .service-benefits li {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        padding: var(--space-xs) 0;
+        color: var(--color-gray-700);
+        font-size: 0.9rem;
+    }
+
+    .feature-icon {
+        color: var(--color-primary-500);
+        font-weight: 600;
+        width: 16px;
+        text-align: center;
+    }
+
+    .benefit-icon {
+        font-size: 0.8rem;
+    }
+
+    .service-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: var(--space-lg);
+        border-top: 1px solid var(--color-gray-200);
+    }
+
+    .service-price {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--color-primary-600);
+    }
+
+    .service-btn {
+        padding: var(--space-md) var(--space-xl);
+        font-size: 0.9rem;
+    }
+
+    /* Certification Types */
+    .certification-types-section {
+        padding: var(--space-4xl) 0;
+        background: var(--color-gray-50);
+    }
+
+    .certification-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--space-2xl);
+    }
+
+    .certification-card {
+        background: white;
+        border-radius: var(--radius-xl);
+        padding: var(--space-2xl);
+        border: 2px solid;
+        transition: all var(--transition-normal);
+        position: relative;
+    }
+
+    .certification-card:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-xl);
+    }
+
+    .cert-header {
+        text-align: center;
+        margin-bottom: var(--space-xl);
+    }
+
+    .cert-badge {
+        display: inline-block;
+        color: white;
+        padding: var(--space-xs) var(--space-md);
+        border-radius: var(--radius-full);
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-bottom: var(--space-md);
+    }
+
+    .certification-card h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: var(--space-sm);
+    }
+
+    .cert-features {
+        margin-bottom: var(--space-xl);
+    }
+
+    .cert-feature {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        padding: var(--space-sm) 0;
+        font-size: 0.9rem;
+        color: var(--color-gray-700);
+    }
+
+    .feature-check {
+        font-weight: 600;
+        width: 16px;
+    }
+
+    .cert-footer {
+        border-top: 1px solid var(--color-gray-200);
+        padding-top: var(--space-lg);
+    }
+
+    .cert-details {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: var(--space-lg);
+    }
+
+    .cert-validity {
+        font-size: 0.9rem;
+        color: var(--color-gray-600);
+    }
+
+    .cert-price {
+        font-size: 1.25rem;
+        font-weight: 700;
+    }
+
+    .cert-btn {
+        width: 100%;
+        padding: var(--space-md) var(--space-lg);
+        font-weight: 600;
+        border: 2px solid;
+        background: transparent;
+        border-radius: var(--radius-lg);
+        cursor: pointer;
+        transition: all var(--transition-normal);
+    }
+
+    .cert-btn:hover {
+        background: currentColor;
+        color: white !important;
+    }
+
+    /* Industries Section */
+    .industries-section {
+        padding: var(--space-4xl) 0;
+    }
+
+    .industries-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: var(--space-2xl);
+    }
+
+    .industry-card {
+        background: white;
+        border-radius: var(--radius-xl);
+        padding: var(--space-2xl);
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--color-gray-200);
+        transition: all var(--transition-normal);
+    }
+
+    .industry-card:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-lg);
+        border-color: var(--color-primary-300);
+    }
+
+    .industry-icon {
+        font-size: 3rem;
+        margin-bottom: var(--space-lg);
+    }
+
+    .industry-card h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--color-gray-900);
+        margin-bottom: var(--space-md);
+    }
+
+    .industry-card p {
+        color: var(--color-gray-600);
+        margin-bottom: var(--space-lg);
+        line-height: 1.6;
+    }
+
+    .industry-applications {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-sm);
+        margin-bottom: var(--space-xl);
+    }
+
+    .application-tag {
+        background: var(--color-primary-100);
+        color: var(--color-primary-800);
+        padding: var(--space-xs) var(--space-md);
+        border-radius: var(--radius-full);
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+
+    .industry-stats {
+        display: flex;
+        justify-content: space-around;
+        padding-top: var(--space-lg);
+        border-top: 1px solid var(--color-gray-200);
+    }
+
+    .industry-stats .stat {
+        text-align: center;
+    }
+
+    .industry-stats .stat-number {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--color-primary-600);
+        display: block;
+    }
+
+    .industry-stats .stat-label {
+        font-size: 0.8rem;
+        color: var(--color-gray-600);
+        margin-top: var(--space-xs);
+    }
+
+    /* Process Section */
+    .process-section {
+        padding: var(--space-4xl) 0;
+        background: var(--color-gray-50);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .process-background {
+        position: absolute;
+        inset: 0;
+        opacity: 0.05;
+    }
+
+    .process-pattern {
+        position: absolute;
+        inset: 0;
+        background-image: 
+            radial-gradient(circle at 25% 25%, var(--color-primary-500) 2px, transparent 2px),
+            radial-gradient(circle at 75% 75%, var(--color-primary-500) 1px, transparent 1px);
+        background-size: 50px 50px;
+        animation: pattern-move 20s linear infinite;
+    }
+
+    @keyframes pattern-move {
+        0% { transform: translate(0, 0); }
+        100% { transform: translate(50px, 50px); }
+    }
+
+    .process-timeline {
+        position: relative;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: var(--space-2xl) 0;
+    }
+
+    .process-step {
+        display: flex;
+        align-items: center;
+        gap: var(--space-2xl);
+        margin-bottom: var(--space-3xl);
+        position: relative;
+    }
+
+    .process-step:last-child {
+        margin-bottom: 0;
+    }
+
+    .step-marker {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-md);
+        min-width: 100px;
+    }
+
+    .step-number {
+        width: 40px;
+        height: 40px;
+        background: var(--gradient-primary);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.1rem;
+    }
+
+    .step-icon {
+        font-size: 2rem;
+    }
+
+    .step-content {
+        background: white;
+        padding: var(--space-xl);
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-lg);
+        flex: 1;
+        border: 1px solid var(--color-gray-200);
+    }
+
+    .step-content h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--color-gray-900);
+        margin-bottom: var(--space-md);
+    }
+
+    .step-content p {
+        color: var(--color-gray-600);
+        line-height: 1.6;
+        margin-bottom: var(--space-md);
+    }
+
+    .step-duration {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-xs);
+        background: var(--color-primary-100);
+        color: var(--color-primary-800);
+        padding: var(--space-xs) var(--space-md);
+        border-radius: var(--radius-full);
+        font-size: 0.85rem;
+        font-weight: 500;
+    }
+
+    .step-connector {
+        position: absolute;
+        left: 69px;
+        top: 100px;
+        width: 2px;
+        height: 60px;
+        background: var(--gradient-primary);
+        z-index: 1;
+    }
+
+    .process-summary {
+        text-align: center;
+        margin-top: var(--space-3xl);
+    }
+
+    .summary-card {
+        background: white;
+        padding: var(--space-2xl);
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-xl);
+        display: inline-block;
+        border: 2px solid var(--color-primary-200);
+    }
+
+    .summary-icon {
+        font-size: 3rem;
+        margin-bottom: var(--space-md);
+    }
+
+    .summary-card h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--color-gray-900);
+        margin-bottom: var(--space-md);
+    }
+
+    .total-time {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--color-primary-600);
+        margin-bottom: var(--space-md);
+    }
+
+    /* CTA Section */
+    .services-cta-section {
+        padding: var(--space-4xl) 0;
+        background: var(--gradient-primary);
+        color: white;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .cta-background {
+        position: absolute;
+        inset: 0;
+    }
+
+    .cta-glow {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        animation: float 12s ease-in-out infinite;
+    }
+
+    .cta-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 0 var(--space-xl);
+    }
+
+    .services-cta-section h2 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: var(--space-lg);
+    }
+
+    .services-cta-section p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        margin-bottom: var(--space-2xl);
+        line-height: 1.6;
+    }
+
+    .cta-actions {
+        display: flex;
+        justify-content: center;
+        gap: var(--space-lg);
+        margin-bottom: var(--space-2xl);
+        flex-wrap: wrap;
+    }
+
+    .cta-benefits {
+        display: flex;
+        justify-content: center;
+        gap: var(--space-xl);
+        flex-wrap: wrap;
+    }
+
+    .benefit-item {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        font-size: 0.9rem;
+        opacity: 0.9;
+    }
+
+    .benefit-icon {
+        font-size: 1.1rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .services-hero h1 {
+            font-size: 2.5rem;
+        }
+
+        .hero-stats {
+            grid-template-columns: 1fr;
+            gap: var(--space-lg);
+        }
+
+        .services-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .certification-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .industries-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .process-step {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .step-connector {
+            display: none;
+        }
+
+        .cta-actions {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cta-benefits {
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-md);
+        }
+    }
+
+    /* Animation Classes */
+    .fade-in-up {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .stagger-delay-1 { animation-delay: 0.1s; }
+    .stagger-delay-2 { animation-delay: 0.2s; }
+    .stagger-delay-3 { animation-delay: 0.3s; }
+    .stagger-delay-4 { animation-delay: 0.4s; }
+    .stagger-delay-5 { animation-delay: 0.5s; }
+    .stagger-delay-6 { animation-delay: 0.6s; }
+
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+    }
+
+    @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.6; }
+    }
+</style>
