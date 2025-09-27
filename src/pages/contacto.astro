@@ -368,7 +368,7 @@ const faqItems = [
         <div class="faq-container">
             {faqItems.map((item, index) => (
                 <div class={`faq-item fade-in-up stagger-delay-${(index % 6) + 1}`}>
-                    <button class="faq-question" onclick={`toggleFAQ(${index})`}>
+                    <button class="faq-question" data-faq-index={index}>
                         <span>{item.question}</span>
                         <span class="faq-icon">+</span>
                     </button>
@@ -1107,36 +1107,56 @@ const faqItems = [
         display: flex;
         justify-content: space-between;
         align-items: center;
-        transition: all var(--transition-normal);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
     }
 
     .faq-question:hover {
-        background: var(--color-gray-50);
+        background: rgba(59, 130, 246, 0.05);
+        color: var(--color-primary-600);
+    }
+
+    .faq-question:active {
+        transform: scale(0.98);
     }
 
     .faq-icon {
         font-size: 1.5rem;
         color: var(--color-primary-500);
         font-weight: 700;
-        transition: transform var(--transition-normal);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: rgba(59, 130, 246, 0.1);
+    }
+
+    .faq-question:hover .faq-icon {
+        background: rgba(59, 130, 246, 0.2);
+        transform: scale(1.1);
     }
 
     .faq-answer {
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.3s ease-out;
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s ease;
         background: var(--color-gray-50);
+        padding: 0 var(--space-xl);
     }
 
     .faq-answer.open {
-        max-height: 200px;
+        max-height: 300px;
+        padding: var(--space-lg) var(--space-xl);
     }
 
     .faq-answer p {
-        padding: 0 var(--space-xl) var(--space-xl);
         color: var(--color-gray-600);
         line-height: 1.6;
         margin: 0;
+        padding: var(--space-md) 0;
     }
 
     /* Social Media Section */
@@ -1376,33 +1396,47 @@ const faqItems = [
 </style>
 
 <script>
-    function toggleFAQ(index) {
-        const answer = document.getElementById(`faq-${index}`);
-        const icon = answer.previousElementSibling.querySelector('.faq-icon');
-        
-        if (answer.classList.contains('open')) {
-            answer.classList.remove('open');
-            (icon as HTMLElement).style.transform = 'rotate(0deg)';
-            icon.textContent = '+';
-        } else {
-            // Close all other FAQs
-            document.querySelectorAll('.faq-answer').forEach(item => {
-                item.classList.remove('open');
-            });
-            document.querySelectorAll('.faq-icon').forEach(item => {
-                (item as HTMLElement).style.transform = 'rotate(0deg)';
-                item.textContent = '+';
-            });
-            
-            // Open this FAQ
-            answer.classList.add('open');
-            (icon as HTMLElement).style.transform = 'rotate(45deg)';
-            icon.textContent = '×';
-        }
-    }
-
-    // Add form submission handling with visual feedback
     document.addEventListener('DOMContentLoaded', function() {
+        // FAQ functionality
+        function toggleFAQ(index) {
+            const answer = document.getElementById(`faq-${index}`);
+            const button = document.querySelector(`[data-faq-index="${index}"]`);
+            const icon = button?.querySelector('.faq-icon');
+            
+            if (answer && icon) {
+                if (answer.classList.contains('open')) {
+                    answer.classList.remove('open');
+                    (icon as HTMLElement).style.transform = 'rotate(0deg)';
+                    icon.textContent = '+';
+                } else {
+                    // Close all other FAQs
+                    document.querySelectorAll('.faq-answer').forEach(item => {
+                        item.classList.remove('open');
+                    });
+                    document.querySelectorAll('.faq-icon').forEach(item => {
+                        (item as HTMLElement).style.transform = 'rotate(0deg)';
+                        item.textContent = '+';
+                    });
+                    
+                    // Open this FAQ
+                    answer.classList.add('open');
+                    (icon as HTMLElement).style.transform = 'rotate(45deg)';
+                    icon.textContent = '×';
+                }
+            }
+        }
+
+        // Add event listeners to FAQ buttons
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', function() {
+                const index = this.getAttribute('data-faq-index');
+                if (index !== null) {
+                    toggleFAQ(parseInt(index));
+                }
+            });
+        });
+
+        // Form submission handling with visual feedback
         const form = document.getElementById('contactForm') as HTMLFormElement;
         const submitBtn = form?.querySelector('.submit-btn') as HTMLButtonElement;
         
@@ -1437,6 +1471,7 @@ const faqItems = [
                     setTimeout(() => {
                         submitBtn.innerHTML = originalContent;
                         submitBtn.disabled = false;
+                        form.reset(); // Clear the form
                     }, 3000);
                 }, 2000);
             });
