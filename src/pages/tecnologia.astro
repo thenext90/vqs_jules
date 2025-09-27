@@ -1,0 +1,1522 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+const technologies = [
+    {
+        name: 'Inteligencia Artificial',
+        icon: '🧠',
+        description: 'Algoritmos de machine learning y deep learning para análisis alimentario',
+        details: 'Nuestros modelos de IA procesan millones de datos espectrales, químicos y físicos para determinar la calidad y seguridad de los productos alimentarios con una precisión del 99.8%.',
+        features: [
+            'Deep Learning Neural Networks',
+            'Computer Vision Avanzado',
+            'Natural Language Processing',
+            'Análisis Predictivo',
+            'Reconocimiento de Patrones'
+        ],
+        stats: {
+            accuracy: '99.8%',
+            speed: '<24h',
+            datasets: '2.5M+'
+        },
+        color: '#8B5CF6',
+        bgColor: 'rgba(139, 92, 246, 0.1)'
+    },
+    {
+        name: 'Blockchain',
+        icon: '🔗',
+        description: 'Red descentralizada para trazabilidad inmutable de productos',
+        details: 'Implementamos tecnología blockchain de última generación que garantiza la inmutabilidad de los datos y permite una trazabilidad completa desde el origen hasta el consumidor final.',
+        features: [
+            'Smart Contracts',
+            'Consenso Proof of Stake',
+            'Interoperabilidad Cross-chain',
+            'Escalabilidad Layer 2',
+            'Seguridad Criptográfica'
+        ],
+        stats: {
+            transactions: '50K+/día',
+            uptime: '99.99%',
+            nodes: '500+'
+        },
+        color: '#059669',
+        bgColor: 'rgba(5, 150, 105, 0.1)'
+    },
+    {
+        name: 'Internet de las Cosas (IoT)',
+        icon: '📱',
+        description: 'Sensores inteligentes para monitoreo en tiempo real',
+        details: 'Red de sensores IoT que monitorean continuamente parámetros críticos como temperatura, humedad, pH, y otros factores ambientales que afectan la calidad alimentaria.',
+        features: [
+            'Sensores Multi-parámetro',
+            'Conectividad 5G/LoRaWAN',
+            'Edge Computing',
+            'Análisis en Tiempo Real',
+            'Alertas Automáticas'
+        ],
+        stats: {
+            sensors: '10K+',
+            coverage: '25 países',
+            uplink: '99.5%'
+        },
+        color: '#DC2626',
+        bgColor: 'rgba(220, 38, 38, 0.1)'
+    },
+    {
+        name: 'Computación Cuántica',
+        icon: '⚛️',
+        description: 'Procesamiento cuántico para análisis molecular complejo',
+        details: 'Utilizamos computación cuántica para resolver problemas complejos de análisis molecular y optimización de procesos que serían imposibles con computación clásica.',
+        features: [
+            'Algoritmos Cuánticos',
+            'Simulación Molecular',
+            'Optimización Cuántica',
+            'Criptografía Cuántica',
+            'Hibridación Clásico-Cuántica'
+        ],
+        stats: {
+            qubits: '100+',
+            problems: '500+',
+            speedup: '1000x'
+        },
+        color: '#7C3AED',
+        bgColor: 'rgba(124, 58, 237, 0.1)'
+    }
+];
+
+const aiModels = [
+    {
+        name: 'FoodNet-Vision',
+        type: 'Computer Vision',
+        description: 'Análisis visual de productos alimentarios mediante redes neuronales convolucionales',
+        accuracy: '99.2%',
+        applications: ['Detección de defectos', 'Clasificación de calidad', 'Análisis de frescura'],
+        architecture: 'CNN + ResNet + Transformer',
+        trainingData: '5M imágenes'
+    },
+    {
+        name: 'ChemAI-Analyzer',
+        type: 'Análisis Químico',
+        description: 'Predicción de composición química y contaminantes mediante espectroscopía',
+        accuracy: '99.6%',
+        applications: ['Análisis nutricional', 'Detección de adulterantes', 'Control de calidad'],
+        architecture: 'XGBoost + Neural Networks',
+        trainingData: '2M espectros'
+    },
+    {
+        name: 'SafeFood-Predictor',
+        type: 'Análisis Predictivo',
+        description: 'Predicción de vida útil y deterioro de productos alimentarios',
+        accuracy: '97.8%',
+        applications: ['Predicción de caducidad', 'Optimización de almacenamiento', 'Reducción de desperdicio'],
+        architecture: 'LSTM + GRU + Attention',
+        trainingData: '1.5M muestras temporales'
+    },
+    {
+        name: 'ToxNet-Detector',
+        type: 'Detección de Toxinas',
+        description: 'Identificación de micotoxinas, pesticidas y contaminantes químicos',
+        accuracy: '99.9%',
+        applications: ['Seguridad alimentaria', 'Cumplimiento regulatorio', 'Análisis de riesgos'],
+        architecture: 'Ensemble + Deep Neural Networks',
+        trainingData: '800K muestras tóxicas'
+    }
+];
+
+const infrastructure = [
+    {
+        component: 'Centros de Datos',
+        icon: '🏢',
+        description: 'Infraestructura distribuida globalmente',
+        specs: [
+            'Certificación Tier IV',
+            '99.99% Uptime SLA',
+            'Refrigeración Líquida',
+            'Respaldo Multi-región',
+            'Seguridad Biométrica'
+        ],
+        locations: ['Estados Unidos', 'Europa', 'Asia-Pacífico', 'América Latina'],
+        capacity: 'PB-Scale Storage'
+    },
+    {
+        component: 'Laboratorios',
+        icon: '🔬',
+        description: 'Laboratorios especializados con equipos de vanguardia',
+        specs: [
+            'Espectrómetros de Masas',
+            'HPLC-MS/MS',
+            'NIR Spectroscopy',
+            'Microscopía Electrónica',
+            'Análisis Genómico'
+        ],
+        locations: ['San Francisco', 'Berlín', 'Tokio', 'São Paulo'],
+        capacity: '10K muestras/día'
+    },
+    {
+        component: 'Red de Sensores',
+        icon: '📡',
+        description: 'Red global de sensores IoT para monitoreo continuo',
+        specs: [
+            'Sensores Multi-gas',
+            'Temperatura/Humedad',
+            'pH y Conductividad',
+            'Análisis Espectral',
+            'Cámaras Hiperespectrales'
+        ],
+        locations: ['25 países', '150+ ciudades', '500+ instalaciones'],
+        capacity: '1M+ puntos de datos/hora'
+    }
+];
+
+const researchProjects = [
+    {
+        title: 'Project FoodAI 3.0',
+        status: 'En Desarrollo',
+        description: 'Próxima generación de IA para certificación alimentaria con capacidades multimodales',
+        timeline: '2024-2025',
+        investment: '$15M',
+        team: '25 investigadores',
+        goals: [
+            'Precisión >99.9%',
+            'Tiempo respuesta <1 hora',
+            'Análisis multimodal',
+            'Explicabilidad completa'
+        ]
+    },
+    {
+        title: 'Quantum Food Analysis',
+        status: 'Investigación',
+        description: 'Aplicación de computación cuántica para análisis molecular de alimentos',
+        timeline: '2025-2027',
+        investment: '$20M',
+        team: '15 físicos cuánticos',
+        goals: [
+            'Simulación molecular exacta',
+            'Optimización cuántica',
+            'Ventaja cuántica demostrable',
+            'Aplicación comercial'
+        ]
+    },
+    {
+        title: 'Global Food Blockchain',
+        status: 'Beta',
+        description: 'Red blockchain global interoperable para trazabilidad alimentaria mundial',
+        timeline: '2024',
+        investment: '$8M',
+        team: '20 desarrolladores',
+        goals: [
+            '1M transacciones/día',
+            'Interoperabilidad total',
+            'Costo <$0.01/tx',
+            'Adopción masiva'
+        ]
+    }
+];
+
+const patents = [
+    {
+        title: 'Sistema de Análisis Alimentario por IA Multimodal',
+        number: 'US 11,234,567',
+        year: '2023',
+        category: 'Inteligencia Artificial',
+        description: 'Método y sistema para análisis integral de productos alimentarios mediante múltiples modalidades de IA'
+    },
+    {
+        title: 'Red Blockchain para Trazabilidad Alimentaria',
+        number: 'US 11,345,678',
+        year: '2023',
+        category: 'Blockchain',
+        description: 'Protocolo blockchain optimizado para el seguimiento inmutable de productos alimentarios'
+    },
+    {
+        title: 'Sensores IoT Inteligentes para Monitoreo Alimentario',
+        number: 'US 11,456,789',
+        year: '2022',
+        category: 'IoT',
+        description: 'Dispositivos IoT con capacidades de edge computing para monitoreo alimentario en tiempo real'
+    },
+    {
+        title: 'Algoritmo Cuántico para Análisis Molecular',
+        number: 'US 11,567,890',
+        year: '2024',
+        category: 'Computación Cuántica',
+        description: 'Algoritmo cuántico híbrido para simulación y análisis de estructuras moleculares complejas'
+    }
+];
+---
+
+<MainLayout title="VQS - Tecnología | Innovación en IA y Blockchain Alimentaria">
+    <!-- Hero Section -->
+    <section class="tech-hero">
+        <div class="hero-background">
+            <div class="hero-circuit"></div>
+            <div class="hero-particles"></div>
+            <div class="hero-glow"></div>
+        </div>
+        <div class="hero-content fade-in-up">
+            <div class="hero-badge">
+                <span class="badge-icon">⚡</span>
+                <span>Tecnología de Vanguardia</span>
+            </div>
+            <h1>Impulsando el Futuro con <span class="gradient-text">Tecnología Avanzada</span></h1>
+            <p class="hero-description">
+                Combinamos inteligencia artificial, blockchain, IoT y computación cuántica para crear 
+                el ecosistema tecnológico más avanzado en certificación alimentaria del mundo.
+            </p>
+            <div class="hero-metrics">
+                <div class="metric-card">
+                    <div class="metric-icon">🧠</div>
+                    <div class="metric-number">99.8%</div>
+                    <div class="metric-label">Precisión IA</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">🔗</div>
+                    <div class="metric-number">50K+</div>
+                    <div class="metric-label">Transacciones/día</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">📱</div>
+                    <div class="metric-number">10K+</div>
+                    <div class="metric-label">Sensores IoT</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">⚛️</div>
+                    <div class="metric-number">100+</div>
+                    <div class="metric-label">Qubits</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Technologies -->
+    <section class="technologies-section">
+        <div class="section-header fade-in-up">
+            <h2>Tecnologías Core</h2>
+            <p>Las tecnologías que impulsan nuestra plataforma de certificación</p>
+        </div>
+        <div class="technologies-grid">
+            {technologies.map((tech, index) => (
+                <div class={`tech-card fade-in-up stagger-delay-${(index % 4) + 1}`} 
+                     style={`border-color: ${tech.color}; background: ${tech.bgColor};`}>
+                    <div class="tech-header">
+                        <div class="tech-icon" style={`color: ${tech.color};`}>{tech.icon}</div>
+                        <h3>{tech.name}</h3>
+                        <p class="tech-description">{tech.description}</p>
+                    </div>
+                    <div class="tech-details">
+                        <p>{tech.details}</p>
+                    </div>
+                    <div class="tech-features">
+                        <h4>Características Clave:</h4>
+                        <ul>
+                            {tech.features.map(feature => (
+                                <li>
+                                    <span class="feature-dot" style={`background: ${tech.color};`}></span>
+                                    {feature}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div class="tech-stats">
+                        {Object.entries(tech.stats).map(([key, value]) => (
+                            <div class="stat-item">
+                                <div class="stat-value" style={`color: ${tech.color};`}>{value}</div>
+                                <div class="stat-key">{key}</div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <!-- AI Models Section -->
+    <section class="ai-models-section">
+        <div class="models-background">
+            <div class="neural-network"></div>
+        </div>
+        <div class="section-header fade-in-up">
+            <h2>Modelos de Inteligencia Artificial</h2>
+            <p>Nuestros modelos especializados para análisis alimentario</p>
+        </div>
+        <div class="models-grid">
+            {aiModels.map((model, index) => (
+                <div class={`model-card fade-in-up stagger-delay-${(index % 4) + 1}`}>
+                    <div class="model-header">
+                        <div class="model-type">{model.type}</div>
+                        <h3>{model.name}</h3>
+                        <p>{model.description}</p>
+                    </div>
+                    <div class="model-accuracy">
+                        <div class="accuracy-circle">
+                            <div class="accuracy-value">{model.accuracy}</div>
+                            <div class="accuracy-label">Precisión</div>
+                        </div>
+                    </div>
+                    <div class="model-applications">
+                        <h4>Aplicaciones:</h4>
+                        <div class="applications-list">
+                            {model.applications.map(app => (
+                                <span class="application-tag">{app}</span>
+                            ))}
+                        </div>
+                    </div>
+                    <div class="model-specs">
+                        <div class="spec-row">
+                            <span class="spec-label">Arquitectura:</span>
+                            <span class="spec-value">{model.architecture}</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Datos de Entrenamiento:</span>
+                            <span class="spec-value">{model.trainingData}</span>
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <!-- Infrastructure Section -->
+    <section class="infrastructure-section">
+        <div class="section-header fade-in-up">
+            <h2>Infraestructura Global</h2>
+            <p>Arquitectura tecnológica distribuida para máximo rendimiento</p>
+        </div>
+        <div class="infrastructure-grid">
+            {infrastructure.map((item, index) => (
+                <div class={`infra-card fade-in-up stagger-delay-${(index % 3) + 1}`}>
+                    <div class="infra-header">
+                        <div class="infra-icon">{item.icon}</div>
+                        <h3>{item.component}</h3>
+                        <p>{item.description}</p>
+                    </div>
+                    <div class="infra-specs">
+                        <h4>Especificaciones:</h4>
+                        <ul>
+                            {item.specs.map(spec => (
+                                <li>
+                                    <span class="spec-icon">⚙️</span>
+                                    {spec}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div class="infra-locations">
+                        <h4>Ubicaciones:</h4>
+                        <div class="locations-grid">
+                            {Array.isArray(item.locations) ? item.locations.map(location => (
+                                <span class="location-tag">{location}</span>
+                            )) : (
+                                <span class="location-tag">{item.locations}</span>
+                            )}
+                        </div>
+                    </div>
+                    <div class="infra-capacity">
+                        <div class="capacity-badge">
+                            <span class="capacity-icon">📊</span>
+                            <span>{item.capacity}</span>
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <!-- Research Projects -->
+    <section class="research-section">
+        <div class="research-background">
+            <div class="research-pattern"></div>
+        </div>
+        <div class="section-header fade-in-up">
+            <h2>Proyectos de Investigación</h2>
+            <p>Innovaciones que definirán el futuro de la certificación alimentaria</p>
+        </div>
+        <div class="research-grid">
+            {researchProjects.map((project, index) => (
+                <div class={`research-card fade-in-up stagger-delay-${(index % 3) + 1}`}>
+                    <div class="project-header">
+                        <div class="project-status-badge" class={project.status.toLowerCase().replace(' ', '-')}>
+                            {project.status}
+                        </div>
+                        <h3>{project.title}</h3>
+                        <p>{project.description}</p>
+                    </div>
+                    <div class="project-details">
+                        <div class="detail-row">
+                            <span class="detail-icon">📅</span>
+                            <span class="detail-label">Timeline:</span>
+                            <span class="detail-value">{project.timeline}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-icon">💰</span>
+                            <span class="detail-label">Inversión:</span>
+                            <span class="detail-value">{project.investment}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-icon">👥</span>
+                            <span class="detail-label">Equipo:</span>
+                            <span class="detail-value">{project.team}</span>
+                        </div>
+                    </div>
+                    <div class="project-goals">
+                        <h4>Objetivos:</h4>
+                        <ul>
+                            {project.goals.map(goal => (
+                                <li>
+                                    <span class="goal-icon">🎯</span>
+                                    {goal}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <!-- Patents Section -->
+    <section class="patents-section">
+        <div class="section-header fade-in-up">
+            <h2>Propiedad Intelectual</h2>
+            <p>Patentes y desarrollos tecnológicos propietarios</p>
+        </div>
+        <div class="patents-grid">
+            {patents.map((patent, index) => (
+                <div class={`patent-card fade-in-up stagger-delay-${(index % 4) + 1}`}>
+                    <div class="patent-header">
+                        <div class="patent-category">{patent.category}</div>
+                        <div class="patent-number">{patent.number}</div>
+                        <div class="patent-year">{patent.year}</div>
+                    </div>
+                    <div class="patent-content">
+                        <h3>{patent.title}</h3>
+                        <p>{patent.description}</p>
+                    </div>
+                    <div class="patent-footer">
+                        <div class="patent-status">
+                            <span class="status-icon">✅</span>
+                            <span>Concedida</span>
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="tech-cta-section">
+        <div class="cta-background">
+            <div class="tech-circuit"></div>
+            <div class="cta-glow"></div>
+        </div>
+        <div class="cta-content fade-in-up">
+            <h2>Experimenta la Tecnología del Futuro</h2>
+            <p>Descubre cómo nuestras innovaciones tecnológicas pueden transformar tu negocio</p>
+            <div class="cta-actions">
+                <button class="btn-primary large">
+                    <span>Demo Tecnológico</span>
+                    <span class="btn-icon">🚀</span>
+                </button>
+                <button class="btn-secondary large">
+                    <span class="btn-icon">📄</span>
+                    <span>Documentación Técnica</span>
+                </button>
+            </div>
+            <div class="tech-highlights">
+                <div class="highlight-item">
+                    <span class="highlight-icon">⚡</span>
+                    <span>Tecnología Patentada</span>
+                </div>
+                <div class="highlight-item">
+                    <span class="highlight-icon">🔬</span>
+                    <span>I+D Continuo</span>
+                </div>
+                <div class="highlight-item">
+                    <span class="highlight-icon">🌍</span>
+                    <span>Infraestructura Global</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</MainLayout>
+
+<style>
+    /* Hero Section */
+    .tech-hero {
+        position: relative;
+        padding: var(--space-4xl) 0;
+        margin: var(--space-xl) calc(-1 * var(--space-xl)) var(--space-4xl);
+        background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #1e40af 100%);
+        color: white;
+        border-radius: var(--radius-2xl);
+        overflow: hidden;
+    }
+
+    .hero-background {
+        position: absolute;
+        inset: 0;
+        opacity: 0.1;
+    }
+
+    .hero-circuit {
+        position: absolute;
+        inset: 0;
+        background-image: 
+            linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px),
+            linear-gradient(180deg, rgba(255,255,255,0.1) 1px, transparent 1px);
+        background-size: 30px 30px;
+        animation: circuit-move 20s linear infinite;
+    }
+
+    .hero-particles {
+        position: absolute;
+        inset: 0;
+        background-image: 
+            radial-gradient(circle at 20% 30%, rgba(139, 92, 246, 0.3) 2px, transparent 2px),
+            radial-gradient(circle at 60% 70%, rgba(59, 130, 246, 0.3) 1px, transparent 1px),
+            radial-gradient(circle at 80% 40%, rgba(16, 185, 129, 0.3) 1.5px, transparent 1.5px);
+        background-size: 100px 100px, 150px 150px, 80px 80px;
+        animation: particles-float 15s ease-in-out infinite;
+    }
+
+    .hero-glow {
+        position: absolute;
+        top: 20%;
+        right: 10%;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, transparent 70%);
+        border-radius: 50%;
+        animation: glow-pulse 8s ease-in-out infinite;
+    }
+
+    @keyframes circuit-move {
+        0% { transform: translate(0, 0); }
+        100% { transform: translate(30px, 30px); }
+    }
+
+    @keyframes particles-float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+    }
+
+    @keyframes glow-pulse {
+        0%, 100% { opacity: 0.6; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.1); }
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 var(--space-xl);
+    }
+
+    .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-sm);
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: var(--space-sm) var(--space-lg);
+        border-radius: var(--radius-full);
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin-bottom: var(--space-xl);
+    }
+
+    .tech-hero h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: var(--space-xl);
+    }
+
+    .hero-description {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        opacity: 0.9;
+        margin-bottom: var(--space-2xl);
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-metrics {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-lg);
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .metric-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: var(--space-lg);
+        border-radius: var(--radius-xl);
+        text-align: center;
+        transition: all var(--transition-normal);
+    }
+
+    .metric-card:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    .metric-icon {
+        font-size: 2rem;
+        margin-bottom: var(--space-sm);
+    }
+
+    .metric-number {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: #FFD700;
+        margin-bottom: var(--space-xs);
+    }
+
+    .metric-label {
+        font-size: 0.85rem;
+        opacity: 0.8;
+        font-weight: 500;
+    }
+
+    /* Technologies Section */
+    .technologies-section {
+        padding: var(--space-4xl) 0;
+    }
+
+    .technologies-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: var(--space-2xl);
+    }
+
+    .tech-card {
+        background: white;
+        border-radius: var(--radius-2xl);
+        padding: var(--space-2xl);
+        border: 2px solid;
+        box-shadow: var(--shadow-lg);
+        transition: all var(--transition-normal);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .tech-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-2xl);
+    }
+
+    .tech-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--color-primary-500), var(--color-secondary-500));
+    }
+
+    .tech-header {
+        margin-bottom: var(--space-xl);
+        text-align: center;
+    }
+
+    .tech-icon {
+        font-size: 4rem;
+        margin-bottom: var(--space-lg);
+    }
+
+    .tech-card h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--color-gray-900);
+        margin-bottom: var(--space-md);
+    }
+
+    .tech-description {
+        color: var(--color-gray-600);
+        margin-bottom: var(--space-lg);
+        line-height: 1.6;
+    }
+
+    .tech-details {
+        margin-bottom: var(--space-xl);
+    }
+
+    .tech-details p {
+        color: var(--color-gray-700);
+        line-height: 1.6;
+        font-size: 0.95rem;
+    }
+
+    .tech-features {
+        margin-bottom: var(--space-xl);
+    }
+
+    .tech-features h4 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--color-gray-800);
+        margin-bottom: var(--space-md);
+    }
+
+    .tech-features ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .tech-features li {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        padding: var(--space-sm) 0;
+        color: var(--color-gray-700);
+        font-size: 0.9rem;
+    }
+
+    .feature-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+
+    .tech-stats {
+        display: flex;
+        justify-content: space-around;
+        padding-top: var(--space-lg);
+        border-top: 1px solid var(--color-gray-200);
+    }
+
+    .tech-stats .stat-item {
+        text-align: center;
+    }
+
+    .stat-value {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: var(--space-xs);
+    }
+
+    .stat-key {
+        font-size: 0.8rem;
+        color: var(--color-gray-600);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    /* AI Models Section */
+    .ai-models-section {
+        padding: var(--space-4xl) 0;
+        background: var(--color-gray-50);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .models-background {
+        position: absolute;
+        inset: 0;
+        opacity: 0.05;
+    }
+
+    .neural-network {
+        position: absolute;
+        inset: 0;
+        background-image: 
+            radial-gradient(circle at 25% 25%, var(--color-primary-500) 2px, transparent 2px),
+            radial-gradient(circle at 50% 50%, var(--color-secondary-500) 1px, transparent 1px),
+            radial-gradient(circle at 75% 75%, var(--color-primary-500) 1.5px, transparent 1.5px);
+        background-size: 100px 100px, 150px 150px, 80px 80px;
+        animation: neural-pulse 12s ease-in-out infinite;
+    }
+
+    @keyframes neural-pulse {
+        0%, 100% { opacity: 0.5; }
+        50% { opacity: 1; }
+    }
+
+    .models-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: var(--space-2xl);
+    }
+
+    .model-card {
+        background: white;
+        border-radius: var(--radius-xl);
+        padding: var(--space-2xl);
+        box-shadow: var(--shadow-lg);
+        border: 1px solid var(--color-gray-200);
+        transition: all var(--transition-normal);
+        position: relative;
+    }
+
+    .model-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-xl);
+        border-color: var(--color-primary-300);
+    }
+
+    .model-header {
+        text-align: center;
+        margin-bottom: var(--space-xl);
+    }
+
+    .model-type {
+        background: var(--color-primary-100);
+        color: var(--color-primary-800);
+        padding: var(--space-xs) var(--space-md);
+        border-radius: var(--radius-full);
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: var(--space-md);
+        display: inline-block;
+    }
+
+    .model-card h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--color-gray-900);
+        margin-bottom: var(--space-md);
+    }
+
+    .model-accuracy {
+        text-align: center;
+        margin-bottom: var(--space-xl);
+    }
+
+    .accuracy-circle {
+        width: 80px;
+        height: 80px;
+        border: 3px solid var(--color-primary-500);
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        position: relative;
+        background: var(--color-primary-50);
+    }
+
+    .accuracy-value {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--color-primary-600);
+    }
+
+    .accuracy-label {
+        font-size: 0.7rem;
+        color: var(--color-primary-600);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .model-applications {
+        margin-bottom: var(--space-xl);
+    }
+
+    .model-applications h4 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--color-gray-800);
+        margin-bottom: var(--space-md);
+    }
+
+    .applications-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-sm);
+    }
+
+    .application-tag {
+        background: var(--color-secondary-100);
+        color: var(--color-secondary-800);
+        padding: var(--space-xs) var(--space-md);
+        border-radius: var(--radius-full);
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+
+    .model-specs {
+        border-top: 1px solid var(--color-gray-200);
+        padding-top: var(--space-lg);
+    }
+
+    .spec-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: var(--space-sm);
+    }
+
+    .spec-row:last-child {
+        margin-bottom: 0;
+    }
+
+    .spec-label {
+        font-size: 0.9rem;
+        color: var(--color-gray-600);
+        font-weight: 500;
+    }
+
+    .spec-value {
+        font-size: 0.9rem;
+        color: var(--color-gray-800);
+        font-weight: 600;
+        text-align: right;
+        max-width: 60%;
+    }
+
+    /* Infrastructure Section */
+    .infrastructure-section {
+        padding: var(--space-4xl) 0;
+    }
+
+    .infrastructure-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: var(--space-2xl);
+    }
+
+    .infra-card {
+        background: white;
+        border-radius: var(--radius-xl);
+        padding: var(--space-2xl);
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--color-gray-200);
+        transition: all var(--transition-normal);
+    }
+
+    .infra-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+        border-color: var(--color-primary-300);
+    }
+
+    .infra-header {
+        text-align: center;
+        margin-bottom: var(--space-xl);
+    }
+
+    .infra-icon {
+        font-size: 3rem;
+        margin-bottom: var(--space-lg);
+    }
+
+    .infra-card h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--color-gray-900);
+        margin-bottom: var(--space-md);
+    }
+
+    .infra-specs {
+        margin-bottom: var(--space-xl);
+    }
+
+    .infra-specs h4 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--color-gray-800);
+        margin-bottom: var(--space-md);
+    }
+
+    .infra-specs ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .infra-specs li {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        padding: var(--space-sm) 0;
+        color: var(--color-gray-700);
+        font-size: 0.9rem;
+    }
+
+    .spec-icon {
+        font-size: 0.8rem;
+        color: var(--color-primary-500);
+    }
+
+    .infra-locations {
+        margin-bottom: var(--space-xl);
+    }
+
+    .infra-locations h4 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--color-gray-800);
+        margin-bottom: var(--space-md);
+    }
+
+    .locations-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-sm);
+    }
+
+    .location-tag {
+        background: var(--color-primary-100);
+        color: var(--color-primary-800);
+        padding: var(--space-xs) var(--space-md);
+        border-radius: var(--radius-full);
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+
+    .infra-capacity {
+        text-align: center;
+        padding-top: var(--space-lg);
+        border-top: 1px solid var(--color-gray-200);
+    }
+
+    .capacity-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-sm);
+        background: var(--color-secondary-100);
+        color: var(--color-secondary-800);
+        padding: var(--space-md) var(--space-lg);
+        border-radius: var(--radius-lg);
+        font-weight: 600;
+    }
+
+    .capacity-icon {
+        font-size: 1.1rem;
+    }
+
+    /* Research Section */
+    .research-section {
+        padding: var(--space-4xl) 0;
+        background: var(--color-gray-50);
+        position: relative;
+    }
+
+    .research-background {
+        position: absolute;
+        inset: 0;
+        opacity: 0.05;
+    }
+
+    .research-pattern {
+        position: absolute;
+        inset: 0;
+        background-image: 
+            linear-gradient(45deg, var(--color-primary-500) 1px, transparent 1px),
+            linear-gradient(-45deg, var(--color-primary-500) 1px, transparent 1px);
+        background-size: 20px 20px;
+        animation: research-move 15s linear infinite;
+    }
+
+    @keyframes research-move {
+        0% { transform: translate(0, 0); }
+        100% { transform: translate(20px, 20px); }
+    }
+
+    .research-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+        gap: var(--space-2xl);
+    }
+
+    .research-card {
+        background: white;
+        border-radius: var(--radius-xl);
+        padding: var(--space-2xl);
+        box-shadow: var(--shadow-lg);
+        border: 1px solid var(--color-gray-200);
+        transition: all var(--transition-normal);
+    }
+
+    .research-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-xl);
+    }
+
+    .project-header {
+        margin-bottom: var(--space-xl);
+    }
+
+    .project-status-badge {
+        display: inline-block;
+        padding: var(--space-xs) var(--space-md);
+        border-radius: var(--radius-full);
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: var(--space-md);
+    }
+
+    .project-status-badge.en-desarrollo {
+        background: var(--color-yellow-100);
+        color: var(--color-yellow-800);
+    }
+
+    .project-status-badge.investigación {
+        background: var(--color-blue-100);
+        color: var(--color-blue-800);
+    }
+
+    .project-status-badge.beta {
+        background: var(--color-green-100);
+        color: var(--color-green-800);
+    }
+
+    .research-card h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--color-gray-900);
+        margin-bottom: var(--space-md);
+    }
+
+    .project-details {
+        margin-bottom: var(--space-xl);
+    }
+
+    .detail-row {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        margin-bottom: var(--space-sm);
+        font-size: 0.9rem;
+    }
+
+    .detail-icon {
+        font-size: 1rem;
+        color: var(--color-primary-500);
+        width: 20px;
+    }
+
+    .detail-label {
+        font-weight: 600;
+        color: var(--color-gray-700);
+        min-width: 80px;
+    }
+
+    .detail-value {
+        color: var(--color-gray-800);
+        font-weight: 500;
+    }
+
+    .project-goals h4 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--color-gray-800);
+        margin-bottom: var(--space-md);
+    }
+
+    .project-goals ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .project-goals li {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        padding: var(--space-sm) 0;
+        color: var(--color-gray-700);
+        font-size: 0.9rem;
+    }
+
+    .goal-icon {
+        font-size: 0.8rem;
+        color: var(--color-primary-500);
+    }
+
+    /* Patents Section */
+    .patents-section {
+        padding: var(--space-4xl) 0;
+    }
+
+    .patents-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: var(--space-2xl);
+    }
+
+    .patent-card {
+        background: white;
+        border-radius: var(--radius-xl);
+        padding: var(--space-xl);
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--color-gray-200);
+        transition: all var(--transition-normal);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .patent-card:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-lg);
+        border-color: var(--color-primary-300);
+    }
+
+    .patent-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--gradient-primary);
+    }
+
+    .patent-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: var(--space-lg);
+        flex-wrap: wrap;
+        gap: var(--space-sm);
+    }
+
+    .patent-category {
+        background: var(--color-primary-100);
+        color: var(--color-primary-800);
+        padding: var(--space-xs) var(--space-md);
+        border-radius: var(--radius-full);
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .patent-number {
+        font-size: 0.8rem;
+        color: var(--color-gray-600);
+        font-weight: 500;
+    }
+
+    .patent-year {
+        background: var(--color-gray-100);
+        color: var(--color-gray-700);
+        padding: var(--space-xs) var(--space-sm);
+        border-radius: var(--radius-md);
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+
+    .patent-content {
+        margin-bottom: var(--space-lg);
+    }
+
+    .patent-card h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--color-gray-900);
+        margin-bottom: var(--space-md);
+        line-height: 1.4;
+    }
+
+    .patent-content p {
+        color: var(--color-gray-600);
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .patent-footer {
+        padding-top: var(--space-md);
+        border-top: 1px solid var(--color-gray-200);
+    }
+
+    .patent-status {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        color: var(--color-green-600);
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+
+    .status-icon {
+        font-size: 1rem;
+    }
+
+    /* CTA Section */
+    .tech-cta-section {
+        padding: var(--space-4xl) 0;
+        background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #1e40af 100%);
+        color: white;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .cta-background {
+        position: absolute;
+        inset: 0;
+    }
+
+    .tech-circuit {
+        position: absolute;
+        inset: 0;
+        background-image: 
+            linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px),
+            linear-gradient(180deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+        background-size: 50px 50px;
+        animation: tech-circuit-move 25s linear infinite;
+    }
+
+    @keyframes tech-circuit-move {
+        0% { transform: translate(0, 0); }
+        100% { transform: translate(50px, 50px); }
+    }
+
+    .cta-glow {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        animation: cta-glow-pulse 10s ease-in-out infinite;
+    }
+
+    @keyframes cta-glow-pulse {
+        0%, 100% { opacity: 0.7; transform: translate(-50%, -50%) scale(1); }
+        50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+    }
+
+    .cta-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 0 var(--space-xl);
+    }
+
+    .tech-cta-section h2 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: var(--space-lg);
+    }
+
+    .tech-cta-section p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        margin-bottom: var(--space-2xl);
+        line-height: 1.6;
+    }
+
+    .cta-actions {
+        display: flex;
+        justify-content: center;
+        gap: var(--space-lg);
+        margin-bottom: var(--space-2xl);
+        flex-wrap: wrap;
+    }
+
+    .tech-highlights {
+        display: flex;
+        justify-content: center;
+        gap: var(--space-xl);
+        flex-wrap: wrap;
+    }
+
+    .highlight-item {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        font-size: 0.9rem;
+        opacity: 0.9;
+    }
+
+    .highlight-icon {
+        font-size: 1.1rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .tech-hero h1 {
+            font-size: 2.5rem;
+        }
+
+        .hero-metrics {
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-md);
+        }
+
+        .technologies-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .models-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .infrastructure-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .research-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .patents-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .cta-actions {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .tech-highlights {
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .patent-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: var(--space-sm);
+        }
+
+        .spec-row {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: var(--space-xs);
+        }
+
+        .spec-value {
+            max-width: 100%;
+            text-align: left;
+        }
+    }
+
+    /* Animation Classes */
+    .fade-in-up {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .stagger-delay-1 { animation-delay: 0.1s; }
+    .stagger-delay-2 { animation-delay: 0.2s; }
+    .stagger-delay-3 { animation-delay: 0.3s; }
+    .stagger-delay-4 { animation-delay: 0.4s; }
+
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
