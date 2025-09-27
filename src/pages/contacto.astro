@@ -1,0 +1,1228 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+const offices = [
+    {
+        city: 'San Francisco',
+        country: 'Estados Unidos',
+        type: 'Sede Principal',
+        address: '1234 Innovation Drive, San Francisco, CA 94107',
+        phone: '+1 (555) 123-4567',
+        email: 'usa@vqs.com',
+        timezone: 'PST (UTC-8)',
+        hours: '9:00 AM - 6:00 PM',
+        specialties: ['Investigación y Desarrollo', 'Tecnología IA', 'Operaciones Globales'],
+        icon: '🏢',
+        color: '#3B82F6'
+    },
+    {
+        city: 'Madrid',
+        country: 'España',
+        type: 'Oficina Regional',
+        address: 'Paseo de la Castellana 123, 28046 Madrid',
+        phone: '+34 91 123 4567',
+        email: 'europa@vqs.com',
+        timezone: 'CET (UTC+1)',
+        hours: '9:00 AM - 6:00 PM',
+        specialties: ['Certificación Europea', 'Cumplimiento Regulatorio', 'Ventas EMEA'],
+        icon: '🇪🇸',
+        color: '#EF4444'
+    },
+    {
+        city: 'São Paulo',
+        country: 'Brasil',
+        type: 'Oficina Regional',
+        address: 'Avenida Paulista 1000, São Paulo, SP 01310-100',
+        phone: '+55 11 9876-5432',
+        email: 'latam@vqs.com',
+        timezone: 'BRT (UTC-3)',
+        hours: '8:00 AM - 5:00 PM',
+        specialties: ['Mercado Latinoamericano', 'Agricultura Sostenible', 'Expansión Regional'],
+        icon: '🇧🇷',
+        color: '#10B981'
+    },
+    {
+        city: 'Tokio',
+        country: 'Japón',
+        type: 'Centro de Innovación',
+        address: '2-3-1 Shibuya, Shibuya-ku, Tokyo 150-0002',
+        phone: '+81 3-1234-5678',
+        email: 'asia@vqs.com',
+        timezone: 'JST (UTC+9)',
+        hours: '9:00 AM - 6:00 PM',
+        specialties: ['Tecnología Cuántica', 'IoT Avanzado', 'Mercado Asiático'],
+        icon: '🇯🇵',
+        color: '#8B5CF6'
+    }
+];
+
+const contactTypes = [
+    {
+        title: 'Ventas y Consultas Comerciales',
+        description: 'Para consultas sobre servicios, precios y propuestas comerciales',
+        icon: '💼',
+        email: 'ventas@vqs.com',
+        phone: '+1 (555) 123-4567',
+        responseTime: '4 horas',
+        color: '#3B82F6'
+    },
+    {
+        title: 'Soporte Técnico',
+        description: 'Ayuda con plataforma, certificaciones y aspectos técnicos',
+        icon: '🔧',
+        email: 'soporte@vqs.com',
+        phone: '+1 (555) 234-5678',
+        responseTime: '2 horas',
+        color: '#10B981'
+    },
+    {
+        title: 'Alianzas y Partnerships',
+        description: 'Para establecer alianzas estratégicas y colaboraciones',
+        icon: '🤝',
+        email: 'alianzas@vqs.com',
+        phone: '+1 (555) 345-6789',
+        responseTime: '24 horas',
+        color: '#F59E0B'
+    },
+    {
+        title: 'Medios y Prensa',
+        description: 'Consultas de medios, entrevistas y comunicados de prensa',
+        icon: '📰',
+        email: 'prensa@vqs.com',
+        phone: '+1 (555) 456-7890',
+        responseTime: '6 horas',
+        color: '#EF4444'
+    },
+    {
+        title: 'Carreras y Talento',
+        description: 'Oportunidades laborales y proceso de selección',
+        icon: '👥',
+        email: 'carreras@vqs.com',
+        phone: '+1 (555) 567-8901',
+        responseTime: '48 horas',
+        color: '#8B5CF6'
+    },
+    {
+        title: 'Inversores y Accionistas',
+        description: 'Información financiera y relaciones con inversores',
+        icon: '📈',
+        email: 'inversores@vqs.com',
+        phone: '+1 (555) 678-9012',
+        responseTime: '12 horas',
+        color: '#EC4899'
+    }
+];
+
+const socialMedia = [
+    { name: 'LinkedIn', icon: 'in', url: 'https://linkedin.com/company/vqs', color: '#0077B5' },
+    { name: 'Twitter', icon: '🐦', url: 'https://twitter.com/vqs_official', color: '#1DA1F2' },
+    { name: 'YouTube', icon: '📺', url: 'https://youtube.com/c/vqs', color: '#FF0000' },
+    { name: 'GitHub', icon: '💻', url: 'https://github.com/vqs', color: '#333' },
+    { name: 'Medium', icon: '✍️', url: 'https://medium.com/@vqs', color: '#00AB6C' }
+];
+
+const faqItems = [
+    {
+        question: '¿Cuánto tiempo toma obtener una certificación?',
+        answer: 'El proceso típico toma entre 3-5 días laborables desde la recepción de muestras hasta la certificación final. Para casos urgentes, ofrecemos servicio express en 24 horas.'
+    },
+    {
+        question: '¿Qué tipos de productos pueden certificar?',
+        answer: 'Certificamos una amplia gama de productos alimentarios: lácteos, cárnicos, pescados, frutas, vegetales, granos, bebidas y productos procesados. Consulta nuestra página de servicios para más detalles.'
+    },
+    {
+        question: '¿En qué países están disponibles sus servicios?',
+        answer: 'Operamos en 25 países a nivel mundial, con presencia directa en Estados Unidos, Europa, América Latina y Asia-Pacífico. Contacta con nosotros para confirmar disponibilidad en tu región.'
+    },
+    {
+        question: '¿Cómo funciona la tecnología blockchain para trazabilidad?',
+        answer: 'Nuestro sistema blockchain registra de forma inmutable cada etapa del proceso de certificación, desde el origen hasta el consumidor final, garantizando transparencia total y prevención de fraudes.'
+    },
+    {
+        question: '¿Ofrecen capacitación para usar la plataforma?',
+        answer: 'Sí, proporcionamos capacitación completa incluyendo webinars, documentación técnica, soporte personalizado y programas de certificación para tu equipo.'
+    },
+    {
+        question: '¿Cuáles son sus tarifas y planes de precios?',
+        answer: 'Ofrecemos planes flexibles desde $199 para certificación básica hasta $599 para certificación Platinum. Contacta con ventas para una cotización personalizada según tus necesidades.'
+    }
+];
+---
+
+<MainLayout title="VQS - Contacto | Conecta con Nuestros Expertos">
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <div class="hero-background">
+            <div class="hero-grid"></div>
+            <div class="hero-glow"></div>
+        </div>
+        <div class="hero-content fade-in-up">
+            <div class="hero-badge">
+                <span class="badge-icon">📞</span>
+                <span>Estamos Aquí para Ayudarte</span>
+            </div>
+            <h1>Conecta con <span class="gradient-text">Nuestros Expertos</span></h1>
+            <p class="hero-description">
+                ¿Tienes preguntas sobre nuestros servicios? ¿Necesitas una cotización personalizada? 
+                Nuestro equipo de expertos está disponible 24/7 para brindarte la mejor atención.
+            </p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-icon">⚡</div>
+                    <div class="stat-value">< 4h</div>
+                    <div class="stat-label">Tiempo de Respuesta</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">🌍</div>
+                    <div class="stat-value">24/7</div>
+                    <div class="stat-label">Soporte Global</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">🏆</div>
+                    <div class="stat-value">98%</div>
+                    <div class="stat-label">Satisfacción Cliente</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
+        <div class="form-container">
+            <div class="form-header fade-in-up">
+                <h2>Envíanos un Mensaje</h2>
+                <p>Completa el formulario y nos pondremos en contacto contigo dentro de las próximas 4 horas</p>
+            </div>
+            <form class="contact-form fade-in-up stagger-delay-1" id="contactForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="firstName">Nombre *</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Apellido *</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="email">Email Corporativo *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Teléfono</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="company">Empresa *</label>
+                    <input type="text" id="company" name="company" required>
+                </div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="industry">Industria</label>
+                        <select id="industry" name="industry">
+                            <option value="">Selecciona una industria</option>
+                            <option value="lactea">Industria Láctea</option>
+                            <option value="carnicos">Cárnicos y Embutidos</option>
+                            <option value="pescados">Productos del Mar</option>
+                            <option value="frutas">Frutas y Vegetales</option>
+                            <option value="granos">Granos y Cereales</option>
+                            <option value="bebidas">Bebidas</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactType">Tipo de Consulta *</label>
+                        <select id="contactType" name="contactType" required>
+                            <option value="">Selecciona el tipo</option>
+                            <option value="ventas">Ventas y Consultas Comerciales</option>
+                            <option value="soporte">Soporte Técnico</option>
+                            <option value="alianzas">Alianzas y Partnerships</option>
+                            <option value="demo">Solicitar Demo</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Asunto *</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensaje *</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="Cuéntanos sobre tu proyecto, necesidades específicas o cualquier pregunta que tengas..."></textarea>
+                </div>
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="newsletter" name="newsletter">
+                        <span class="checkbox-custom"></span>
+                        <span class="checkbox-text">Sí, quiero recibir actualizaciones sobre nuevos productos y servicios de VQS</span>
+                    </label>
+                </div>
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="privacy" name="privacy" required>
+                        <span class="checkbox-custom"></span>
+                        <span class="checkbox-text">Acepto la <a href="/privacidad">Política de Privacidad</a> y <a href="/terminos">Términos de Uso</a> *</span>
+                    </label>
+                </div>
+                <button type="submit" class="btn-primary large submit-btn">
+                    <span>Enviar Mensaje</span>
+                    <span class="btn-icon">📧</span>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Types Section -->
+    <section class="contact-types-section">
+        <div class="section-header fade-in-up">
+            <h2>Canales de Comunicación Especializados</h2>
+            <p>Contacta directamente con el departamento que mejor pueda ayudarte</p>
+        </div>
+        <div class="contact-types-grid">
+            {contactTypes.map((contact, index) => (
+                <div class={`contact-type-card fade-in-up stagger-delay-${(index % 3) + 1}`} style={`border-color: ${contact.color};`}>
+                    <div class="contact-icon" style={`color: ${contact.color};`}>{contact.icon}</div>
+                    <h3>{contact.title}</h3>
+                    <p>{contact.description}</p>
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <span class="detail-icon">📧</span>
+                            <a href={`mailto:${contact.email}`}>{contact.email}</a>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="detail-icon">📞</span>
+                            <a href={`tel:${contact.phone}`}>{contact.phone}</a>
+                        </div>
+                        <div class="response-time">
+                            <span class="time-icon">⏱️</span>
+                            <span>Respuesta en {contact.responseTime}</span>
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <!-- Global Offices Section -->
+    <section class="offices-section">
+        <div class="offices-background">
+            <div class="world-map"></div>
+        </div>
+        <div class="section-header fade-in-up">
+            <h2>Nuestras Oficinas Globales</h2>
+            <p>Presencia mundial para brindarte el mejor servicio local</p>
+        </div>
+        <div class="offices-grid">
+            {offices.map((office, index) => (
+                <div class={`office-card fade-in-up stagger-delay-${(index % 4) + 1}`}>
+                    <div class="office-header">
+                        <div class="office-icon" style={`color: ${office.color};`}>{office.icon}</div>
+                        <div class="office-info">
+                            <h3>{office.city}</h3>
+                            <div class="office-type">{office.type}</div>
+                        </div>
+                    </div>
+                    <div class="office-address">
+                        <div class="address-item">
+                            <span class="address-icon">📍</span>
+                            <span>{office.address}</span>
+                        </div>
+                        <div class="address-item">
+                            <span class="address-icon">📞</span>
+                            <a href={`tel:${office.phone}`}>{office.phone}</a>
+                        </div>
+                        <div class="address-item">
+                            <span class="address-icon">📧</span>
+                            <a href={`mailto:${office.email}`}>{office.email}</a>
+                        </div>
+                        <div class="address-item">
+                            <span class="address-icon">🕒</span>
+                            <span>{office.hours} ({office.timezone})</span>
+                        </div>
+                    </div>
+                    <div class="office-specialties">
+                        <h4>Especialidades:</h4>
+                        <div class="specialties-list">
+                            {office.specialties.map(specialty => (
+                                <span class="specialty-tag">{specialty}</span>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="section-header fade-in-up">
+            <h2>Preguntas Frecuentes</h2>
+            <p>Respuestas a las consultas más comunes sobre nuestros servicios</p>
+        </div>
+        <div class="faq-container">
+            {faqItems.map((item, index) => (
+                <div class={`faq-item fade-in-up stagger-delay-${(index % 6) + 1}`}>
+                    <button class="faq-question" onclick={`toggleFAQ(${index})`}>
+                        <span>{item.question}</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer" id={`faq-${index}`}>
+                        <p>{item.answer}</p>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section class="social-section">
+        <div class="social-background">
+            <div class="social-pattern"></div>
+        </div>
+        <div class="section-header fade-in-up">
+            <h2>Síguenos en Redes Sociales</h2>
+            <p>Mantente al día con las últimas noticias, actualizaciones tecnológicas y casos de éxito</p>
+        </div>
+        <div class="social-grid">
+            {socialMedia.map((social, index) => (
+                <a href={social.url} target="_blank" rel="noopener noreferrer" 
+                   class={`social-card fade-in-up stagger-delay-${(index % 5) + 1}`}
+                   style={`border-color: ${social.color};`}>
+                    <div class="social-icon" style={`color: ${social.color};`}>{social.icon}</div>
+                    <h3>{social.name}</h3>
+                    <p>Síguenos en {social.name}</p>
+                    <div class="social-arrow" style={`color: ${social.color};`}>→</div>
+                </a>
+            ))}
+        </div>
+    </section>
+
+    <!-- Emergency Contact -->
+    <section class="emergency-contact">
+        <div class="emergency-content fade-in-up">
+            <div class="emergency-icon">🚨</div>
+            <h3>Soporte de Emergencia 24/7</h3>
+            <p>Para situaciones críticas que requieren atención inmediata</p>
+            <div class="emergency-contacts">
+                <a href="tel:+15551234567" class="emergency-btn">
+                    <span class="emergency-btn-icon">📞</span>
+                    <span>+1 (555) 123-4567</span>
+                </a>
+                <a href="mailto:emergencia@vqs.com" class="emergency-btn">
+                    <span class="emergency-btn-icon">📧</span>
+                    <span>emergencia@vqs.com</span>
+                </a>
+            </div>
+            <div class="emergency-note">
+                <span class="note-icon">ℹ️</span>
+                <span>Disponible únicamente para clientes enterprise con contratos de SLA</span>
+            </div>
+        </div>
+    </section>
+</MainLayout>
+
+<style>
+    /* Hero Section */
+    .contact-hero {
+        position: relative;
+        padding: var(--space-4xl) 0;
+        margin: var(--space-xl) calc(-1 * var(--space-xl)) var(--space-4xl);
+        background: var(--gradient-primary);
+        color: white;
+        border-radius: var(--radius-2xl);
+        overflow: hidden;
+    }
+
+    .hero-background {
+        position: absolute;
+        inset: 0;
+        opacity: 0.1;
+    }
+
+    .hero-grid {
+        position: absolute;
+        inset: 0;
+        background-image: 
+            linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px),
+            linear-gradient(180deg, rgba(255,255,255,0.1) 1px, transparent 1px);
+        background-size: 40px 40px;
+        animation: grid-move 20s linear infinite;
+    }
+
+    .hero-glow {
+        position: absolute;
+        top: 30%;
+        right: 15%;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+        border-radius: 50%;
+        animation: float 8s ease-in-out infinite;
+    }
+
+    @keyframes grid-move {
+        0% { transform: translate(0, 0); }
+        100% { transform: translate(40px, 40px); }
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 var(--space-xl);
+    }
+
+    .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-sm);
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: var(--space-sm) var(--space-lg);
+        border-radius: var(--radius-full);
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin-bottom: var(--space-xl);
+    }
+
+    .contact-hero h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: var(--space-xl);
+    }
+
+    .hero-description {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        opacity: 0.9;
+        margin-bottom: var(--space-2xl);
+    }
+
+    .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-xl);
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .stat-item {
+        text-align: center;
+        padding: var(--space-lg);
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: var(--radius-xl);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .stat-icon {
+        font-size: 2rem;
+        margin-bottom: var(--space-sm);
+    }
+
+    .stat-value {
+        font-size: 2rem;
+        font-weight: 800;
+        color: #FFD700;
+        margin-bottom: var(--space-xs);
+    }
+
+    .stat-label {
+        font-size: 0.85rem;
+        opacity: 0.8;
+        font-weight: 500;
+    }
+
+    /* Contact Form Section */
+    .contact-form-section {
+        padding: var(--space-4xl) 0;
+    }
+
+    .form-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 var(--space-xl);
+    }
+
+    .form-header {
+        text-align: center;
+        margin-bottom: var(--space-3xl);
+    }
+
+    .form-header h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--color-gray-900);
+        margin-bottom: var(--space-md);
+    }
+
+    .form-header p {
+        color: var(--color-gray-600);
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+    .contact-form {
+        background: white;
+        padding: var(--space-3xl);
+        border-radius: var(--radius-2xl);
+        box-shadow: var(--shadow-2xl);
+        border: 1px solid var(--color-gray-200);
+    }
+
+    .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-lg);
+    }
+
+    .form-group {
+        margin-bottom: var(--space-lg);
+    }
+
+    .form-group label {
+        display: block;
+        font-weight: 600;
+        color: var(--color-gray-700);
+        margin-bottom: var(--space-sm);
+        font-size: 0.95rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: var(--space-md);
+        border: 2px solid var(--color-gray-300);
+        border-radius: var(--radius-lg);
+        font-size: 1rem;
+        transition: all var(--transition-normal);
+        font-family: inherit;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-color: var(--color-primary-500);
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    .form-group textarea {
+        resize: vertical;
+        min-height: 120px;
+    }
+
+    .checkbox-group {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-md);
+    }
+
+    .checkbox-label {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-sm);
+        cursor: pointer;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .checkbox-label input[type="checkbox"] {
+        display: none;
+    }
+
+    .checkbox-custom {
+        width: 20px;
+        height: 20px;
+        border: 2px solid var(--color-gray-400);
+        border-radius: var(--radius-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all var(--transition-normal);
+        flex-shrink: 0;
+        margin-top: 2px;
+    }
+
+    .checkbox-label input[type="checkbox"]:checked + .checkbox-custom {
+        background: var(--color-primary-500);
+        border-color: var(--color-primary-500);
+    }
+
+    .checkbox-label input[type="checkbox"]:checked + .checkbox-custom::after {
+        content: '✓';
+        color: white;
+        font-weight: 600;
+        font-size: 0.8rem;
+    }
+
+    .checkbox-text {
+        color: var(--color-gray-600);
+    }
+
+    .checkbox-text a {
+        color: var(--color-primary-600);
+        text-decoration: underline;
+    }
+
+    .submit-btn {
+        width: 100%;
+        margin-top: var(--space-lg);
+    }
+
+    /* Contact Types Section */
+    .contact-types-section {
+        padding: var(--space-4xl) 0;
+        background: var(--color-gray-50);
+    }
+
+    .contact-types-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: var(--space-2xl);
+    }
+
+    .contact-type-card {
+        background: white;
+        padding: var(--space-2xl);
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-lg);
+        border: 2px solid;
+        transition: all var(--transition-normal);
+    }
+
+    .contact-type-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-2xl);
+    }
+
+    .contact-icon {
+        font-size: 3rem;
+        margin-bottom: var(--space-lg);
+    }
+
+    .contact-type-card h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--color-gray-900);
+        margin-bottom: var(--space-md);
+    }
+
+    .contact-type-card p {
+        color: var(--color-gray-600);
+        margin-bottom: var(--space-xl);
+        line-height: 1.6;
+    }
+
+    .contact-details {
+        border-top: 1px solid var(--color-gray-200);
+        padding-top: var(--space-lg);
+    }
+
+    .contact-detail {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        margin-bottom: var(--space-md);
+    }
+
+    .detail-icon {
+        font-size: 1rem;
+        color: var(--color-primary-500);
+        width: 20px;
+    }
+
+    .contact-detail a {
+        color: var(--color-gray-700);
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .contact-detail a:hover {
+        color: var(--color-primary-600);
+        text-decoration: underline;
+    }
+
+    .response-time {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        background: var(--color-primary-100);
+        color: var(--color-primary-800);
+        padding: var(--space-sm) var(--space-md);
+        border-radius: var(--radius-lg);
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-top: var(--space-md);
+    }
+
+    .time-icon {
+        font-size: 1rem;
+    }
+
+    /* Global Offices Section */
+    .offices-section {
+        padding: var(--space-4xl) 0;
+        position: relative;
+    }
+
+    .offices-background {
+        position: absolute;
+        inset: 0;
+        opacity: 0.05;
+    }
+
+    .world-map {
+        position: absolute;
+        inset: 0;
+        background-image: 
+            radial-gradient(circle at 20% 40%, var(--color-primary-500) 3px, transparent 3px),
+            radial-gradient(circle at 60% 30%, var(--color-secondary-500) 2px, transparent 2px),
+            radial-gradient(circle at 80% 60%, var(--color-primary-500) 2.5px, transparent 2.5px),
+            radial-gradient(circle at 40% 70%, var(--color-secondary-500) 2px, transparent 2px);
+        background-size: 200px 200px, 300px 300px, 250px 250px, 180px 180px;
+        animation: map-pulse 15s ease-in-out infinite;
+    }
+
+    @keyframes map-pulse {
+        0%, 100% { opacity: 0.5; }
+        50% { opacity: 1; }
+    }
+
+    .offices-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: var(--space-2xl);
+    }
+
+    .office-card {
+        background: white;
+        padding: var(--space-2xl);
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-lg);
+        border: 1px solid var(--color-gray-200);
+        transition: all var(--transition-normal);
+    }
+
+    .office-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-xl);
+        border-color: var(--color-primary-300);
+    }
+
+    .office-header {
+        display: flex;
+        align-items: center;
+        gap: var(--space-lg);
+        margin-bottom: var(--space-xl);
+    }
+
+    .office-icon {
+        font-size: 3rem;
+    }
+
+    .office-info h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--color-gray-900);
+        margin-bottom: var(--space-xs);
+    }
+
+    .office-type {
+        background: var(--color-primary-100);
+        color: var(--color-primary-800);
+        padding: var(--space-xs) var(--space-md);
+        border-radius: var(--radius-full);
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .office-address {
+        margin-bottom: var(--space-xl);
+    }
+
+    .address-item {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-sm);
+        margin-bottom: var(--space-md);
+        font-size: 0.95rem;
+    }
+
+    .address-icon {
+        font-size: 1rem;
+        color: var(--color-primary-500);
+        width: 20px;
+        flex-shrink: 0;
+        margin-top: 2px;
+    }
+
+    .address-item a {
+        color: var(--color-gray-700);
+        text-decoration: none;
+    }
+
+    .address-item a:hover {
+        color: var(--color-primary-600);
+        text-decoration: underline;
+    }
+
+    .office-specialties h4 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--color-gray-800);
+        margin-bottom: var(--space-md);
+    }
+
+    .specialties-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-sm);
+    }
+
+    .specialty-tag {
+        background: var(--color-secondary-100);
+        color: var(--color-secondary-800);
+        padding: var(--space-xs) var(--space-md);
+        border-radius: var(--radius-full);
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+        padding: var(--space-4xl) 0;
+        background: var(--color-gray-50);
+    }
+
+    .faq-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 var(--space-xl);
+    }
+
+    .faq-item {
+        background: white;
+        border-radius: var(--radius-xl);
+        margin-bottom: var(--space-lg);
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--color-gray-200);
+        overflow: hidden;
+    }
+
+    .faq-question {
+        width: 100%;
+        padding: var(--space-xl);
+        background: none;
+        border: none;
+        text-align: left;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--color-gray-900);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all var(--transition-normal);
+    }
+
+    .faq-question:hover {
+        background: var(--color-gray-50);
+    }
+
+    .faq-icon {
+        font-size: 1.5rem;
+        color: var(--color-primary-500);
+        font-weight: 700;
+        transition: transform var(--transition-normal);
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        background: var(--color-gray-50);
+    }
+
+    .faq-answer.open {
+        max-height: 200px;
+    }
+
+    .faq-answer p {
+        padding: 0 var(--space-xl) var(--space-xl);
+        color: var(--color-gray-600);
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    /* Social Media Section */
+    .social-section {
+        padding: var(--space-4xl) 0;
+        position: relative;
+    }
+
+    .social-background {
+        position: absolute;
+        inset: 0;
+        opacity: 0.05;
+    }
+
+    .social-pattern {
+        position: absolute;
+        inset: 0;
+        background-image: 
+            linear-gradient(60deg, var(--color-primary-500) 1px, transparent 1px),
+            linear-gradient(120deg, var(--color-secondary-500) 1px, transparent 1px);
+        background-size: 30px 30px;
+        animation: social-move 12s linear infinite;
+    }
+
+    @keyframes social-move {
+        0% { transform: translate(0, 0); }
+        100% { transform: translate(30px, 30px); }
+    }
+
+    .social-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: var(--space-xl);
+    }
+
+    .social-card {
+        background: white;
+        padding: var(--space-2xl);
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-md);
+        border: 2px solid;
+        text-decoration: none;
+        color: inherit;
+        transition: all var(--transition-normal);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .social-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-xl);
+        text-decoration: none;
+    }
+
+    .social-icon {
+        font-size: 3rem;
+        margin-bottom: var(--space-lg);
+    }
+
+    .social-card h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--color-gray-900);
+        margin-bottom: var(--space-md);
+    }
+
+    .social-card p {
+        color: var(--color-gray-600);
+        margin-bottom: var(--space-lg);
+    }
+
+    .social-arrow {
+        position: absolute;
+        bottom: var(--space-lg);
+        right: var(--space-lg);
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+    /* Emergency Contact */
+    .emergency-contact {
+        padding: var(--space-3xl) 0;
+        background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+        border-radius: var(--radius-2xl);
+        margin: var(--space-2xl) 0;
+    }
+
+    .emergency-content {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 0 var(--space-xl);
+    }
+
+    .emergency-icon {
+        font-size: 4rem;
+        margin-bottom: var(--space-lg);
+        animation: emergency-pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes emergency-pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+    }
+
+    .emergency-content h3 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--color-orange-800);
+        margin-bottom: var(--space-md);
+    }
+
+    .emergency-content p {
+        color: var(--color-orange-700);
+        margin-bottom: var(--space-2xl);
+        font-size: 1.1rem;
+    }
+
+    .emergency-contacts {
+        display: flex;
+        justify-content: center;
+        gap: var(--space-lg);
+        margin-bottom: var(--space-xl);
+        flex-wrap: wrap;
+    }
+
+    .emergency-btn {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        background: var(--color-orange-600);
+        color: white;
+        padding: var(--space-lg) var(--space-xl);
+        border-radius: var(--radius-lg);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all var(--transition-normal);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .emergency-btn:hover {
+        background: var(--color-orange-700);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-xl);
+        text-decoration: none;
+        color: white;
+    }
+
+    .emergency-btn-icon {
+        font-size: 1.2rem;
+    }
+
+    .emergency-note {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-sm);
+        color: var(--color-orange-600);
+        font-size: 0.9rem;
+        font-style: italic;
+    }
+
+    .note-icon {
+        font-size: 1rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .contact-hero h1 {
+            font-size: 2.5rem;
+        }
+
+        .hero-stats {
+            grid-template-columns: 1fr;
+            gap: var(--space-lg);
+        }
+
+        .form-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .contact-form {
+            padding: var(--space-2xl) var(--space-lg);
+        }
+
+        .contact-types-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .offices-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .social-grid {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .emergency-contacts {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .office-header {
+            flex-direction: column;
+            text-align: center;
+            gap: var(--space-md);
+        }
+    }
+
+    /* Animation Classes */
+    .fade-in-up {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .stagger-delay-1 { animation-delay: 0.1s; }
+    .stagger-delay-2 { animation-delay: 0.2s; }
+    .stagger-delay-3 { animation-delay: 0.3s; }
+    .stagger-delay-4 { animation-delay: 0.4s; }
+    .stagger-delay-5 { animation-delay: 0.5s; }
+    .stagger-delay-6 { animation-delay: 0.6s; }
+
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-8px); }
+    }
+</style>
+
+<script>
+    function toggleFAQ(index) {
+        const answer = document.getElementById(`faq-${index}`);
+        const icon = answer.previousElementSibling.querySelector('.faq-icon');
+        
+        if (answer.classList.contains('open')) {
+            answer.classList.remove('open');
+            icon.style.transform = 'rotate(0deg)';
+            icon.textContent = '+';
+        } else {
+            // Close all other FAQs
+            document.querySelectorAll('.faq-answer').forEach(item => {
+                item.classList.remove('open');
+            });
+            document.querySelectorAll('.faq-icon').forEach(item => {
+                item.style.transform = 'rotate(0deg)';
+                item.textContent = '+';
+            });
+            
+            // Open this FAQ
+            answer.classList.add('open');
+            icon.style.transform = 'rotate(45deg)';
+            icon.textContent = '×';
+        }
+    }
+</script>
