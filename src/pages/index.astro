@@ -1,136 +1,39 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 
-const certificationLevels = [
-    { 
-        level: 'PLATINUM', 
-        color: '#8B5CF6', 
-        bgColor: 'rgba(139, 92, 246, 0.1)',
-        description: 'Excelencia Suprema',
-        minScore: 98
+const serviceAreas = [
+    {
+        name: 'Alimentación',
+        description: 'Seguridad alimenticia en línea y sensores de análisis para garantizar la calidad y el cumplimiento normativo en toda la cadena de producción.',
+        icon: '🍎',
+        color: '#22C55E',
+        bgColor: 'rgba(34, 197, 94, 0.1)',
     },
-    { 
-        level: 'GOLD', 
-        color: '#D97706', 
-        bgColor: 'rgba(217, 119, 6, 0.1)',
-        description: 'Calidad Premium',
-        minScore: 95
+    {
+        name: 'Información y Soporte',
+        description: 'Máxima seguridad y protección de datos para sus sistemas, asegurando la confidencialidad e integridad de la información crítica de su negocio.',
+        icon: '💻',
+        color: '#3B82F6',
+        bgColor: 'rgba(59, 130, 246, 0.1)',
     },
-    { 
-        level: 'SILVER', 
-        color: '#059669', 
-        bgColor: 'rgba(5, 150, 105, 0.1)',
-        description: 'Estándar Superior',
-        minScore: 90
+    {
+        name: 'Encuestas y Estadísticas',
+        description: 'Medición precisa de la satisfacción de clientes y gestión de no conformidades para una mejora continua de sus servicios y productos.',
+        icon: '📊',
+        color: '#F97316',
+        bgColor: 'rgba(249, 115, 22, 0.1)',
     },
-    { 
-        level: 'CERTIFIED', 
-        color: '#1E40AF', 
-        bgColor: 'rgba(30, 64, 175, 0.1)',
-        description: 'Certificado Básico',
-        minScore: 85
+    {
+        name: 'Mantenimiento y Equipos',
+        description: 'Verificación del cumplimiento de las regulaciones legales y normativas en todas las actividades de mantenimiento y uso de equipamientos.',
+        icon: '🔧',
+        color: '#6B7280',
+        bgColor: 'rgba(107, 114, 128, 0.1)',
     }
 ];
-
-const products = [
-    { 
-        name: 'Leche Orgánica Ultra Premium', 
-        category: 'Lácteos',
-        certificationLevel: 'PLATINUM',
-        aiScore: 99.2,
-        batchId: 'LCT-2024-001',
-        certificationDate: '2024-01-15',
-        expiryDate: '2024-07-15',
-        image: 'https://images.pexels.com/photos/416978/pexels-photo-416978.jpeg?auto=compress&cs=tinysrgb&w=500',
-        features: ['Sin Antibióticos', 'Pasteurización Controlada', 'Trazabilidad Completa']
-    },
-    { 
-        name: 'Salmón Atlántico Sostenible', 
-        category: 'Pescados',
-        certificationLevel: 'PLATINUM',
-        aiScore: 98.8,
-        batchId: 'SAL-2024-002',
-        certificationDate: '2024-01-14',
-        expiryDate: '2024-01-21',
-        image: 'https://images.pexels.com/photos/725991/pexels-photo-725991.jpeg?auto=compress&cs=tinysrgb&w=500',
-        features: ['Pesca Sostenible', 'Omega-3 Alto', 'Cadena de Frío']
-    },
-    { 
-        name: 'Aceite de Oliva Extra Virgen', 
-        category: 'Aceites',
-        certificationLevel: 'GOLD',
-        aiScore: 97.5,
-        batchId: 'AOL-2024-003',
-        certificationDate: '2024-01-13',
-        expiryDate: '2025-01-13',
-        image: 'https://images.pexels.com/photos/33783/olive-oil-salad-dressing-cooking-olive.jpg?auto=compress&cs=tinysrgb&w=500',
-        features: ['Primera Prensada', 'Acidez <0.3%', 'Antioxidantes Naturales']
-    },
-    { 
-        name: 'Manzanas Orgánicas Gala', 
-        category: 'Frutas',
-        certificationLevel: 'GOLD',
-        aiScore: 96.9,
-        batchId: 'MZN-2024-004',
-        certificationDate: '2024-01-12',
-        expiryDate: '2024-02-12',
-        image: 'https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&w=500',
-        features: ['Cultivo Orgánico', 'Sin Pesticidas', 'Cosecha Reciente']
-    },
-    { 
-        name: 'Pan Artesanal Integral', 
-        category: 'Panadería',
-        certificationLevel: 'SILVER',
-        aiScore: 94.3,
-        batchId: 'PAN-2024-005',
-        certificationDate: '2024-01-15',
-        expiryDate: '2024-01-18',
-        image: 'https://images.pexels.com/photos/1775043/pexels-photo-1775043.jpeg?auto=compress&cs=tinysrgb&w=500',
-        features: ['Masa Madre Natural', 'Harina Integral', 'Sin Conservantes']
-    },
-    { 
-        name: 'Huevos de Granja Libre', 
-        category: 'Proteínas',
-        certificationLevel: 'GOLD',
-        aiScore: 97.1,
-        batchId: 'HUE-2024-006',
-        certificationDate: '2024-01-14',
-        expiryDate: '2024-02-14',
-        image: 'https://images.pexels.com/photos/162712/egg-white-food-protein-162712.jpeg?auto=compress&cs=tinysrgb&w=500',
-        features: ['Gallinas Libres', 'Alimentación Natural', 'Omega-3 Enriquecido']
-    },
-    { 
-        name: 'Queso Manchego Curado', 
-        category: 'Lácteos',
-        certificationLevel: 'PLATINUM',
-        aiScore: 98.6,
-        batchId: 'QUE-2024-007',
-        certificationDate: '2024-01-10',
-        expiryDate: '2024-06-10',
-        image: 'https://images.pexels.com/photos/773253/pexels-photo-773253.jpeg?auto=compress&cs=tinysrgb&w=500',
-        features: ['Leche de Oveja', 'Curación 12 Meses', 'DOP Certificado']
-    },
-    { 
-        name: 'Café Premium Arábica', 
-        category: 'Bebidas',
-        certificationLevel: 'GOLD',
-        aiScore: 96.4,
-        batchId: 'CAF-2024-008',
-        certificationDate: '2024-01-11',
-        expiryDate: '2024-07-11',
-        image: 'https://images.pexels.com/photos/894695/pexels-photo-894695.jpeg?auto=compress&cs=tinysrgb&w=500',
-        features: ['Comercio Justo', 'Tueste Artesanal', 'Origen Único']
-    }
-];
-
-const categories = ['Todos', 'Lácteos', 'Pescados', 'Aceites', 'Frutas', 'Panadería', 'Proteínas', 'Bebidas'];
-
-function getCertificationInfo(level) {
-    return certificationLevels.find(cert => cert.level === level);
-}
 ---
 
-<MainLayout title="VQS - Certificación Alimentaria por IA | Líder Mundial">
+<MainLayout title="VQS - Servicio de Verificación de la Calidad">
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-background">
@@ -140,44 +43,42 @@ function getCertificationInfo(level) {
         <div class="hero-content">
             <div class="hero-text fade-in-up">
                 <div class="hero-badge">
-                    <span class="badge-icon">🏆</span>
-                    <span>Certificación IA de Nueva Generación</span>
+                    <span class="badge-icon">✅</span>
+                    <span>Servicio de Verificación de Calidad</span>
                 </div>
                 <h1 class="hero-title">
-                    Revolucionamos la 
-                    <span class="gradient-text">Certificación Alimentaria</span>
-                    con Inteligencia Artificial
+                    Garantizamos la Certeza
+                    <span class="gradient-text">de lo que Compras y Recibes</span>
                 </h1>
                 <p class="hero-description">
-                    Tecnología de vanguardia que garantiza los más altos estándares de calidad y seguridad 
-                    alimentaria. Certificación en tiempo real con precisión del 99.8% y trazabilidad completa.
+                    En un mundo que no se detiene, VQS verifica el cumplimiento de las expectativas y la satisfacción de los clientes. Porque tener la certeza de que lo que se adquiere es lo que se recibe, es un derecho.
                 </p>
                 <div class="hero-stats">
                     <div class="stat-item fade-in-up stagger-delay-1">
-                        <div class="stat-number">15,000+</div>
-                        <div class="stat-label">Productos Certificados</div>
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Compromiso</div>
                     </div>
                     <div class="stat-item fade-in-up stagger-delay-2">
-                        <div class="stat-number">99.8%</div>
-                        <div class="stat-label">Precisión IA</div>
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">Áreas de Servicio</div>
                     </div>
                     <div class="stat-item fade-in-up stagger-delay-3">
-                        <div class="stat-number">24h</div>
-                        <div class="stat-label">Tiempo Certificación</div>
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Soporte Activo</div>
                     </div>
                     <div class="stat-item fade-in-up stagger-delay-4">
-                        <div class="stat-number">750+</div>
-                        <div class="stat-label">Empresas Confiadas</div>
+                        <div class="stat-number">1,200+</div>
+                        <div class="stat-label">Clientes Satisfechos</div>
                     </div>
                 </div>
                 <div class="hero-actions fade-in-up">
-                    <a href="#productos" class="btn-primary">
-                        <span>Explorar Certificaciones</span>
+                    <a href="#servicios" class="btn-primary">
+                        <span>Nuestros Servicios</span>
                         <span class="btn-icon">→</span>
                     </a>
-                    <a href="/demo" class="btn-secondary">
+                    <a href="/contacto" class="btn-secondary">
                         <span class="btn-icon">▶</span>
-                        <span>Ver Demo</span>
+                        <span>Solicitar Verificación</span>
                     </a>
                 </div>
             </div>
@@ -187,29 +88,29 @@ function getCertificationInfo(level) {
                         <div class="preview-logo">VQS</div>
                         <div class="preview-status">
                             <div class="status-dot"></div>
-                            <span>Certificando...</span>
+                            <span>Verificando...</span>
                         </div>
                     </div>
                     <div class="preview-content">
                         <div class="preview-product">
-                            <div class="product-image-preview"></div>
+                            <div class="product-image-preview" style="background: linear-gradient(135deg, #3B82F6, #10B981);"></div>
                             <div class="product-info">
-                                <h4>Análisis en Tiempo Real</h4>
+                                <h4>Verificación Multidimensional</h4>
                                 <div class="analysis-bars">
                                     <div class="analysis-bar">
-                                        <span>Calidad</span>
-                                        <div class="bar"><div class="fill" style="width: 98%"></div></div>
-                                        <span>98%</span>
-                                    </div>
-                                    <div class="analysis-bar">
-                                        <span>Seguridad</span>
+                                        <span>Cumplimiento</span>
                                         <div class="bar"><div class="fill" style="width: 99%"></div></div>
                                         <span>99%</span>
                                     </div>
                                     <div class="analysis-bar">
-                                        <span>Trazabilidad</span>
-                                        <div class="bar"><div class="fill" style="width: 100%"></div></div>
-                                        <span>100%</span>
+                                        <span>Calidad</span>
+                                        <div class="bar"><div class="fill" style="width: 97%"></div></div>
+                                        <span>97%</span>
+                                    </div>
+                                    <div class="analysis-bar">
+                                        <span>Satisfacción</span>
+                                        <div class="bar"><div class="fill" style="width: 98%"></div></div>
+                                        <span>98%</span>
                                     </div>
                                 </div>
                             </div>
@@ -220,137 +121,40 @@ function getCertificationInfo(level) {
         </div>
     </section>
 
-    <!-- Certification Levels Section -->
-    <section class="certification-levels-section" id="niveles">
+    <!-- Service Areas Section -->
+    <section class="certification-levels-section" id="servicios">
         <div class="section-header fade-in-up">
-            <h2>Niveles de Certificación VQS</h2>
-            <p>Sistema de clasificación basado en análisis exhaustivo de IA</p>
+            <h2>Áreas de Verificación VQS</h2>
+            <p>Soluciones integrales para garantizar la calidad en los sectores más exigentes</p>
         </div>
         <div class="levels-grid">
-            {certificationLevels.map((level, index) => (
+            {serviceAreas.map((area, index) => (
                 <div class={`level-card fade-in-up stagger-delay-${index + 1}`}>
-                    <div class="level-header" style={`background: ${level.bgColor}; border-color: ${level.color}`}>
-                        <div class="level-badge" style={`background: ${level.color}`}>
-                            {level.level}
+                    <div class="level-header" style={`background: ${area.bgColor}; border-color: ${area.color}`}>
+                        <div class="level-badge" style={`background: ${area.color}; font-size: 2rem; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;`}>
+                            {area.icon}
                         </div>
-                        <h3 style={`color: ${level.color}`}>{level.description}</h3>
+                        <h3 style={`color: ${area.color}; margin-top: 1rem;`}>{area.name}</h3>
                     </div>
                     <div class="level-content">
-                        <div class="level-score">
-                            <span class="score-label">Puntuación Mínima</span>
-                            <span class="score-value" style={`color: ${level.color}`}>{level.minScore}%</span>
-                        </div>
+                        <p style="color: var(--neutral-700); min-height: 100px;">{area.description}</p>
                         <div class="level-features">
                             <div class="feature-item">
                                 <span class="feature-icon">✓</span>
-                                <span>Análisis Microbiológico</span>
+                                <span>Protocolos ISO y BRC</span>
                             </div>
                             <div class="feature-item">
                                 <span class="feature-icon">✓</span>
-                                <span>Evaluación Nutricional</span>
+                                <span>Normas Sectoriales HACCP</span>
                             </div>
                             <div class="feature-item">
                                 <span class="feature-icon">✓</span>
-                                <span>Trazabilidad Blockchain</span>
+                                <span>Satisfacción del Cliente</span>
                             </div>
-                            {level.level === 'PLATINUM' && (
-                                <div class="feature-item premium">
-                                    <span class="feature-icon">⭐</span>
-                                    <span>Monitoreo Continuo IoT</span>
-                                </div>
-                            )}
                         </div>
                     </div>
                 </div>
             ))}
-        </div>
-    </section>
-
-    <!-- Products Section -->
-    <section class="products-section" id="productos">
-        <div class="section-header fade-in-up">
-            <h2>Productos Certificados</h2>
-            <p>Catálogo completo de productos con certificación VQS activa</p>
-        </div>
-        
-        <div class="filter-section fade-in-up">
-            <div class="filter-controls">
-                {categories.map((category, index) => (
-                    <button 
-                        class={`filter-btn ${index === 0 ? 'active' : ''}`} 
-                        data-category={category === 'Todos' ? 'all' : category}
-                    >
-                        {category}
-                    </button>
-                ))}
-            </div>
-        </div>
-
-        <div class="products-grid">
-            {products.map((product, index) => {
-                const certInfo = getCertificationInfo(product.certificationLevel);
-                return (
-                    <div class={`product-card fade-in-up stagger-delay-${(index % 4) + 1}`} data-category={product.category}>
-                        <div class="product-header">
-                            <div class="product-image">
-                                <img src={product.image} alt={product.name} loading="lazy" />
-                                <div class="certification-overlay">
-                                    <div class="cert-badge" style={`background: ${certInfo.color}`}>
-                                        {product.certificationLevel}
-                                    </div>
-                                    <div class="ai-score">
-                                        <span class="score-label">IA Score</span>
-                                        <span class="score-value">{product.aiScore}%</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="product-content">
-                            <div class="product-meta">
-                                <span class="product-category">{product.category}</span>
-                                <span class="batch-id">#{product.batchId}</span>
-                            </div>
-                            
-                            <h3 class="product-name">{product.name}</h3>
-                            
-                            <div class="certification-info">
-                                <div class="cert-level" style={`background: ${certInfo.bgColor}; color: ${certInfo.color}`}>
-                                    <span class="cert-icon">🏆</span>
-                                    <span>{certInfo.description}</span>
-                                </div>
-                            </div>
-                            
-                            <div class="product-features">
-                                {product.features.map(feature => (
-                                    <span class="feature-tag">{feature}</span>
-                                ))}
-                            </div>
-                            
-                            <div class="certification-dates">
-                                <div class="date-item">
-                                    <span class="date-label">Certificado</span>
-                                    <span class="date-value">{product.certificationDate}</span>
-                                </div>
-                                <div class="date-item">
-                                    <span class="date-label">Válido hasta</span>
-                                    <span class="date-value">{product.expiryDate}</span>
-                                </div>
-                            </div>
-                            
-                            <div class="product-actions">
-                                <button class="btn-view-cert">
-                                    <span>Ver Certificado</span>
-                                    <span class="btn-icon">📄</span>
-                                </button>
-                                <button class="btn-trace">
-                                    <span class="btn-icon">🔗</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                );
-            })}
         </div>
     </section>
 
@@ -360,71 +164,71 @@ function getCertificationInfo(level) {
             <div class="tech-pattern"></div>
         </div>
         <div class="section-header fade-in-up">
-            <h2>Tecnología de Vanguardia</h2>
-            <p>Infraestructura tecnológica que garantiza precisión y confiabilidad</p>
+            <h2>Tecnología para la Certeza</h2>
+            <p>Infraestructura robusta para una verificación confiable y transparente</p>
         </div>
         
         <div class="tech-grid">
             <div class="tech-card fade-in-up stagger-delay-1">
-                <div class="tech-icon">🧠</div>
-                <h3>Machine Learning Avanzado</h3>
-                <p>Algoritmos de deep learning entrenados con millones de muestras alimentarias para detección precisa de calidad y contaminantes.</p>
-                <div class="tech-stats">
-                    <div class="tech-stat">
-                        <span class="stat-number">99.8%</span>
-                        <span class="stat-label">Precisión</span>
-                    </div>
-                    <div class="tech-stat">
-                        <span class="stat-number">2.5M</span>
-                        <span class="stat-label">Muestras Entrenamiento</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tech-card fade-in-up stagger-delay-2">
                 <div class="tech-icon">📡</div>
-                <h3>Sensores IoT Inteligentes</h3>
-                <p>Red de sensores de última generación para monitoreo continuo de temperatura, humedad, pH y otros parámetros críticos.</p>
+                <h3>Sensores y Análisis en Línea</h3>
+                <p>Monitorización en tiempo real para sectores como alimentación y mantenimiento, garantizando el cumplimiento de los estándares de calidad y seguridad.</p>
                 <div class="tech-stats">
                     <div class="tech-stat">
                         <span class="stat-number">24/7</span>
                         <span class="stat-label">Monitoreo</span>
                     </div>
                     <div class="tech-stat">
-                        <span class="stat-number">50+</span>
-                        <span class="stat-label">Parámetros</span>
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">Variables</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tech-card fade-in-up stagger-delay-2">
+                <div class="tech-icon">🛡️</div>
+                <h3>Seguridad y Protección de Datos</h3>
+                <p>Plataformas seguras que protegen la integridad y confidencialidad de la información, cumpliendo con las regulaciones más estrictas de protección de datos.</p>
+                <div class="tech-stats">
+                    <div class="tech-stat">
+                        <span class="stat-number">99.9%</span>
+                        <span class="stat-label">Disponibilidad</span>
+                    </div>
+                    <div class="tech-stat">
+                        <span class="stat-number">Nivel 5</span>
+                        <span class="stat-label">Seguridad</span>
                     </div>
                 </div>
             </div>
             
             <div class="tech-card fade-in-up stagger-delay-3">
-                <div class="tech-icon">🔗</div>
-                <h3>Blockchain Trazabilidad</h3>
-                <p>Registro inmutable de toda la cadena de suministro desde el origen hasta el consumidor final con transparencia total.</p>
+                <div class="tech-icon">📈</div>
+                <h3>Análisis Estadístico Avanzado</h3>
+                <p>Herramientas de análisis de datos para procesar encuestas y métricas de satisfacción, identificando áreas de mejora y tendencias del mercado.</p>
                 <div class="tech-stats">
                     <div class="tech-stat">
-                        <span class="stat-number">100%</span>
-                        <span class="stat-label">Trazabilidad</span>
+                        <span class="stat-number">1M+</span>
+                        <span class="stat-label">Datos Procesados</span>
                     </div>
                     <div class="tech-stat">
-                        <span class="stat-number">0</span>
-                        <span class="stat-label">Falsificaciones</span>
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Precisión</span>
                     </div>
                 </div>
             </div>
             
             <div class="tech-card fade-in-up stagger-delay-4">
-                <div class="tech-icon">☁️</div>
-                <h3>Cloud Computing Escalable</h3>
-                <p>Infraestructura en la nube de alta disponibilidad que procesa millones de datos en tiempo real con máxima seguridad.</p>
+                <div class="tech-icon">🔗</div>
+                <h3>Trazabilidad Integral</h3>
+                <p>Sistemas que aseguran la trazabilidad de cada proceso, desde el origen hasta el cliente final, aportando transparencia y confianza.</p>
                 <div class="tech-stats">
                     <div class="tech-stat">
-                        <span class="stat-number">99.9%</span>
-                        <span class="stat-label">Uptime</span>
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Transparencia</span>
                     </div>
                     <div class="tech-stat">
-                        <span class="stat-number">1TB/s</span>
-                        <span class="stat-label">Procesamiento</span>
+                        <span class="stat-number">Inmutable</span>
+                        <span class="stat-label">Registro</span>
                     </div>
                 </div>
             </div>
@@ -438,31 +242,31 @@ function getCertificationInfo(level) {
         </div>
         <div class="cta-content fade-in-up">
             <div class="cta-text">
-                <h2>¿Listo para Certificar con IA?</h2>
-                <p>Únete a las empresas líderes que ya confían en VQS para garantizar la máxima calidad de sus productos alimentarios.</p>
+                <h2>¿Listo para dar Certeza a sus Clientes?</h2>
+                <p>Únase a las empresas que ya están construyendo confianza y lealtad a través de la verificación de calidad de VQS.</p>
             </div>
             <div class="cta-actions">
                 <a href="/contacto" class="btn-primary large">
-                    <span>Solicitar Certificación</span>
+                    <span>Contactar a un Experto</span>
                     <span class="btn-icon">🚀</span>
                 </a>
-                <a href="/demo" class="btn-secondary large">
+                <a href="/servicios" class="btn-secondary large">
                     <span class="btn-icon">📞</span>
-                    <span>Agendar Demo</span>
+                    <span>Conocer Más</span>
                 </a>
             </div>
             <div class="cta-features">
                 <div class="cta-feature">
                     <span class="feature-icon">⚡</span>
-                    <span>Certificación en 24h</span>
+                    <span>Implementación Rápida</span>
                 </div>
                 <div class="cta-feature">
                     <span class="feature-icon">🛡️</span>
-                    <span>Garantía de Calidad</span>
+                    <span>Garantía de Cumplimiento</span>
                 </div>
                 <div class="cta-feature">
                     <span class="feature-icon">📊</span>
-                    <span>Reportes Detallados</span>
+                    <span>Informes de Impacto</span>
                 </div>
             </div>
         </div>
@@ -1390,32 +1194,8 @@ function getCertificationInfo(level) {
 </style>
 
 <script>
-    // Filter functionality
+    // Smooth scrolling for anchor links
     document.addEventListener('DOMContentLoaded', function() {
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const productCards = document.querySelectorAll('.product-card');
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                // Remove active class from all buttons
-                filterBtns.forEach(b => b.classList.remove('active'));
-                // Add active class to clicked button
-                this.classList.add('active');
-
-                const category = this.getAttribute('data-category');
-
-                productCards.forEach(card => {
-                    if (category === 'all' || card.getAttribute('data-category') === category) {
-                        card.style.display = 'block';
-                        card.style.animation = 'fadeIn 0.5s ease';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
