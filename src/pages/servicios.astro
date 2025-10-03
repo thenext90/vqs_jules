@@ -3,250 +3,138 @@ import MainLayout from '../layouts/MainLayout.astro';
 
 const services = [
     {
-        id: 'certificacion-ia',
-        title: 'Certificación por IA',
-        description: 'Análisis exhaustivo de productos alimentarios utilizando algoritmos de inteligencia artificial avanzada',
-        icon: '🧠',
+        id: 'alimentacion',
+        title: 'Verificación de Alimentos',
+        description: 'Garantizamos la seguridad y calidad en toda la cadena alimentaria mediante sensores en línea y análisis de datos avanzados.',
+        icon: '🍎',
         features: [
-            'Análisis espectral completo',
-            'Detección de contaminantes',
-            'Evaluación nutricional',
-            'Verificación de autenticidad',
-            'Predicción de vida útil'
+            'Monitoreo de seguridad en tiempo real',
+            'Análisis de composición y calidad',
+            'Cumplimiento de normativas (ISO, BRC, HACCP)',
+            'Trazabilidad de lotes de producción',
+            'Alertas tempranas de contaminación'
         ],
         benefits: [
-            'Precisión del 99.8%',
-            'Resultados en 24 horas',
-            'Certificado internacional',
-            'Trazabilidad blockchain'
+            'Asegura la confianza del consumidor',
+            'Reduce riesgos y retiradas de productos',
+            'Optimiza la calidad de producción',
+            'Cumplimiento normativo garantizado'
         ],
-        price: 'Desde $299',
+        price: 'Desde $199/mes',
         popular: true
     },
     {
-        id: 'blockchain-trazabilidad',
-        title: 'Trazabilidad Blockchain',
-        description: 'Sistema inmutable de seguimiento desde origen hasta consumidor final',
-        icon: '🔗',
+        id: 'informacion-soporte',
+        title: 'Seguridad de la Información',
+        description: 'Protegemos los activos de datos de su empresa, garantizando la confidencialidad, integridad y disponibilidad de la información.',
+        icon: '💻',
         features: [
-            'Registro inmutable',
-            'Seguimiento en tiempo real',
-            'Verificación de origen',
-            'Historial completo',
-            'Smart contracts'
+            'Auditorías de seguridad de sistemas',
+            'Análisis de vulnerabilidades',
+            'Planes de protección de datos (GDPR, etc.)',
+            'Verificación de infraestructura de TI',
+            'Capacitación en ciberseguridad'
         ],
         benefits: [
-            'Transparencia total',
-            'Prevención de fraudes',
-            'Cumplimiento regulatorio',
-            'Confianza del consumidor'
+            'Protege contra brechas de datos',
+            'Asegura la continuidad del negocio',
+            'Genera confianza en clientes y socios',
+            'Cumple con regulaciones de privacidad'
         ],
-        price: 'Desde $199',
+        price: 'Desde $299/mes',
         popular: false
     },
     {
-        id: 'monitoreo-continuo',
-        title: 'Monitoreo Continuo',
-        description: 'Supervisión permanente de calidad mediante sensores IoT y análisis predictivo',
+        id: 'encuestas-estadisticas',
+        title: 'Análisis de Satisfacción',
+        description: 'Medimos y analizamos la percepción de sus clientes para identificar oportunidades de mejora y gestionar no conformidades.',
         icon: '📊',
         features: [
-            'Sensores IoT avanzados',
-            'Análisis predictivo',
-            'Alertas automáticas',
-            'Dashboard en tiempo real',
-            'Reportes automatizados'
+            'Diseño e implementación de encuestas',
+            'Análisis estadístico de resultados',
+            'Identificación de puntos críticos',
+            'Gestión de no conformidades',
+            'Informes de inteligencia de cliente'
         ],
         benefits: [
-            'Prevención proactiva',
-            'Reducción de desperdicios',
-            'Optimización de procesos',
-            'Cumplimiento automático'
+            'Mejora la lealtad del cliente',
+            'Toma de decisiones basada en datos',
+            'Optimización de productos y servicios',
+            'Respuesta ágil a problemas'
         ],
-        price: 'Desde $399',
+        price: 'Desde $149/mes',
         popular: false
     },
     {
-        id: 'consultoria-especializada',
-        title: 'Consultoría Especializada',
-        description: 'Asesoramiento experto para implementación de sistemas de calidad alimentaria',
-        icon: '👨‍🔬',
+        id: 'mantenimiento-equipos',
+        title: 'Verificación de Mantenimiento',
+        description: 'Aseguramos que las actividades de mantenimiento y los equipos cumplan con las regulaciones legales y normativas vigentes.',
+        icon: '🔧',
         features: [
-            'Auditorías especializadas',
-            'Diseño de procesos',
-            'Capacitación de equipos',
-            'Implementación HACCP',
-            'Certificaciones ISO'
+            'Auditoría de planes de mantenimiento',
+            'Verificación de cumplimiento normativo',
+            'Inspección de seguridad de equipos',
+            'Certificación de procesos',
+            'Análisis de fiabilidad y vida útil'
         ],
         benefits: [
-            'Expertise internacional',
-            'Soluciones personalizadas',
-            'Acompañamiento integral',
-            'Mejora continua'
+            'Garantiza la seguridad operacional',
+            'Previene fallos y accidentes',
+            'Asegura el cumplimiento legal',
+            'Optimiza la gestión de activos'
         ],
-        price: 'Cotización personalizada',
+        price: 'Desde $249/mes',
         popular: false
-    }
-];
-
-const industries = [
-    {
-        name: 'Industria Láctea',
-        icon: '🥛',
-        description: 'Certificación especializada para productos lácteos y derivados',
-        applications: ['Leche', 'Quesos', 'Yogures', 'Mantequilla'],
-        stats: { clients: '150+', products: '2,500+' }
-    },
-    {
-        name: 'Cárnicos y Embutidos',
-        icon: '🥩',
-        description: 'Análisis integral de carnes, aves y productos cárnicos procesados',
-        applications: ['Carne fresca', 'Embutidos', 'Aves', 'Conservas'],
-        stats: { clients: '200+', products: '3,200+' }
-    },
-    {
-        name: 'Productos del Mar',
-        icon: '🐟',
-        description: 'Certificación de pescados, mariscos y productos marinos',
-        applications: ['Pescado fresco', 'Mariscos', 'Conservas', 'Congelados'],
-        stats: { clients: '80+', products: '1,100+' }
-    },
-    {
-        name: 'Frutas y Vegetales',
-        icon: '🥬',
-        description: 'Análisis de productos agrícolas frescos y procesados',
-        applications: ['Frutas frescas', 'Vegetales', 'Jugos', 'Conservas'],
-        stats: { clients: '300+', products: '4,800+' }
-    },
-    {
-        name: 'Granos y Cereales',
-        icon: '🌾',
-        description: 'Certificación de cereales, legumbres y derivados',
-        applications: ['Trigo', 'Arroz', 'Legumbres', 'Harinas'],
-        stats: { clients: '120+', products: '2,000+' }
-    },
-    {
-        name: 'Bebidas',
-        icon: '🥤',
-        description: 'Análisis de bebidas alcohólicas y no alcohólicas',
-        applications: ['Agua', 'Refrescos', 'Vinos', 'Cervezas'],
-        stats: { clients: '90+', products: '1,500+' }
     }
 ];
 
 const processSteps = [
     {
         step: 1,
-        title: 'Solicitud y Registro',
-        description: 'Registro en plataforma y envío de información del producto',
+        title: 'Diagnóstico Inicial',
+        description: 'Realizamos un análisis exhaustivo de sus procesos y necesidades para definir el alcance de la verificación.',
         icon: '📝',
-        duration: '1 día'
+        duration: '1-2 días'
     },
     {
         step: 2,
-        title: 'Recepción de Muestras',
-        description: 'Recolección o envío de muestras a nuestros laboratorios',
-        icon: '📦',
+        title: 'Diseño del Plan',
+        description: 'Creamos un plan de verificación a medida, estableciendo protocolos, métricas y KPIs específicos.',
+        icon: '📋',
         duration: '2-3 días'
     },
     {
         step: 3,
-        title: 'Análisis por IA',
-        description: 'Procesamiento mediante algoritmos de machine learning',
-        icon: '🔬',
-        duration: '12-24 horas'
+        title: 'Implementación',
+        description: 'Desplegamos nuestras herramientas y sensores, y comenzamos el monitoreo y la recopilación de datos.',
+        icon: '🚀',
+        duration: 'Depende del proyecto'
     },
     {
         step: 4,
-        title: 'Validación Experta',
-        description: 'Revisión por especialistas y validación de resultados',
-        icon: '👨‍🔬',
-        duration: '4-6 horas'
+        title: 'Análisis y Reporte',
+        description: 'Nuestros expertos analizan los datos y generan informes detallados con hallazgos y recomendaciones.',
+        icon: '🔬',
+        duration: '3-5 días'
     },
     {
         step: 5,
-        title: 'Certificación',
-        description: 'Emisión de certificado digital y registro en blockchain',
+        title: 'Emisión de Verificación',
+        description: 'Emitimos el informe final de verificación que certifica el cumplimiento de los estándares establecidos.',
         icon: '🏆',
-        duration: '2-4 horas'
+        duration: '1 día'
     },
     {
         step: 6,
-        title: 'Entrega',
-        description: 'Envío de certificado y activación de trazabilidad',
+        title: 'Mejora Continua',
+        description: 'Ofrecemos seguimiento y soporte para asegurar la mejora continua y el mantenimiento de la calidad.',
         icon: '✅',
-        duration: '1 hora'
-    }
-];
-
-const certificationTypes = [
-    {
-        name: 'VQS Platinum',
-        description: 'Certificación premium para productos de excelencia suprema',
-        color: '#8B5CF6',
-        bgColor: 'rgba(139, 92, 246, 0.1)',
-        minScore: 98,
-        features: [
-            'Análisis completo por IA',
-            'Validación por 3 expertos',
-            'Trazabilidad blockchain premium',
-            'Monitoreo continuo 12 meses',
-            'Sello holográfico especial',
-            'Renovación automática'
-        ],
-        validity: '12 meses',
-        price: '$599'
-    },
-    {
-        name: 'VQS Gold',
-        description: 'Certificación de alta calidad para productos premium',
-        color: '#D97706',
-        bgColor: 'rgba(217, 119, 6, 0.1)',
-        minScore: 95,
-        features: [
-            'Análisis por IA avanzado',
-            'Validación por 2 expertos',
-            'Trazabilidad blockchain',
-            'Monitoreo trimestral',
-            'Sello digital verificable'
-        ],
-        validity: '12 meses',
-        price: '$399'
-    },
-    {
-        name: 'VQS Silver',
-        description: 'Certificación estándar superior para productos de calidad',
-        color: '#059669',
-        bgColor: 'rgba(5, 150, 105, 0.1)',
-        minScore: 90,
-        features: [
-            'Análisis por IA estándar',
-            'Validación por 1 experto',
-            'Registro blockchain',
-            'Monitoreo semestral',
-            'Certificado digital'
-        ],
-        validity: '12 meses',
-        price: '$299'
-    },
-    {
-        name: 'VQS Certified',
-        description: 'Certificación básica que garantiza estándares mínimos',
-        color: '#1E40AF',
-        bgColor: 'rgba(30, 64, 175, 0.1)',
-        minScore: 85,
-        features: [
-            'Análisis básico por IA',
-            'Validación automatizada',
-            'Registro en sistema',
-            'Certificado básico'
-        ],
-        validity: '6 meses',
-        price: '$199'
+        duration: 'Continuo'
     }
 ];
 ---
 
-<MainLayout title="VQS - Servicios | Certificación IA y Trazabilidad Blockchain">
+<MainLayout title="VQS - Servicios de Verificación de Calidad">
     <!-- Hero Section -->
     <section class="services-hero">
         <div class="hero-background">
@@ -255,26 +143,25 @@ const certificationTypes = [
         </div>
         <div class="hero-content fade-in-up">
             <div class="hero-badge">
-                <span class="badge-icon">🔬</span>
-                <span>Tecnología de Vanguardia</span>
+                <span class="badge-icon">✅</span>
+                <span>Soluciones Integrales de Calidad</span>
             </div>
-            <h1>Servicios de Certificación <span class="gradient-text">Inteligente</span></h1>
+            <h1>Nuestros Servicios de <span class="gradient-text">Verificación</span></h1>
             <p class="hero-description">
-                Transformamos la industria alimentaria con soluciones avanzadas de inteligencia artificial, 
-                blockchain y análisis predictivo para garantizar la máxima calidad y seguridad.
+                Ofrecemos un portafolio completo de servicios diseñados para dar certeza y confianza a su empresa y sus clientes. Verificamos que sus productos, servicios y procesos cumplan con las más altas expectativas de calidad y cumplimiento.
             </p>
             <div class="hero-stats">
                 <div class="stat-item">
-                    <div class="stat-number">15,000+</div>
-                    <div class="stat-label">Productos Certificados</div>
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Áreas de Especialización</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">99.8%</div>
-                    <div class="stat-label">Precisión IA</div>
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Foco en el Cliente</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">24h</div>
-                    <div class="stat-label">Tiempo Respuesta</div>
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Monitoreo y Soporte</div>
                 </div>
             </div>
         </div>
@@ -283,8 +170,8 @@ const certificationTypes = [
     <!-- Services Grid -->
     <section class="services-section">
         <div class="section-header fade-in-up">
-            <h2>Nuestros Servicios</h2>
-            <p>Soluciones integrales para cada necesidad de certificación alimentaria</p>
+            <h2>Explore Nuestras Áreas de Servicio</h2>
+            <p>Soluciones expertas para los desafíos de calidad más exigentes de la industria moderna.</p>
         </div>
         <div class="services-grid">
             {services.map((service, index) => (
@@ -296,7 +183,7 @@ const certificationTypes = [
                         <p class="service-description">{service.description}</p>
                     </div>
                     <div class="service-features">
-                        <h4>Características:</h4>
+                        <h4>Incluye:</h4>
                         <ul>
                             {service.features.map(feature => (
                                 <li>
@@ -307,7 +194,7 @@ const certificationTypes = [
                         </ul>
                     </div>
                     <div class="service-benefits">
-                        <h4>Beneficios:</h4>
+                        <h4>Resultados:</h4>
                         <ul>
                             {service.benefits.map(benefit => (
                                 <li>
@@ -319,80 +206,10 @@ const certificationTypes = [
                     </div>
                     <div class="service-footer">
                         <div class="service-price">{service.price}</div>
-                        <button class="btn-primary service-btn">
-                            <span>Solicitar</span>
+                        <a href="/contacto" class="btn-primary service-btn">
+                            <span>Cotizar</span>
                             <span class="btn-icon">→</span>
-                        </button>
-                    </div>
-                </div>
-            ))}
-        </div>
-    </section>
-
-    <!-- Certification Types -->
-    <section class="certification-types-section">
-        <div class="section-header fade-in-up">
-            <h2>Tipos de Certificación</h2>
-            <p>Elige el nivel de certificación que mejor se adapte a tus necesidades</p>
-        </div>
-        <div class="certification-grid">
-            {certificationTypes.map((cert, index) => (
-                <div class={`certification-card fade-in-up stagger-delay-${(index % 4) + 1}`} style={`border-color: ${cert.color}; background: ${cert.bgColor};`}>
-                    <div class="cert-header">
-                        <div class="cert-badge" style={`background: ${cert.color};`}>
-                            Score ≥ {cert.minScore}%
-                        </div>
-                        <h3 style={`color: ${cert.color};`}>{cert.name}</h3>
-                        <p>{cert.description}</p>
-                    </div>
-                    <div class="cert-features">
-                        {cert.features.map(feature => (
-                            <div class="cert-feature">
-                                <span class="feature-check" style={`color: ${cert.color};`}>✓</span>
-                                <span>{feature}</span>
-                            </div>
-                        ))}
-                    </div>
-                    <div class="cert-footer">
-                        <div class="cert-details">
-                            <div class="cert-validity">Vigencia: {cert.validity}</div>
-                            <div class="cert-price">{cert.price}</div>
-                        </div>
-                        <button class="btn-outline cert-btn" style={`border-color: ${cert.color}; color: ${cert.color};`}>
-                            Certificar Producto
-                        </button>
-                    </div>
-                </div>
-            ))}
-        </div>
-    </section>
-
-    <!-- Industries Section -->
-    <section class="industries-section">
-        <div class="section-header fade-in-up">
-            <h2>Industrias que Atendemos</h2>
-            <p>Especialistas en diversos sectores de la industria alimentaria</p>
-        </div>
-        <div class="industries-grid">
-            {industries.map((industry, index) => (
-                <div class={`industry-card fade-in-up stagger-delay-${(index % 3) + 1}`}>
-                    <div class="industry-icon">{industry.icon}</div>
-                    <h3>{industry.name}</h3>
-                    <p>{industry.description}</p>
-                    <div class="industry-applications">
-                        {industry.applications.map(app => (
-                            <span class="application-tag">{app}</span>
-                        ))}
-                    </div>
-                    <div class="industry-stats">
-                        <div class="stat">
-                            <span class="stat-number">{industry.stats.clients}</span>
-                            <span class="stat-label">Clientes</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">{industry.stats.products}</span>
-                            <span class="stat-label">Productos</span>
-                        </div>
+                        </a>
                     </div>
                 </div>
             ))}
@@ -405,8 +222,8 @@ const certificationTypes = [
             <div class="process-pattern"></div>
         </div>
         <div class="section-header fade-in-up">
-            <h2>Proceso de Certificación</h2>
-            <p>Un flujo optimizado que garantiza rapidez y precisión</p>
+            <h2>Nuestro Proceso de Verificación</h2>
+            <p>Un flujo de trabajo transparente y eficiente para garantizar resultados confiables.</p>
         </div>
         <div class="process-timeline">
             {processSteps.map((step, index) => (
@@ -426,10 +243,10 @@ const certificationTypes = [
         </div>
         <div class="process-summary fade-in-up">
             <div class="summary-card">
-                <div class="summary-icon">⚡</div>
-                <h3>Tiempo Total Promedio</h3>
-                <div class="total-time">3-5 días laborables</div>
-                <p>Desde la recepción de muestras hasta la certificación final</p>
+                <div class="summary-icon">🤝</div>
+                <h3>Alianza Estratégica</h3>
+                <div class="total-time">Más que un servicio, una asociación</div>
+                <p>Trabajamos con usted para construir una cultura de calidad y certeza.</p>
             </div>
         </div>
     </section>
@@ -440,30 +257,30 @@ const certificationTypes = [
             <div class="cta-glow"></div>
         </div>
         <div class="cta-content fade-in-up">
-            <h2>¿Listo para Certificar tus Productos?</h2>
-            <p>Inicia el proceso de certificación hoy mismo y obtén resultados en 24 horas</p>
+            <h2>Dé el siguiente paso hacia la certeza total.</h2>
+            <p>Contacte a nuestros expertos para un diagnóstico sin costo y descubra cómo VQS puede transformar la calidad en su organización.</p>
             <div class="cta-actions">
-                <button class="btn-primary large">
-                    <span>Comenzar Certificación</span>
+                <a href="/contacto" class="btn-primary large">
+                    <span>Solicitar Diagnóstico</span>
                     <span class="btn-icon">🚀</span>
-                </button>
-                <button class="btn-secondary large">
+                </a>
+                <a href="/nosotros" class="btn-secondary large">
                     <span class="btn-icon">💬</span>
-                    <span>Hablar con Experto</span>
-                </button>
+                    <span>Conocer más de VQS</span>
+                </a>
             </div>
             <div class="cta-benefits">
                 <div class="benefit-item">
                     <span class="benefit-icon">✅</span>
-                    <span>Sin compromiso inicial</span>
+                    <span>Diagnóstico sin compromiso</span>
                 </div>
                 <div class="benefit-item">
                     <span class="benefit-icon">🔒</span>
-                    <span>Información confidencial</span>
+                    <span>100% Confidencialidad</span>
                 </div>
                 <div class="benefit-item">
                     <span class="benefit-icon">⚡</span>
-                    <span>Respuesta en 2 horas</span>
+                    <span>Respuesta en menos de 24h</span>
                 </div>
             </div>
         </div>
@@ -583,7 +400,24 @@ const certificationTypes = [
     .services-section {
         padding: var(--space-4xl) 0;
     }
+    .section-header {
+        text-align: center;
+        margin-bottom: var(--space-4xl);
+    }
 
+    .section-header h2 {
+        font-size: 2.75rem;
+        font-weight: 800;
+        color: var(--neutral-800);
+        margin-bottom: var(--space-lg);
+    }
+
+    .section-header p {
+        font-size: 1.2rem;
+        color: var(--neutral-600);
+        max-width: 600px;
+        margin: 0 auto;
+    }
     .services-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -599,16 +433,18 @@ const certificationTypes = [
         transition: all var(--transition-normal);
         position: relative;
         overflow: hidden;
+        display: flex;
+        flex-direction: column;
     }
 
     .service-card:hover {
         transform: translateY(-5px);
         box-shadow: var(--shadow-2xl);
-        border-color: var(--color-primary-400);
+        border-color: var(--primary-blue);
     }
 
     .service-card.popular {
-        border-color: var(--color-primary-500);
+        border-color: var(--primary-blue);
         box-shadow: var(--shadow-2xl);
     }
 
@@ -627,7 +463,7 @@ const certificationTypes = [
     }
 
     .service-header {
-        margin-bottom: var(--space-xl);
+        margin-bottom: var(--space-lg);
     }
 
     .service-icon {
@@ -638,14 +474,15 @@ const certificationTypes = [
     .service-card h3 {
         font-size: 1.5rem;
         font-weight: 700;
-        color: var(--color-gray-900);
+        color: var(--neutral-800);
         margin-bottom: var(--space-md);
     }
 
     .service-description {
-        color: var(--color-gray-600);
+        color: var(--neutral-600);
         line-height: 1.6;
         margin-bottom: var(--space-lg);
+        flex-grow: 1;
     }
 
     .service-features, .service-benefits {
@@ -655,7 +492,7 @@ const certificationTypes = [
     .service-features h4, .service-benefits h4 {
         font-size: 1rem;
         font-weight: 600;
-        color: var(--color-gray-800);
+        color: var(--neutral-800);
         margin-bottom: var(--space-md);
     }
 
@@ -669,12 +506,12 @@ const certificationTypes = [
         align-items: center;
         gap: var(--space-sm);
         padding: var(--space-xs) 0;
-        color: var(--color-gray-700);
+        color: var(--neutral-700);
         font-size: 0.9rem;
     }
 
     .feature-icon {
-        color: var(--color-primary-500);
+        color: var(--primary-blue);
         font-weight: 600;
         width: 16px;
         text-align: center;
@@ -689,13 +526,14 @@ const certificationTypes = [
         justify-content: space-between;
         align-items: center;
         padding-top: var(--space-lg);
-        border-top: 1px solid var(--color-gray-200);
+        border-top: 1px solid var(--neutral-200);
+        margin-top: auto;
     }
 
     .service-price {
         font-size: 1.25rem;
         font-weight: 700;
-        color: var(--color-primary-600);
+        color: var(--primary-blue);
     }
 
     .service-btn {
@@ -703,196 +541,10 @@ const certificationTypes = [
         font-size: 0.9rem;
     }
 
-    /* Certification Types */
-    .certification-types-section {
-        padding: var(--space-4xl) 0;
-        background: var(--color-gray-50);
-    }
-
-    .certification-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: var(--space-2xl);
-    }
-
-    .certification-card {
-        background: white;
-        border-radius: var(--radius-xl);
-        padding: var(--space-2xl);
-        border: 2px solid;
-        transition: all var(--transition-normal);
-        position: relative;
-    }
-
-    .certification-card:hover {
-        transform: translateY(-3px);
-        box-shadow: var(--shadow-xl);
-    }
-
-    .cert-header {
-        text-align: center;
-        margin-bottom: var(--space-xl);
-    }
-
-    .cert-badge {
-        display: inline-block;
-        color: white;
-        padding: var(--space-xs) var(--space-md);
-        border-radius: var(--radius-full);
-        font-size: 0.8rem;
-        font-weight: 600;
-        margin-bottom: var(--space-md);
-    }
-
-    .certification-card h3 {
-        font-size: 1.5rem;
-        font-weight: 700;
-        margin-bottom: var(--space-sm);
-    }
-
-    .cert-features {
-        margin-bottom: var(--space-xl);
-    }
-
-    .cert-feature {
-        display: flex;
-        align-items: center;
-        gap: var(--space-sm);
-        padding: var(--space-sm) 0;
-        font-size: 0.9rem;
-        color: var(--color-gray-700);
-    }
-
-    .feature-check {
-        font-weight: 600;
-        width: 16px;
-    }
-
-    .cert-footer {
-        border-top: 1px solid var(--color-gray-200);
-        padding-top: var(--space-lg);
-    }
-
-    .cert-details {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: var(--space-lg);
-    }
-
-    .cert-validity {
-        font-size: 0.9rem;
-        color: var(--color-gray-600);
-    }
-
-    .cert-price {
-        font-size: 1.25rem;
-        font-weight: 700;
-    }
-
-    .cert-btn {
-        width: 100%;
-        padding: var(--space-md) var(--space-lg);
-        font-weight: 600;
-        border: 2px solid;
-        background: transparent;
-        border-radius: var(--radius-lg);
-        cursor: pointer;
-        transition: all var(--transition-normal);
-    }
-
-    .cert-btn:hover {
-        background: currentColor;
-        color: white !important;
-    }
-
-    /* Industries Section */
-    .industries-section {
-        padding: var(--space-4xl) 0;
-    }
-
-    .industries-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: var(--space-2xl);
-    }
-
-    .industry-card {
-        background: white;
-        border-radius: var(--radius-xl);
-        padding: var(--space-2xl);
-        box-shadow: var(--shadow-md);
-        border: 1px solid var(--color-gray-200);
-        transition: all var(--transition-normal);
-    }
-
-    .industry-card:hover {
-        transform: translateY(-3px);
-        box-shadow: var(--shadow-lg);
-        border-color: var(--color-primary-300);
-    }
-
-    .industry-icon {
-        font-size: 3rem;
-        margin-bottom: var(--space-lg);
-    }
-
-    .industry-card h3 {
-        font-size: 1.25rem;
-        font-weight: 700;
-        color: var(--color-gray-900);
-        margin-bottom: var(--space-md);
-    }
-
-    .industry-card p {
-        color: var(--color-gray-600);
-        margin-bottom: var(--space-lg);
-        line-height: 1.6;
-    }
-
-    .industry-applications {
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--space-sm);
-        margin-bottom: var(--space-xl);
-    }
-
-    .application-tag {
-        background: var(--color-primary-100);
-        color: var(--color-primary-800);
-        padding: var(--space-xs) var(--space-md);
-        border-radius: var(--radius-full);
-        font-size: 0.8rem;
-        font-weight: 500;
-    }
-
-    .industry-stats {
-        display: flex;
-        justify-content: space-around;
-        padding-top: var(--space-lg);
-        border-top: 1px solid var(--color-gray-200);
-    }
-
-    .industry-stats .stat {
-        text-align: center;
-    }
-
-    .industry-stats .stat-number {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: var(--color-primary-600);
-        display: block;
-    }
-
-    .industry-stats .stat-label {
-        font-size: 0.8rem;
-        color: var(--color-gray-600);
-        margin-top: var(--space-xs);
-    }
-
     /* Process Section */
     .process-section {
         padding: var(--space-4xl) 0;
-        background: var(--color-gray-50);
+        background: var(--neutral-50);
         position: relative;
         overflow: hidden;
     }
@@ -907,8 +559,8 @@ const certificationTypes = [
         position: absolute;
         inset: 0;
         background-image: 
-            radial-gradient(circle at 25% 25%, var(--color-primary-500) 2px, transparent 2px),
-            radial-gradient(circle at 75% 75%, var(--color-primary-500) 1px, transparent 1px);
+            radial-gradient(circle at 25% 25%, var(--primary-blue) 2px, transparent 2px),
+            radial-gradient(circle at 75% 75%, var(--primary-blue) 1px, transparent 1px);
         background-size: 50px 50px;
         animation: pattern-move 20s linear infinite;
     }
@@ -968,18 +620,18 @@ const certificationTypes = [
         border-radius: var(--radius-xl);
         box-shadow: var(--shadow-lg);
         flex: 1;
-        border: 1px solid var(--color-gray-200);
+        border: 1px solid var(--neutral-200);
     }
 
     .step-content h3 {
         font-size: 1.25rem;
         font-weight: 700;
-        color: var(--color-gray-900);
+        color: var(--neutral-900);
         margin-bottom: var(--space-md);
     }
 
     .step-content p {
-        color: var(--color-gray-600);
+        color: var(--neutral-600);
         line-height: 1.6;
         margin-bottom: var(--space-md);
     }
@@ -988,8 +640,8 @@ const certificationTypes = [
         display: inline-flex;
         align-items: center;
         gap: var(--space-xs);
-        background: var(--color-primary-100);
-        color: var(--color-primary-800);
+        background: var(--neutral-100);
+        color: var(--neutral-800);
         padding: var(--space-xs) var(--space-md);
         border-radius: var(--radius-full);
         font-size: 0.85rem;
@@ -1003,7 +655,7 @@ const certificationTypes = [
         width: 2px;
         height: 60px;
         background: var(--gradient-primary);
-        z-index: 1;
+        z-index: -1;
     }
 
     .process-summary {
@@ -1017,7 +669,7 @@ const certificationTypes = [
         border-radius: var(--radius-xl);
         box-shadow: var(--shadow-xl);
         display: inline-block;
-        border: 2px solid var(--color-primary-200);
+        border: 2px solid var(--primary-blue);
     }
 
     .summary-icon {
@@ -1028,21 +680,21 @@ const certificationTypes = [
     .summary-card h3 {
         font-size: 1.5rem;
         font-weight: 700;
-        color: var(--color-gray-900);
+        color: var(--neutral-900);
         margin-bottom: var(--space-md);
     }
 
     .total-time {
         font-size: 2rem;
         font-weight: 800;
-        color: var(--color-primary-600);
+        color: var(--primary-blue);
         margin-bottom: var(--space-md);
     }
 
     /* CTA Section */
     .services-cta-section {
         padding: var(--space-4xl) 0;
-        background: var(--gradient-primary);
+        background: var(--gradient-accent);
         color: white;
         position: relative;
         overflow: hidden;
@@ -1113,6 +765,50 @@ const certificationTypes = [
     .benefit-icon {
         font-size: 1.1rem;
     }
+    .btn-primary, .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-sm);
+        padding: var(--space-lg) var(--space-2xl);
+        border-radius: var(--radius-full);
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn-primary {
+        background: white;
+        color: var(--primary-navy);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-xl);
+    }
+
+    .btn-secondary {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px);
+    }
+
+    .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+    }
+
+    .btn-primary.large, .btn-secondary.large {
+        padding: var(--space-xl) var(--space-3xl);
+        font-size: 1.1rem;
+    }
+
+    .btn-icon {
+        font-size: 1.2rem;
+    }
 
     /* Responsive Design */
     @media (max-width: 768px) {
@@ -1148,7 +844,7 @@ const certificationTypes = [
 
         .cta-actions {
             flex-direction: column;
-            align-items: center;
+            align-items: stretch;
         }
 
         .cta-benefits {
